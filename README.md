@@ -6,11 +6,12 @@ Development home for fixes that make **SMath Studio Desktop (Mono Edition)** usa
 | Folder | Purpose |
 | :--- | :--- |
 | [`font-pack/`](font-pack/) | Self-contained font pack + config that fixes missing math/chemistry symbols (installer, fontconfig rules, SMath settings, verification script) |
+| [`print-patch/`](print-patch/) | Print fix: CUPS virtual `PDF` printer setup, plus a one-byte `SMath.Document.dll` IL patch that stops blank pages and the Print Preview `InvalidParameter` error |
 
-Additional components (e.g. the `SMath.Document.dll` print patch) will be added as their folders land.
-
-The summary below is adapted from the original fix write-up `SMATH_STUDIO_FONT_FIX.md`, which
-recorded the root-cause analysis, the exact files installed, and the before/after measurements.
+The sections below summarise the **font** fix, adapted from the original write-up
+`SMATH_STUDIO_FONT_FIX.md` (root-cause analysis, files installed, before/after measurements).
+The **print** fix — a different root cause — is documented in
+[`print-patch/README.md`](print-patch/README.md), from `SMATH_STUDIO_PRINT_FIX.md`.
 
 ---
 
@@ -149,5 +150,11 @@ See [`font-pack/README.md`](font-pack/README.md) for manual steps and `uninstall
 
 The `font-pack/fonts/` directory holds **Microsoft ClearType fonts** (Segoe UI, Calibri, Cambria,
 Consolas, Tahoma, Meiryo …). They are redistributable only under the terms of the Microsoft products
-they ship with; treat them as **not** freely redistributable. Everything else in this repository
-(scripts, fontconfig rules, SMath config templates, documentation) is original work.
+they ship with; treat them as **not** freely redistributable.
+
+`print-patch/SMath.Document.dll.patched` is a **modified proprietary binary** (SMath Studio,
+© SMath LLC). It is redistributed here as a one-byte-modified build for interoperability and
+remains under its original licence.
+
+Everything else (scripts, fontconfig rules, SMath config templates, the patch script, and this
+documentation) is original work.
