@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  IAPWS-IF97 SMath plugin - legacy (non-SDK) project.
+
+  Why not SDK-style? SMath plugins must target .NET Framework 2.0 (CLR 2.0) so
+  they also load under Mono on Linux. An SDK-style project would need a NuGet
+  restore step; this project instead references the reference assemblies and the
+  SMath assemblies directly by path, so `dotnet build` works offline.
+
+  Paths are relative to the repository root. `build.ps1` populates `packages/`
+  (git-ignored). Any of the three properties below can be overridden on the
+  command line, e.g.
+      dotnet build src/IF97SMath.csproj -p:PackagesPath=D://refs
+-->
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5A8E2F41-9C3D-47B6-A1E8-3F6D0B2C9A75}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>IF97SMath</RootNamespace>
+    <AssemblyName>IF97Wrapper</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <LangVersion>latest</LangVersion>
+    <NoWarn>$(NoWarn);CS0649;CS0169;CS0414;CS0162</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>2</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RepoRoot>$(MSBuildThisFileDirectory)..\</RepoRoot>
+    <PackagesPath Condition=" '$(PackagesPath)' == '' ">$(RepoRoot)packages</PackagesPath>
+    <NetRefPath Condition=" '$(NetRefPath)' == '' ">$(PackagesPath)\microsoft.netframework.referenceassemblies.net20.1.0.3\build\.NETFramework\v2.0</NetRefPath>
+    <SMathRefPath Condition=" '$(SMathRefPath)' == '' ">$(PackagesPath)</SMathRefPath>
+    <TargetFrameworkRootPath Condition=" '$(TargetFrameworkRootPath)' == '' ">$(PackagesPath)\microsoft.netframework.referenceassemblies.net20.1.0.3\build\</TargetFrameworkRootPath>
+  </PropertyGroup>
+
+  <!-- .NET Framework 2.0 reference assemblies -->
+  <ItemGroup>
+    <Reference Include="mscorlib">
+      <HintPath>$(NetRefPath)\mscorlib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>$(NetRefPath)\System.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>$(NetRefPath)\System.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>$(NetRefPath)\System.Xml.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- SMath Studio assemblies (supplied by the host at runtime) -->
+  <ItemGroup>
+    <Reference Include="SMath.Manager">
+      <HintPath>$(SMathRefPath)\smathstudio.core.ref.1.73.9126\ref\net20\SMath.Manager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SMath.Math.Numeric">
+      <HintPath>$(SMathRefPath)\smathstudio.core.ref.1.73.9126\ref\net20\SMath.Math.Numeric.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SMath.Math.Symbolic">
+      <HintPath>$(SMathRefPath)\smathstudio.core.ref.1.73.9126\ref\net20\SMath.Math.Symbolic.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="ValueTupleShim.cs" />
+    <Compile Include="Api.cs" />
+    <Compile Include="BackwardsRegion.cs" />
+    <Compile Include="BackwardsRegion3.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="FastPow.cs" />
+    <Compile Include="Region1.cs" />
+    <Compile Include="Region2.cs" />
+    <Compile Include="Region3.cs" />
+    <Compile Include="Region4.cs" />
+    <Compile Include="Region5.cs" />
+    <Compile Include="RegionBase.cs" />
+    <Compile Include="Units.cs" />
+    <Compile Include="Functions.cs" />
+    <Compile Include="Plugin.cs" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D7E1A4C3-2B59-4E86-9F01-6A3C8D5B7E92}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>IF97Harness</RootNamespace>
+    <AssemblyName>IF97Harness</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>2</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RepoRoot>$(MSBuildThisFileDirectory)..\</RepoRoot>
+    <PackagesPath Condition=" '$(PackagesPath)' == '' ">$(RepoRoot)packages</PackagesPath>
+    <NetRefPath Condition=" '$(NetRefPath)' == '' ">$(PackagesPath)\microsoft.netframework.referenceassemblies.net20.1.0.3\build\.NETFramework\v2.0</NetRefPath>
+    <SMathRefPath Condition=" '$(SMathRefPath)' == '' ">$(PackagesPath)</SMathRefPath>
+    <TargetFrameworkRootPath Condition=" '$(TargetFrameworkRootPath)' == '' ">$(PackagesPath)\microsoft.netframework.referenceassemblies.net20.1.0.3\build\</TargetFrameworkRootPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib">
+      <HintPath>$(NetRefPath)\mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>$(NetRefPath)\System.dll</HintPath>
+    </Reference>
+    <Reference Include="SMath.Manager">
+      <HintPath>$(SMathRefPath)\smathstudio.core.ref.1.73.9126\ref\net20\SMath.Manager.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SMath.Math.Numeric">
+      <HintPath>$(SMathRefPath)\smathstudio.core.ref.1.73.9126\ref\net20\SMath.Math.Numeric.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SMath.Math.Symbolic">
+      <HintPath>$(SMathRefPath)\smathstudio.core.ref.1.73.9126\ref\net20\SMath.Math.Symbolic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Project reference, not a HintPath: building the harness builds the
+         plugin first, so the tests can never run against a stale DLL. -->
+    <ProjectReference Include="..\src\IF97SMath.csproj">
+      <Project>{5A8E2F41-9C3D-47B6-A1E8-3F6D0B2C9A75}</Project>
+      <Name>IF97SMath</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Copied to <name>.exe.config: rolls the net20 EXE forward to CLR 4, 
+         without which it exits with 0x80131700 before printing anything. -->
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

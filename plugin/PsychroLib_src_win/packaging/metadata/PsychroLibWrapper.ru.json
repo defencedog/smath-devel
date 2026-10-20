@@ -1,0 +1,21 @@
+{
+  "Settings": {
+    "ArgumentsSeparator": ";",
+    "DecimalSymbol": ",",
+    "NamingType": "795b9275-56b5-45c8-bff0-74c4feaa4195",
+    "UICultureName": "ru",
+    "UnitsCultureName": "ru"
+  },
+  "Summaries": [
+    {
+      "Author": "ASHRAE / PsychroLib / SMath Studio Wrapper",
+      "Description": "Плагин SMath Studio для расчета психрометрических свойств влажного воздуха (ASHRAE 2017, единицы СИ).",
+      "FileTypes": [],
+      "Id": "36a0265c-b529-4440-88e1-88f9226cee6a",
+      "Regions": [],
+      "Terms": [],
+      "Title": "PsychroLib Wrapper",
+      "Version": "1.2.0.0"
+    }
+  ]
+}

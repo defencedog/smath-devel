@@ -1,0 +1,21 @@
+{
+  "Settings": {
+    "ArgumentsSeparator": ",",
+    "DecimalSymbol": ".",
+    "NamingType": "795b9275-56b5-45c8-bff0-74c4feaa4195",
+    "UICultureName": "en",
+    "UnitsCultureName": "en"
+  },
+  "Summaries": [
+    {
+      "Author": "ASHRAE / PsychroLib / SMath Studio Wrapper",
+      "Description": "A native SMath Studio wrapper for ASHRAE 2017 psychrometric properties of moist air in SI units",
+      "FileTypes": [],
+      "Id": "36a0265c-b529-4440-88e1-88f9226cee6a",
+      "Regions": [],
+      "Terms": [],
+      "Title": "PsychroLib Wrapper",
+      "Version": "1.2.0.0"
+    }
+  ]
+}

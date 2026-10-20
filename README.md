@@ -7,6 +7,7 @@ Development home for fixes that make **SMath Studio Desktop (Mono Edition)** usa
 | :--- | :--- |
 | [`font-pack/`](font-pack/) | Self-contained font pack + config that fixes missing math/chemistry symbols (installer, fontconfig rules, SMath settings, verification script) |
 | [`print-patch/`](print-patch/) | Print fix: CUPS virtual `PDF` printer setup, plus a one-byte `SMath.Document.dll` IL patch that stops blank pages and the Print Preview `InvalidParameter` error |
+| [`plugin/`](plugin/) | Source trees for three SMath Studio plugins (IF97, PsychroLib, CoolPropWrapper) — see [`plugin/README.md`](plugin/README.md) |
 
 The sections below summarise the **font** fix, adapted from the original write-up
 `SMATH_STUDIO_FONT_FIX.md` (root-cause analysis, files installed, before/after measurements).

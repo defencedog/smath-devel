@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B4E1F2A7-9C36-4D81-9E05-7F2A1C8D6B34}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CoolPropHHarness</RootNamespace>
+    <!-- "CoolProp" + "Harness": kept distinct from the plugin assembly so the
+         two can never be confused in the output folder. -->
+    <AssemblyName>CoolPropHHarness</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <LangVersion>latest</LangVersion>
+    <!-- The SMath host is AnyCPU, i.e. a 64-bit process on 64-bit Windows, so
+         in production the x64 engine is the one that loads. The engines are
+         bitness-specific (native\CoolProp_x86.dll = i686, native\CoolProp_x64.dll
+         = x86-64): the harness defaults to x86 but also runs the x64 engine
+         with -p:PlatformTarget=x64 -t:Rebuild. (Plain incremental builds keep
+         the old binary, because PlatformTarget is not a tracked compiler
+         input.) -->
+    <PlatformTarget Condition=" '$(PlatformTarget)' == '' ">x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>2</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RepoRoot>$(MSBuildThisFileDirectory)..\</RepoRoot>
+    <PackagesPath Condition=" '$(PackagesPath)' == '' ">$(RepoRoot)packages</PackagesPath>
+    <NetRefPath Condition=" '$(NetRefPath)' == '' ">$(PackagesPath)\microsoft.netframework.referenceassemblies.net20.1.0.3\build\.NETFramework\v2.0</NetRefPath>
+    <SMathRefPath Condition=" '$(SMathRefPath)' == '' ">$(PackagesPath)</SMathRefPath>
+    <TargetFrameworkRootPath Condition=" '$(TargetFrameworkRootPath)' == '' ">$(PackagesPath)\microsoft.netframework.referenceassemblies.net20.1.0.3\build\</TargetFrameworkRootPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib">
+      <HintPath>$(NetRefPath)\mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>$(NetRefPath)\System.dll</HintPath>
+    </Reference>
+    <Reference Include="SMath.Manager">
+      <HintPath>$(SMathRefPath)\smathstudio.core.ref.1.73.9126\ref\net20\SMath.Manager.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SMath.Math.Numeric">
+      <HintPath>$(SMathRefPath)\smathstudio.core.ref.1.73.9126\ref\net20\SMath.Math.Numeric.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SMath.Math.Symbolic">
+      <HintPath>$(SMathRefPath)\smathstudio.core.ref.1.73.9126\ref\net20\SMath.Math.Symbolic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SMath.Controls">
+      <HintPath>$(SMathRefPath)\smathstudio.core.ref.1.73.9126\ref\net20\SMath.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Project reference, not a HintPath: building the harness builds the
+         plugin first, so the tests can never run against a stale DLL. -->
+    <ProjectReference Include="..\src\CoolPropWrapper.csproj">
+      <Project>{CA92EF03-C7DA-4888-98AD-528482733E2F}</Project>
+      <Name>CoolPropWrapper</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Copied to <name>.exe.config: rolls the net20 EXE forward to CLR 4,
+         without which it exits with 0x80131700 before printing anything. -->
+    <None Include="App.config" />
+  </ItemGroup>
+
+  <!-- Stage both native engines at the output root, in the same layout the
+       installed plugin uses (CoolProp_x86.dll / CoolProp_x64.dll; the plugin
+       picks one by process bitness). Windows does not probe the plugin folder
+       for native DLLs (and it certainly does not probe this one), so the
+       engines have to be physically present in the output directory. -->
+  <ItemGroup>
+    <NativeBinary Include="$(RepoRoot)native\CoolProp_x86.dll" Condition=" Exists('$(RepoRoot)native\CoolProp_x86.dll') " />
+    <NativeBinary Include="$(RepoRoot)native\CoolProp_x64.dll" Condition=" Exists('$(RepoRoot)native\CoolProp_x64.dll') " />
+  </ItemGroup>
+  <Target Name="StageNative" AfterTargets="Build">
+    <Copy SourceFiles="@(NativeBinary)" DestinationFolder="$(OutputPath)" SkipUnchangedFiles="true" />
+  </Target>
+
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,21 @@
+{
+  "Settings": {
+    "ArgumentsSeparator": ",",
+    "DecimalSymbol": ".",
+    "NamingType": "795b9275-56b5-45c8-bff0-74c4feaa4195",
+    "UICultureName": "en",
+    "UnitsCultureName": "en"
+  },
+  "Summaries": [
+    {
+      "Author": "IAPWS / xhydongda / SMath Studio Wrapper",
+      "Description": "A native SMath Studio wrapper for IAPWS-IF97 steam and water properties in SI units",
+      "FileTypes": [],
+      "Id": "bdb8d1d9-11bf-4f8b-aca4-c1fa3f6e13ad",
+      "Regions": [],
+      "Terms": [],
+      "Title": "IF97 Wrapper",
+      "Version": "1.1.1.0"
+    }
+  ]
+}

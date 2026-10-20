@@ -1,0 +1,21 @@
+﻿{
+  "Settings": {
+    "ArgumentsSeparator": ",",
+    "DecimalSymbol": ".",
+    "NamingType": "795b9275-56b5-45c8-bff0-74c4feaa4195",
+    "UICultureName": "en",
+    "UnitsCultureName": "en"
+  },
+  "Summaries": [
+    {
+      "Author": "CoolProp team (Ian Bell et al.) / SMath Studio Wrapper",
+      "Description": "A native SMath Studio wrapper of the CoolProp library (www.coolprop.org) providing high-accuracy thermodynamic and transport properties for pure fluids, pseudo-pure fluids, mixtures and humid air. All inputs and outputs are unit-aware SI values.",
+      "FileTypes": [],
+      "Id": "ca92ef03-c7da-4888-98ad-528482733e2f",
+      "Regions": [],
+      "Terms": [],
+      "Title": "CoolProp Wrapper",
+      "Version": "8.0.0.5"
+    }
+  ]
+}
