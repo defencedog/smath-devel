@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<styles version="0.3">
+  <style name="Normal Text" class="normal">
+    <character font-family="DejaVu Sans" font-size="10pt" bold="false" italic="false" underline="false" strikethrough="false" color="Black" highlight-color="Transparent" vertical-align="baseline" />
+    <paragraph align="left" space-before="0pt" space-after="0pt" space-style-continuous="true" line-spacing="115%" indent="0pt" next-style="Normal" />
+  </style>
+</styles>
