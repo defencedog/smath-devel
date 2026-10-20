@@ -1,0 +1,16 @@
+# Python bytecode from apply-patch.py
+__pycache__/
+*.py[cod]
+
+# Patched-DLL backups created by apply-patch.py (SMath.Document.dll.bak-YYYYMMDD-blankprint)
+*.bak-*-blankprint
+*.bak
+
+# Unpatched/dropped-in copies of the SMath assembly — the .patched build is the one to share
+SMath.Document.dll
+SMath.Document.dll.new
+
+# Editor and OS clutter
+*~
+*.swp
+.DS_Store

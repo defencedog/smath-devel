@@ -110,7 +110,7 @@ fc-cache -fv
 ## Package Contents & File Inventory
 
 ```
-smath-linux-font-pack/
+font-pack/
 ├── README.md                      # This documentation
 ├── install.sh                     # Automated 1-step installer
 ├── uninstall.sh                   # Reverts changes and restores backups
