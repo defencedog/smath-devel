@@ -1,0 +1,21 @@
+﻿{
+  "Settings": {
+    "ArgumentsSeparator": ",",
+    "DecimalSymbol": ".",
+    "NamingType": "795b9275-56b5-45c8-bff0-74c4feaa4195",
+    "UICultureName": "en",
+    "UnitsCultureName": "en"
+  },
+  "Summaries": [
+    {
+      "Author": "USGS & Vitens / SMath Studio Wrapper",
+      "Description": "A native SMath Studio wrapper for IPhreeqc / VIPhreeqc geochemical speciation and aqueous equilibrium modeling (ARM64 Linux).",
+      "FileTypes": [],
+      "Id": "8ead8647-c30a-4f13-8cc7-5f8ac4f3c066",
+      "Regions": [],
+      "Terms": [],
+      "Title": "Phreeqc Wrapper",
+      "Version": "1.0.0.0"
+    }
+  ]
+}

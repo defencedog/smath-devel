@@ -1,0 +1,21 @@
+{
+  "Settings": {
+    "ArgumentsSeparator": ",",
+    "DecimalSymbol": ".",
+    "NamingType": "083f4c4e-1074-4a34-af85-a8f26e9bc00b",
+    "UICultureName": "ru",
+    "UnitsCultureName": "ru"
+  },
+  "Summaries": [
+    {
+      "Author": "Scott W. Harden / SMath Studio Wrapper",
+      "Description": "Плагин для SMath Studio для нелинейной аппроксимации кривых методом оптимизации роем частиц (PSO) с использованием библиотеки SwarmFit (Windows .NET / Linux Mono).",
+      "FileTypes": [],
+      "Id": "b0a439e5-20d5-46a3-bcb5-596cbd1d9934",
+      "Regions": [],
+      "Terms": [],
+      "Title": "SwarmFit Wrapper",
+      "Version": "1.1.0.0"
+    }
+  ]
+}

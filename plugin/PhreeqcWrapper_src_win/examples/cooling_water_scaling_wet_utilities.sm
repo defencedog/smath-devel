@@ -1,0 +1,1107 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?application progid="SMath Solver" version="1.5.0.9678"?>
+<worksheet xmlns="http://smath.info/schemas/worksheet/1.0">
+  <settings ppi="96">
+    <identity>
+      <id>4de5b0fc-bd7f-4319-a6ee-8a5d72d23aa2</id>
+      <revision>1</revision>
+    </identity>
+    <calculation>
+      <precision>4</precision>
+      <exponentialThreshold>5</exponentialThreshold>
+      <trailingZeros>false</trailingZeros>
+      <significantDigitsMode>false</significantDigitsMode>
+      <mixedNumbers>false</mixedNumbers>
+      <roundingMode>0</roundingMode>
+      <approximateEqualAccuracy>3</approximateEqualAccuracy>
+      <fractions>decimal</fractions>
+    </calculation>
+    <pageModel active="false" viewMode="2" printGrid="false" printAreas="true" simpleEqualsOnly="false" printBackgroundImages="true" hideElementsHighlightings="true">
+      <paper id="0" orientation="Portrait" width="850" height="1100" />
+      <margins left="39" right="39" top="49" bottom="49" />
+      <header alignment="Center" color="#a9a9a9">&amp;[DATE] &amp;[TIME] - &amp;[FILENAME]</header>
+      <footer alignment="Center" color="#a9a9a9">&amp;[PAGENUM] / &amp;[COUNT]</footer>
+      <backgrounds />
+    </pageModel>
+    <dependencies>
+      <assembly name="SMath Core" version="1.75.9678.0" guid="a37cba83-b69c-4c71-9992-55ff666763bd" />
+      <assembly name="MathRegion" version="1.75.9678.0" guid="02f1ab51-215b-466e-a74d-5d8b1cf85e8d" />
+      <assembly name="SpecialFunctions" version="1.75.9678.0" guid="2814e667-4e12-48b1-8d51-194e480eabc5" />
+      <assembly name="TextRegion" version="1.75.9678.0" guid="485d28c5-349a-48b6-93be-12a35a1c1e39" />
+      <assembly name="Phreeqc Wrapper" version="1.1.0.0" guid="8ead8647-c30a-4f13-8cc7-5f8ac4f3c066" />
+      <assembly name="X-Y Plot Region (Chart2DLib)" version="0.4.9441.40064" guid="c12231ec-4873-43c1-a7d0-a167ebd17066" />
+    </dependencies>
+  </settings>
+  <regions type="content">
+  <region left="18" top="9" width="441" height="24" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">Cooling Water Scaling &amp; Saturation Diagnostics in Wet Utilities</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="45" width="70" height="24" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">2026-10-20</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="81" width="500" height="136" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">PHREEQC Geochemical Engine: Industrial Cooling Water Scaling &amp; Saturation Diagnostics</p>
+    <p bold="true">Wet Utilities Evaporative Concentration, Mineral Solubility &amp; Water Stability Modeling</p>
+    <p bold="true">Authoritative SMath Studio Simulation (PhreeqcWrapper.dll with phreeqc.dat)</p>
+    <p bold="true">=========================================================================</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="229" width="500" height="360" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">Industrial Process Context &amp; Thermodynamics:</p>
+    <p bold="false">In chemical manufacturing, power generation, and petroleum refining, wet utility cooling towers reject massive heat duties by evaporating recirculating water. As pure water vapor escapes, non-volatile dissolved mineral solids accumulate in the recirculating circuit by Cycles of Concentration (CoC = C_circ / C_makeup).</p>
+    <p bold="false"></p>
+    <p bold="false">Mineral Scaling Hazards &amp; Retrograde Solubility:</p>
+    <p bold="false">Calcium and carbonate ions rapidly approach thermodynamic supersaturation. Critically, Calcium Carbonate (CaCO3, Calcite) exhibits retrograde (inverse) solubility — its solubility product Ksp decreases as temperature rises. Consequently, hot heat-exchanger tube surfaces (35°C to 45°C) experience severe crystallization fouling, causing heat transfer degradation, flow restriction, under-deposit corrosion, and unscheduled shutdowns.</p>
+    <p bold="false"></p>
+    <p bold="false">Water Quality Indices Used by Plant Chemists:</p>
+    <p bold="false">  • Langelier Saturation Index (LSI): LSI = pH - pHs ≈ SI(Calcite). LSI &gt; 0 indicates scaling tendency.</p>
+    <p bold="false">  • Ryznar Stability Index (RSI): RSI = 2·pHs - pH. RSI &lt; 6.0 indicates heavy scale formation; 6.0 to 7.0 is stable water; RSI &gt; 7.0 indicates corrosive water attacking carbon steel piping.</p>
+    <p bold="false">  • Gypsum Saturation Index: SI(Gypsum) monitors sulfate precipitation risk at high CoC or with sulfuric acid dosing.</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="601" width="500" height="88" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">=========================================================================</p>
+    <p bold="true">PART I: MAKEUP WATER ANALYSIS &amp; BASELINE GEOCHEMICAL SPECIATION</p>
+    <p bold="true">=========================================================================</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="701" width="500" height="152" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">Raw Makeup Water Quality (Municipal / Clarified Surface River Water at 20°C, 1 atm):</p>
+    <p bold="false">  • Solution pH:           7.80 [-]</p>
+    <p bold="false">  • Calcium (Ca+2):        80.0 mg/L (2.00 mmol/L)</p>
+    <p bold="false">  • Magnesium (Mg+2):      20.0 mg/L (0.82 mmol/L)</p>
+    <p bold="false">  • Sodium (Na+):          50.0 mg/L (2.17 mmol/L)</p>
+    <p bold="false">  • Chloride (Cl-):        60.0 mg/L (1.69 mmol/L)</p>
+    <p bold="false">  • Sulfate (as S(6)):     40.0 mg/L as SO4 (0.42 mmol/L)</p>
+    <p bold="false">  • Alkalinity (as C(4)): 120.0 mg/L as HCO3 (1.97 mmol/L)</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="865" width="44" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Makeup water PHREEQC definition script (20 °C, 1 atm, raw concentrations in mg/L)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">sol_makeup</e>
+    <e type="operand" style="string">SOLUTION 1 Makeup Water; units mg/L; pH 7.8; temp 20; Ca 80; Mg 20; Na 50; Cl 60; S(6) 40; C(4) 120; END</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="945" width="44" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Standard USGS aqueous equilibrium thermodynamic database</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">db_phreeqc</e>
+    <e type="operand" style="string">phreeqc.dat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="1009" width="441" height="24" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">Baseline Physicochemical Properties of Raw Makeup Water (20°C):</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="1045" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Equilibrium solution pH [-] (Expected: 7.800)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">pH_mk</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="2">phreeqc_pH</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="1109" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Specific electrical conductance [uS/cm] (Expected: 520 to 560 uS/cm)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">sc_mk</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="2">phreeqc_sc</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="1173" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Solution density [kg/L] (Expected: 0.9985 kg/L)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">rho_mk</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="2">phreeqc_density</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="1237" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>True ionic strength mu [mol/kgw] (Expected: 0.0076 mol/kgw)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">mu_mk</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="2">phreeqc_mu</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="1301" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Solution redox potential pe [-] (Expected: 4.000)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">pe_mk</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="2">phreeqc_pe</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="1365" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Equilibrium temperature [°C] (Expected: 20.0 °C)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">T_mk</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="2">phreeqc_temp</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="1429" width="469" height="24" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">Baseline Mineral Saturation Diagnostics (Raw Makeup Water at 20°C):</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="1465" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Calcite Saturation Index SI [-] (Expected: +0.222 — raw water is already slightly supersaturated)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">si_calcite_mk</e>
+    <e type="operand" style="string">Calcite</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_si</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="1545" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Gypsum Saturation Index SI [-] (Expected: -1.942 — raw water is strongly undersaturated)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">si_gypsum_mk</e>
+    <e type="operand" style="string">Gypsum</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_si</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="1625" width="357" height="24" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">Baseline Ion Speciation &amp; Thermodynamic Activities:</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="1661" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Free Ca+2 molality [mol/kgw] (Expected: 1.84e-3 mol/kgw)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">m_Ca_mk</e>
+    <e type="operand" style="string">Ca+2</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_molality</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="1725" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Ca+2 thermodynamic activity [mol/kgw] (Expected: 1.34e-3 mol/kgw)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">a_Ca_mk</e>
+    <e type="operand" style="string">Ca+2</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_activity</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="1789" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Ca+2 activity coefficient [-] (Expected: 0.728)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">gamma_Ca_mk</e>
+    <e type="operand">a_Ca_mk</e>
+    <e type="operand">m_Ca_mk</e>
+    <e type="operator" args="2">/</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="1853" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Free SO4-2 molality [mol/kgw] (Expected: 3.82e-4 mol/kgw)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">m_SO4_mk</e>
+    <e type="operand" style="string">SO4-2</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_molality</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="1917" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>SO4-2 thermodynamic activity [mol/kgw] (Expected: 2.75e-4 mol/kgw)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">a_SO4_mk</e>
+    <e type="operand" style="string">SO4-2</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_activity</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="1981" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>SO4-2 activity coefficient [-] (Expected: 0.720)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">gamma_SO4_mk</e>
+    <e type="operand">a_SO4_mk</e>
+    <e type="operand">m_SO4_mk</e>
+    <e type="operator" args="2">/</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2045" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Free HCO3- molality [mol/kgw] (Expected: 1.90e-3 mol/kgw)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">m_HCO3_mk</e>
+    <e type="operand" style="string">HCO3-</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_molality</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2109" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>HCO3- thermodynamic activity [mol/kgw] (Expected: 1.76e-3 mol/kgw)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">a_HCO3_mk</e>
+    <e type="operand" style="string">HCO3-</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_activity</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2173" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>HCO3- activity coefficient [-] (Expected: 0.926)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">gamma_HCO3_mk</e>
+    <e type="operand">a_HCO3_mk</e>
+    <e type="operand">m_HCO3_mk</e>
+    <e type="operator" args="2">/</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2237" width="441" height="24" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">Total Dissolved Component Balances (PHREEQC Totals in mol/kgw):</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="2273" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <input>
+    <e type="operand">tot_Ca_mk</e>
+    <e type="operand" style="string">Ca</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_total</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2321" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <input>
+    <e type="operand">tot_S_mk</e>
+    <e type="operand" style="string">S</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_total</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2369" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <input>
+    <e type="operand">tot_C_mk</e>
+    <e type="operand" style="string">C</e>
+    <e type="operand">sol_makeup</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_total</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2417" width="500" height="88" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">=========================================================================</p>
+    <p bold="true">PART II: EVAPORATIVE CONCENTRATION MODEL &amp; DYNAMIC TEMPLATES</p>
+    <p bold="true">=========================================================================</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="2517" width="500" height="280" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">Evaporative Physics in Cooling Towers:</p>
+    <p bold="false">When makeup water is cycled in a cooling tower to N Cycles of Concentration (CoC), a fraction (1 - 1/CoC) of pure solvent water evaporates into the air stream, leaving all dissolved non-volatile mineral ions behind in the remaining 1/CoC mass of water.</p>
+    <p bold="false"></p>
+    <p bold="false">PHREEQC Reaction Formulation:</p>
+    <p bold="false">For 1.0 kg of initial makeup water (55.508 moles H2O), the moles of water evaporated are:</p>
+    <p bold="false">  n_evap = (1.0 - 1.0 / CoC) * 55.508  [moles H2O]</p>
+    <p bold="false">This is cleanly executed via a REACTION block: 'REACTION 1; H2O -1.0; n_evap moles;'.</p>
+    <p bold="false">The evaluation temperature is subsequently imposed using a 'REACTION_TEMPERATURE 1; T_val;' block.</p>
+    <p bold="false"></p>
+    <p bold="false">Dynamic String Array Construction (strrep + num2str Pattern):</p>
+    <p bold="false">A base template containing symbolic tokens 'xevap' and 'xtemp' is dynamically populated inside procedural loops, avoiding any static XML boilerplate.</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="2809" width="132" height="117" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Cycles of Concentration (CoC) grid vector [-] (1 to 8 cycles)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">coc_grid</e>
+    <e type="operand">1</e>
+    <e type="operand">2</e>
+    <e type="operand">3</e>
+    <e type="operand">4</e>
+    <e type="operand">6</e>
+    <e type="operand">8</e>
+    <e type="operand">6</e>
+    <e type="operand">1</e>
+    <e type="function" args="8">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2966" width="44" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Base cooling water script template with 'xevap' and 'xtemp' placeholder tokens</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">tmpl_cw</e>
+    <e type="operand" style="string">SOLUTION 1 Makeup Water; units mg/L; pH 7.8; temp 20; Ca 80; Mg 20; Na 50; Cl 60; S(6) 40; C(4) 120; REACTION 1; H2O -1.0; xevap moles; REACTION_TEMPERATURE 1; xtemp; SAVE solution 1; END</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="3030" width="500" height="88" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">=========================================================================</p>
+    <p bold="true">PART III: MULTI-TEMPERATURE PARAMETRIC SWEEPS ACROSS CoC</p>
+    <p bold="true">=========================================================================</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="3130" width="500" height="184" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">Three Characteristic Industrial Cooling Circuit Temperatures:</p>
+    <p bold="false">  1. Basin / Cold Supply (T = 25°C): Cooling tower cold well supply to plant.</p>
+    <p bold="false">  2. Warm Return / Summer Basin (T = 35°C): Return header from process units.</p>
+    <p bold="false">  3. Heat Exchanger Tube Skin (T = 45°C): Hot process fluid contact boundary layer (highest scaling risk).</p>
+    <p bold="false"></p>
+    <p bold="false">Procedural Loop Execution:</p>
+    <p bold="false">For each CoC value, the loop computes n_evap, substitutes into tmpl_cw for all three temperatures, and evaluates Calcite SI, Gypsum SI, and solution pH via PhreeqcWrapper.</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="3326" width="1608" height="515" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Procedural sweep loop computing evaporation reaction, populating dynamic scripts, and evaluating saturation indices</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">n</e>
+    <e type="operand">1</e>
+    <e type="operand">coc_grid</e>
+    <e type="function" args="1">length</e>
+    <e type="function" args="2">range</e>
+    <e type="operand">coc_val</e>
+    <e type="operand">coc_grid</e>
+    <e type="operand">n</e>
+    <e type="function" args="2">el</e>
+    <e type="function" args="1">eval</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">n_evap</e>
+    <e type="operand">1.0</e>
+    <e type="operand">1.0</e>
+    <e type="operand">coc_val</e>
+    <e type="operator" args="2">/</e>
+    <e type="operator" args="2">-</e>
+    <e type="operand">55.508</e>
+    <e type="operator" args="2">*</e>
+    <e type="function" args="1">eval</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">s_evap</e>
+    <e type="operand">tmpl_cw</e>
+    <e type="operand" style="string">xevap</e>
+    <e type="operand">n_evap</e>
+    <e type="function" args="1">num2str</e>
+    <e type="function" args="3">strrep</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">s_25</e>
+    <e type="operand">s_evap</e>
+    <e type="operand" style="string">xtemp</e>
+    <e type="operand" style="string">25.0</e>
+    <e type="function" args="3">strrep</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">s_35</e>
+    <e type="operand">s_evap</e>
+    <e type="operand" style="string">xtemp</e>
+    <e type="operand" style="string">35.0</e>
+    <e type="function" args="3">strrep</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">s_45</e>
+    <e type="operand">s_evap</e>
+    <e type="operand" style="string">xtemp</e>
+    <e type="operand" style="string">45.0</e>
+    <e type="function" args="3">strrep</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">s_cw_25</e>
+    <e type="operand">n</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">s_25</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">s_cw_35</e>
+    <e type="operand">n</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">s_35</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">s_cw_45</e>
+    <e type="operand">n</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">s_45</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">si_c_25</e>
+    <e type="operand">n</e>
+    <e type="function" args="2">el</e>
+    <e type="operand" style="string">Calcite</e>
+    <e type="operand">s_25</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_si</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">si_c_35</e>
+    <e type="operand">n</e>
+    <e type="function" args="2">el</e>
+    <e type="operand" style="string">Calcite</e>
+    <e type="operand">s_35</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_si</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">si_c_45</e>
+    <e type="operand">n</e>
+    <e type="function" args="2">el</e>
+    <e type="operand" style="string">Calcite</e>
+    <e type="operand">s_45</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_si</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">si_g_25</e>
+    <e type="operand">n</e>
+    <e type="function" args="2">el</e>
+    <e type="operand" style="string">Gypsum</e>
+    <e type="operand">s_25</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_si</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">si_g_35</e>
+    <e type="operand">n</e>
+    <e type="function" args="2">el</e>
+    <e type="operand" style="string">Gypsum</e>
+    <e type="operand">s_35</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_si</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">si_g_45</e>
+    <e type="operand">n</e>
+    <e type="function" args="2">el</e>
+    <e type="operand" style="string">Gypsum</e>
+    <e type="operand">s_45</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_si</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">ph_cw_25</e>
+    <e type="operand">n</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">s_25</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="2">phreeqc_pH</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">ph_cw_35</e>
+    <e type="operand">n</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">s_35</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="2">phreeqc_pH</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">ph_cw_45</e>
+    <e type="operand">n</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">s_45</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="2">phreeqc_pH</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">18</e>
+    <e type="operand">1</e>
+    <e type="function" args="20">line</e>
+    <e type="function" args="3">for</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="3885" width="44" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Sample dynamic script at CoC = 1, T = 25 °C (0 moles evaporated)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">s_cw_25</e>
+    <e type="operand">1</e>
+    <e type="function" args="2">el</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="3937" width="44" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Sample dynamic script at CoC = 4, T = 45 °C (41.63 moles evaporated)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">s_cw_45</e>
+    <e type="operand">4</e>
+    <e type="function" args="2">el</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="3989" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <input>
+    <e type="operand">curve_calcite_25</e>
+    <e type="operand">coc_grid</e>
+    <e type="operand">si_c_25</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4037" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <input>
+    <e type="operand">curve_calcite_35</e>
+    <e type="operand">coc_grid</e>
+    <e type="operand">si_c_35</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4085" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <input>
+    <e type="operand">curve_calcite_45</e>
+    <e type="operand">coc_grid</e>
+    <e type="operand">si_c_45</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4133" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <input>
+    <e type="operand">curve_gypsum_25</e>
+    <e type="operand">coc_grid</e>
+    <e type="operand">si_g_25</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4181" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <input>
+    <e type="operand">curve_gypsum_35</e>
+    <e type="operand">coc_grid</e>
+    <e type="operand">si_g_35</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4229" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <input>
+    <e type="operand">curve_gypsum_45</e>
+    <e type="operand">coc_grid</e>
+    <e type="operand">si_g_45</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4277" width="500" height="104" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">=========================================================================</p>
+    <p bold="true">PART IV: CALCITE SATURATION pH (pHs), LSI &amp; RSI AT HEAT EXCHANGER (40°C)</p>
+    <p bold="true">=========================================================================</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="4393" width="500" height="408" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">Langelier &amp; Ryznar Water Stability Theory:</p>
+    <p bold="false">The Langelier Saturation Index (LSI) is defined as the difference between actual solution pH and the hypothetical saturation pH (pHs) at which the identical water would be at exact equilibrium with Calcite (SI = 0):</p>
+    <p bold="false">  LSI = pH - pHs</p>
+    <p bold="false">The Ryznar Stability Index (RSI) is an empirical indicator correlating scaling vs corrosive aggression:</p>
+    <p bold="false">  RSI = 2·pHs - pH</p>
+    <p bold="false"></p>
+    <p bold="false">Determination of pHs via PHREEQC Phase Equilibration:</p>
+    <p bold="false">Rather than relying on simplified historical nomographs, PHREEQC computes exact pHs by equilibrating the concentrated solution with solid Calcite at target SI = 0:</p>
+    <p bold="false">  'EQUILIBRIUM_PHASES 1; Calcite 0.0 10.0; SAVE solution 1; END'</p>
+    <p bold="false">The resulting equilibrium pH read from this equilibrated solution copy is the exact, rigorous pHs.</p>
+    <p bold="false"></p>
+    <p bold="false">RSI Classification Scale for Cooling Water Systems:</p>
+    <p bold="false">  • RSI &lt; 5.5: Heavy, dense CaCO3 scaling on heat exchanger tubes.</p>
+    <p bold="false">  • 5.5 &lt;= RSI &lt;= 6.2: Moderate scaling tendency; manageable with antiscalant polymers.</p>
+    <p bold="false">  • 6.2 &lt; RSI &lt; 6.8: Stable, neutral water; minimal scaling and minimal corrosion.</p>
+    <p bold="false">  • 6.8 &lt;= RSI &lt;= 7.5: Significant corrosive tendency toward carbon steel equipment.</p>
+    <p bold="false">  • RSI &gt; 7.5: Severe, aggressive acid/oxygen corrosion pitting.</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="4813" width="44" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Template for concentrated cooling water at heat exchanger skin temperature (40 °C)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">tmpl_hx</e>
+    <e type="operand" style="string">SOLUTION 1 Makeup Water; units mg/L; pH 7.8; temp 20; Ca 80; Mg 20; Na 50; Cl 60; S(6) 40; C(4) 120; REACTION 1; H2O -1.0; xevap moles; REACTION_TEMPERATURE 1; 40.0; SAVE solution 1; END</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4893" width="44" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Template for calcite-equilibrated water determining exact Langelier pHs at 40 °C</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">tmpl_phs</e>
+    <e type="operand" style="string">SOLUTION 1 Makeup Water; units mg/L; pH 7.8; temp 20; Ca 80; Mg 20; Na 50; Cl 60; S(6) 40; C(4) 120; REACTION 1; H2O -1.0; xevap moles; REACTION_TEMPERATURE 1; 40.0; EQUILIBRIUM_PHASES 1; Calcite 0.0 10.0; SAVE solution 1; END</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4957" width="1044" height="365" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Procedural loop computing actual pH, saturation pHs, LSI, and RSI at 40 °C heat exchanger surface</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">k</e>
+    <e type="operand">1</e>
+    <e type="operand">coc_grid</e>
+    <e type="function" args="1">length</e>
+    <e type="function" args="2">range</e>
+    <e type="operand">coc_k</e>
+    <e type="operand">coc_grid</e>
+    <e type="operand">k</e>
+    <e type="function" args="2">el</e>
+    <e type="function" args="1">eval</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">n_evap_k</e>
+    <e type="operand">1.0</e>
+    <e type="operand">1.0</e>
+    <e type="operand">coc_k</e>
+    <e type="operator" args="2">/</e>
+    <e type="operator" args="2">-</e>
+    <e type="operand">55.508</e>
+    <e type="operator" args="2">*</e>
+    <e type="function" args="1">eval</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">s_hx_k</e>
+    <e type="operand">tmpl_hx</e>
+    <e type="operand" style="string">xevap</e>
+    <e type="operand">n_evap_k</e>
+    <e type="function" args="1">num2str</e>
+    <e type="function" args="3">strrep</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">s_phs_k</e>
+    <e type="operand">tmpl_phs</e>
+    <e type="operand" style="string">xevap</e>
+    <e type="operand">n_evap_k</e>
+    <e type="function" args="1">num2str</e>
+    <e type="function" args="3">strrep</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">ph_act</e>
+    <e type="operand">k</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">s_hx_k</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="2">phreeqc_pH</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">ph_sat</e>
+    <e type="operand">k</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">s_phs_k</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="2">phreeqc_pH</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">si_c_hx</e>
+    <e type="operand">k</e>
+    <e type="function" args="2">el</e>
+    <e type="operand" style="string">Calcite</e>
+    <e type="operand">s_hx_k</e>
+    <e type="operand">db_phreeqc</e>
+    <e type="function" args="3">phreeqc_si</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">lsi_val</e>
+    <e type="operand">k</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">ph_act</e>
+    <e type="operand">k</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">ph_sat</e>
+    <e type="operand">k</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">-</e>
+    <e type="function" args="1">eval</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">rsi_val</e>
+    <e type="operand">k</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">2</e>
+    <e type="operand">ph_sat</e>
+    <e type="operand">k</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">*</e>
+    <e type="operand">ph_act</e>
+    <e type="operand">k</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">-</e>
+    <e type="function" args="1">eval</e>
+    <e type="operator" args="2">:</e>
+    <e type="operand">9</e>
+    <e type="operand">1</e>
+    <e type="function" args="11">line</e>
+    <e type="function" args="3">for</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="5366" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <input>
+    <e type="operand">curve_lsi</e>
+    <e type="operand">coc_grid</e>
+    <e type="operand">lsi_val</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="5414" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <input>
+    <e type="operand">curve_rsi</e>
+    <e type="operand">coc_grid</e>
+    <e type="operand">rsi_val</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="5462" width="500" height="88" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">=========================================================================</p>
+    <p bold="true">PART V: GRAPHICAL SATURATION &amp; STABILITY PROFILES (CHART2DLIB)</p>
+    <p bold="true">=========================================================================</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="5562" width="500" height="120" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">Figure 1: CaCO3 Calcite Scaling Potential — Calcite Saturation Index vs. Cycles of Concentration (CoC)</p>
+    <p bold="false">Comparison between Cold Water Basin (25°C) and Hot Heat-Exchanger Tube Skin (45°C):</p>
+    <p bold="false">Notice that Calcite SI is strictly positive (SI &gt; 0) at all cycles and increases sharply with CoC. The elevated temperature at 45°C further shifts SI upward due to retrograde calcite solubility.</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="5694" width="540" height="280" color="#000000" fontSize="10">
+  <xyplot width="540" height="280" points="6" smoothing="true">
+    <propertiessource index="1" sourcetype="PropertyGrid" />
+    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
+    <xaxes xmin="1.0" xmax="8.0" xtick="1.0" decimalplaces="3" numberformat="General" />
+    <yaxes ymin="0.0" ymax="2.0" ytick="0.5" decimalplaces="3" numberformat="General" />
+    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
+    <title2d title="CaCO3 Calcite Scaling Potential vs. Cycles of Concentration" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Cycles of Concentration (CoC) [-]" ylabel="Saturation Index SI = log10(IAP / Ksp) [-]" y2label="y2" />
+    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+    <traces>
+      <trace seriesname="25 °C (Tower Basin Supply)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="RoyalBlue" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="45 °C (Heat Exchanger Skin)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="Crimson" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
+    <input>
+      <e type="operand">curve_calcite_25</e>
+      <e type="operand">curve_calcite_45</e>
+      <e type="operand">2</e>
+      <e type="operand">1</e>
+      <e type="function" args="4" preserve="true">sys</e>
+    </input>
+  </xyplot>
+  </region>
+  <region left="18" top="6069" width="500" height="104" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">Figure 2: CaSO4 Gypsum Scaling Margin — Gypsum Saturation Index vs. Cycles of Concentration (CoC)</p>
+    <p bold="false">Comparison between Basin (25°C) and Heat Exchanger (45°C):</p>
+    <p bold="false">Gypsum remains strongly undersaturated (SI &lt; 0) across all operational cycles up to CoC = 8. Therefore, calcium sulfate scaling will not occur unless sulfuric acid (H2SO4) is severely overdosed.</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="6185" width="540" height="280" color="#000000" fontSize="10">
+  <xyplot width="540" height="280" points="6" smoothing="true">
+    <propertiessource index="1" sourcetype="PropertyGrid" />
+    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
+    <xaxes xmin="1.0" xmax="8.0" xtick="1.0" decimalplaces="3" numberformat="General" />
+    <yaxes ymin="-2.2" ymax="-0.6" ytick="0.2" decimalplaces="3" numberformat="General" />
+    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
+    <title2d title="CaSO4 Gypsum Saturation Margin vs. Cycles of Concentration" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Cycles of Concentration (CoC) [-]" ylabel="Saturation Index SI [-]" y2label="y2" />
+    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+    <traces>
+      <trace seriesname="25 °C (Tower Basin)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="DarkGreen" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="45 °C (Heat Exchanger)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="DarkOrange" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
+    <input>
+      <e type="operand">curve_gypsum_25</e>
+      <e type="operand">curve_gypsum_45</e>
+      <e type="operand">2</e>
+      <e type="operand">1</e>
+      <e type="function" args="4" preserve="true">sys</e>
+    </input>
+  </xyplot>
+  </region>
+  <region left="18" top="6560" width="500" height="104" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">Figure 3: Plant Chemistry Stability Indices (LSI &amp; RSI) at Heat Exchanger Surface (40°C)</p>
+    <p bold="false">Evaluation of Scaling Severity vs. Pipeline Corrosion:</p>
+    <p bold="false">As CoC increases from 1 to 8, LSI increases from +0.33 to +1.18 (increasing scale potential), while RSI drops from 7.0 (stable/neutral) down to 5.2 (heavy scaling regime at CoC &gt;= 4).</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="6676" width="540" height="280" color="#000000" fontSize="10">
+  <xyplot width="540" height="280" points="6" smoothing="true">
+    <propertiessource index="1" sourcetype="PropertyGrid" />
+    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
+    <xaxes xmin="1.0" xmax="8.0" xtick="1.0" decimalplaces="3" numberformat="General" />
+    <yaxes ymin="0.0" ymax="8.0" ytick="1.0" decimalplaces="3" numberformat="General" />
+    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
+    <title2d title="Water Stability Indices (LSI &amp; RSI) vs CoC at 40 °C Exchanger" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Cycles of Concentration (CoC) [-]" ylabel="Stability Index [-]" y2label="y2" />
+    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+    <traces>
+      <trace seriesname="LSI (Langelier Saturation Index)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="MediumVioletRed" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="RSI (Ryznar Stability Index)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="Teal" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
+    <input>
+      <e type="operand">curve_lsi</e>
+      <e type="operand">curve_rsi</e>
+      <e type="operand">2</e>
+      <e type="operand">1</e>
+      <e type="function" args="4" preserve="true">sys</e>
+    </input>
+  </xyplot>
+  </region>
+  <region left="18" top="7051" width="500" height="88" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">=========================================================================</p>
+    <p bold="true">PART VI: INDUSTRIAL WATER TREATMENT SYNTHESIS &amp; MITIGATION ACTIONS</p>
+    <p bold="true">=========================================================================</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="7151" width="500" height="568" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">1. Immediate CaCO3 Scaling Hazard (The CoC Dilemma):</p>
+    <p bold="false">  • In raw makeup water (CoC = 1), Calcite is already supersaturated at 20°C (SI = +0.222).</p>
+    <p bold="false">  • At modest evaporative concentration (CoC = 3 to 4), Calcite SI reaches +1.17 at 25°C and +1.32 at 45°C. At heat exchanger skin temperatures (40°C), the Ryznar index drops to RSI = 5.60, entering the heavy scaling zone.</p>
+    <p bold="false">  • Uninhibited operation above CoC = 2 will cause rapid shell-and-tube exchanger fouling, leading to severe head loss, lost condensing vacuum, and compressor trip.</p>
+    <p bold="false"></p>
+    <p bold="false">2. Scale Inhibitor Dosing Strategy (Phosphonate / Polyacrylate Chemistry):</p>
+    <p bold="false">  • Modern cooling water treatment programs use threshold scale inhibitors (such as PBTC, HEDP, and polyacrylic polymers).</p>
+    <p bold="false">  • These antiscalants distort CaCO3 crystal lattice growth and allow the cooling loop to operate stably at supersaturated conditions up to LSI ≈ +2.0 to +2.5 without precipitation.</p>
+    <p bold="false">  • For this makeup water, an antiscalant program enables operating at CoC = 4 to 6 with zero scale deposition.</p>
+    <p bold="false"></p>
+    <p bold="false">3. Acid Treatment for High CoC Operation (H2SO4 Dosing):</p>
+    <p bold="false">  • If higher concentration cycles (CoC &gt; 6) are targeted to conserve fresh water, sulfuric acid (H2SO4) dosing is introduced into the cooling tower basin.</p>
+    <p bold="false">  • Acid neutralizes bicarbonate alkalinity (HCO3- + H+ -&gt; CO2 + H2O), depressing pH and holding LSI between +0.2 and +0.5.</p>
+    <p bold="false">  • Caution: Acid addition increases sulfate (SO4-2) concentration; SI(Gypsum) must be monitored to ensure it remains below -0.20 to avoid catastrophic calcium sulfate scaling (which cannot be removed by acid washing).</p>
+    <p bold="false"></p>
+    <p bold="false">4. Optimal Blowdown Control &amp; Water Conservation:</p>
+    <p bold="false">  • Operating at CoC = 4 reduces blowdown volume by 75% compared to once-through operation, saving substantial pumping energy.</p>
+    <p bold="false">  • Pushing beyond CoC = 6 yields diminishing water conservation returns while exponentially increasing chemical treatment costs and scaling risk. CoC = 4.0 to 5.0 represents the robust techno-economic optimum.</p>
+    </content>
+  </text>
+  </region>
+  </regions>
+</worksheet>

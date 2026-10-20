@@ -1,0 +1,21 @@
+{
+  "Settings": {
+    "ArgumentsSeparator": ",",
+    "DecimalSymbol": ".",
+    "NamingType": "795b9275-56b5-45c8-bff0-74c4feaa4195",
+    "UICultureName": "en",
+    "UnitsCultureName": "en"
+  },
+  "Summaries": [
+    {
+      "Author": "Scott W. Harden / SMath Studio Wrapper",
+      "Description": "A native SMath Studio wrapper for SwarmFit particle swarm optimization (PSO) curve fitting and non-linear regression (Windows .NET / Linux Mono).",
+      "FileTypes": [],
+      "Id": "b0a439e5-20d5-46a3-bcb5-596cbd1d9934",
+      "Regions": [],
+      "Terms": [],
+      "Title": "SwarmFit Wrapper",
+      "Version": "1.1.0.0"
+    }
+  ]
+}

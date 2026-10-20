@@ -1,0 +1,21 @@
+﻿{
+  "Settings": {
+    "ArgumentsSeparator": ",",
+    "DecimalSymbol": ".",
+    "NamingType": "083f4c4e-1074-4a34-af85-a8f26e9bc00b",
+    "UICultureName": "ru",
+    "UnitsCultureName": "ru"
+  },
+  "Summaries": [
+    {
+      "Author": "USGS & Vitens / SMath Studio Wrapper",
+      "Description": "Плагин для SMath Studio для моделирования геохимических равновесий с использованием библиотеки IPhreeqc / VIPhreeqc (ARM64 Linux).",
+      "FileTypes": [],
+      "Id": "8ead8647-c30a-4f13-8cc7-5f8ac4f3c066",
+      "Regions": [],
+      "Terms": [],
+      "Title": "Phreeqc Wrapper",
+      "Version": "1.0.0.0"
+    }
+  ]
+}

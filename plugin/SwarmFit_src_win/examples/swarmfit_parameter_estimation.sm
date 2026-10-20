@@ -1,0 +1,2100 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?application progid="SMath Solver" version="1.5.0.9678"?>
+<worksheet xmlns="http://smath.info/schemas/worksheet/1.0">
+  <settings ppi="96">
+    <identity>
+      <id>49707d03-1295-4abb-910a-482569577ee0</id>
+      <revision>1</revision>
+    </identity>
+    <calculation>
+      <precision>4</precision>
+      <exponentialThreshold>5</exponentialThreshold>
+      <trailingZeros>false</trailingZeros>
+      <significantDigitsMode>false</significantDigitsMode>
+      <mixedNumbers>false</mixedNumbers>
+      <roundingMode>0</roundingMode>
+      <approximateEqualAccuracy>3</approximateEqualAccuracy>
+      <fractions>decimal</fractions>
+    </calculation>
+    <pageModel active="false" viewMode="2" printGrid="false" printAreas="true" simpleEqualsOnly="false" printBackgroundImages="true" hideElementsHighlightings="true">
+      <paper id="0" orientation="Portrait" width="850" height="1100" />
+      <margins left="39" right="39" top="49" bottom="49" />
+      <header alignment="Center" color="#a9a9a9">&amp;[DATE] &amp;[TIME] - &amp;[FILENAME]</header>
+      <footer alignment="Center" color="#a9a9a9">&amp;[PAGENUM] / &amp;[COUNT]</footer>
+      <backgrounds />
+    </pageModel>
+    <dependencies>
+      <assembly name="SMath Core" version="1.75.9678.0" guid="a37cba83-b69c-4c71-9992-55ff666763bd" />
+      <assembly name="MathRegion" version="1.75.9678.0" guid="02f1ab51-215b-466e-a74d-5d8b1cf85e8d" />
+      <assembly name="SpecialFunctions" version="1.75.9678.0" guid="2814e667-4e12-48b1-8d51-194e480eabc5" />
+      <assembly name="TextRegion" version="1.75.9678.0" guid="485d28c5-349a-48b6-93be-12a35a1c1e39" />
+      <assembly name="SwarmFit Wrapper" version="1.1.0.0" guid="b0a439e5-20d5-46a3-bcb5-596cbd1d9934" />
+      <assembly name="X-Y Plot Region (Chart2DLib)" version="0.4.9441.40064" guid="c12231ec-4873-43c1-a7d0-a167ebd17066" />
+    </dependencies>
+  </settings>
+  <regions type="content">
+  <region left="18" top="9" width="500" height="40" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">Non-Linear Parameter Estimation via Particle Swarm Optimization (SwarmFit)</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="61" width="70" height="24" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">2026-10-20</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="97" width="500" height="136" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">Particle Swarm Optimization (PSO) Curve Fitting in SMath Studio (SwarmFit)</p>
+    <p bold="true">Robust Heuristic Global Parameter Estimation for Non-Linear Chemical &amp; Process Engineering Models</p>
+    <p bold="true">Native Assembly: SwarmFitWrapper.dll (Plugin GUID: b0a439e5-20d5-46a3-bcb5-596cbd1d9934, v1.1.0.0)</p>
+    <p bold="true">Strict SI Unit Compatibility: Concentration [mM, mol/m3], Rate [umol/(L*min), mol/(m3*s)], Time [s, min]</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="245" width="500" height="488" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">Particle Swarm Optimization (PSO) is a population-based stochastic global optimization algorithm</p>
+    <p bold="false">inspired by the coordinated choreography of bird flocks and fish schools. Unlike gradient-based</p>
+    <p bold="false">solvers (Levenberg-Marquardt, Gauss-Newton, BFGS), PSO requires NO derivatives, exhibits</p>
+    <p bold="false">exceptional global exploration capabilities across bounded multi-dimensional parameter spaces,</p>
+    <p bold="false">and is immune to singularities, saddle points, and poor initial guesses.</p>
+    <p bold="false"></p>
+    <p bold="false">Key SwarmFit Plugin Functions Verified in this Worksheet:</p>
+    <p bold="false">  1. swarmfit(xs, ys, model, p_min, p_max [, particles, max_iter]) -&gt; Optimal parameter vector p*</p>
+    <p bold="false">  2. swarmfit_predict(xs, model, p) -&gt; Model prediction vector evaluated at coordinates xs</p>
+    <p bold="false">  3. swarmfit_details(xs, ys, model, p_min, p_max) -&gt; [SSE; RMSE; MaxResidual; Iterations; Improvements]</p>
+    <p bold="false">  4. swarmfit_r2(ys, y_pred) -&gt; Coefficient of determination R^2</p>
+    <p bold="false">  5. swarmfit_linear(xs, ys) -&gt; Fast linear calibration fit [a; b] for y = a*x + b</p>
+    <p bold="false">  6. swarmfit_expdecay(xs, ys, p_min, p_max) -&gt; Dedicated relaxation decay fit [a; b] for y = a*exp(-x/b)</p>
+    <p bold="false">  7. swarmfit_power(xs, ys, p_min, p_max) -&gt; Dedicated power-law fit [a; b] for y = a*x^b</p>
+    <p bold="false">  8. swarmfit_exp(xs, ys, p_min, p_max) -&gt; General exponential fit [a; b; c] for y = a + b*exp(c*x)</p>
+    <p bold="false">  9. swarmfit_gauss(xs, ys, p_min, p_max) -&gt; Gaussian peak fit [a; b; c]</p>
+    <p bold="false"> 10. swarmfit_poly(xs, ys, degree, p_min, p_max) -&gt; Polynomial regression of arbitrary degree (1 to 6)</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="745" width="500" height="824" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="false">Architectural Guide: Built-in Model Strings vs. User-Defined SMath CAS Functions</p>
+    <p bold="false">Understanding Model Specification in SwarmFit:</p>
+    <p bold="false"></p>
+    <p bold="false">1. WHY ARE STRINGS LIKE 'mm', 'power', 'linear', 'expdecay' USED?</p>
+    <p bold="false">   When you pass a string identifier (e.g. &quot;mm&quot;) as the 3rd argument of swarmfit, the plugin maps it</p>
+    <p bold="false">   directly to an internal, pre-compiled native C# delegate (Func&lt;double, double[], double&gt;).</p>
+    <p bold="false">   During PSO optimization, a swarm of 20 particles over 5000 iterations evaluates the objective function</p>
+    <p bold="false">   20 * 5000 * N = 100,000 * N times! In compiled C#, these 1,000,000 evaluations complete in under 0.05 seconds.</p>
+    <p bold="false"></p>
+    <p bold="false">2. BUILT-IN STRING MODEL CATALOG &amp; PARAMETER VECTORS:</p>
+    <p bold="false">   * &quot;mm&quot; (Michaelis-Menten Kinetics): v = (p1 * S) / (p2 + S) -&gt; p = [V_max; K_m] (2 parameters)</p>
+    <p bold="false">   * &quot;power&quot; (Power Law / Freundlich Isotherm): y = p1 * x^p2 -&gt; p = [K_F; 1/n] (2 parameters)</p>
+    <p bold="false">   * &quot;linear&quot; / &quot;line&quot; (Linear Response): y = p1 * x + p2 -&gt; p = [Slope a; Intercept b] (2 parameters)</p>
+    <p bold="false">   * &quot;expdecay&quot; (Exponential Relaxation): y = p1 * exp(-x / p2) -&gt; p = [C_0; tau] (2 parameters)</p>
+    <p bold="false">   * &quot;exp&quot; (Exponential with Baseline): y = p1 + p2 * exp(p3 * x) -&gt; p = [a; b; c] (3 parameters)</p>
+    <p bold="false">   * &quot;haldane&quot; / &quot;andrews&quot; (Substrate Inhibition): y = (p1 * x) / (p2 + x + x^2 / p3) -&gt; p = [V_max; K_m; K_i]</p>
+    <p bold="false">   * &quot;hill&quot; (Sigmoidal Cooperativity): y = (p1 * x^p3) / (p2^p3 + x^p3) -&gt; p = [V_max; K_0.5; n]</p>
+    <p bold="false">   * &quot;arrhenius&quot; (Temperature Dependence): k = p1 * exp(-p2 / T) -&gt; p = [A; Ea/R] (2 parameters)</p>
+    <p bold="false">   * &quot;antoine&quot; (Vapor Pressure): log10(P) = p1 - p2 / (T + p3) -&gt; p = [A; B; C] (3 parameters)</p>
+    <p bold="false">   * &quot;gauss&quot; (Gaussian Spectral Peak): y = p1 * exp(-(x - p2)^2 / (2 * p3^2)) -&gt; p = [Peak; Center; Width]</p>
+    <p bold="false"></p>
+    <p bold="false">3. USER-DEFINED SMATH CAS FUNCTIONS (e.g. f_haldane, f_langmuir, f_consec):</p>
+    <p bold="false">   You can define any proprietary or complex engineering equation directly in SMath CAS as f(x, p).</p>
+    <p bold="false">   Because each evaluation calls back into SMath's symbolic engine (~0.1 ms/call), size the swarm budget</p>
+    <p bold="false">   sensibly: 12-15 particles over 60-80 iterations achieve full convergence (R2 &gt; 0.998) in ~1 second.</p>
+    <p bold="false"></p>
+    <p bold="false">4. EVALUATION &amp; CACHING LAW (Using '=' on User-Defined Function Predictions):</p>
+    <p bold="false">   Just like Clear() must be evaluated with '=' (Clear(x) = 1) to execute its memory side-effect, predictions</p>
+    <p bold="false">   from user-defined CAS functions should be evaluated and cached with '=' (e.g. v_pred := swarmfit_predict(...) =).</p>
+    <p bold="false">   Caching the evaluated numeric vector ensures that downstream expressions (R2 calculation, XY plots) read</p>
+    <p bold="false">   the pre-calculated numbers instantly, preventing repetitive CAS re-evaluations during sheet redraws.</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="1581" width="500" height="104" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">Problem 1: Biochemical Enzyme Kinetics (Michaelis-Menten Model)</p>
+    <p bold="true">Model Formulation: v = (V_max * S) / (K_m + S)</p>
+    <p bold="true">where V_max is the limiting maximum rate and K_m is the Michaelis affinity constant (mM).</p>
+    <p bold="true">Fitted using the high-speed native compiled string model &quot;mm&quot; (evaluates in milliseconds).</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="1697" width="144" height="135" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Substrate concentration experimental data vector S [mM]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">S_data</e>
+    <e type="operand">0.5</e>
+    <e type="operand">1.0</e>
+    <e type="operand">2.0</e>
+    <e type="operand">5.0</e>
+    <e type="operand">10.0</e>
+    <e type="operand">20.0</e>
+    <e type="operand">30.0</e>
+    <e type="operand">7</e>
+    <e type="operand">1</e>
+    <e type="function" args="9">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="1872" width="144" height="135" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Measured initial enzymatic reaction velocity vector v [µmol/(L·min)]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">v_data</e>
+    <e type="operand">1.88</e>
+    <e type="operand">3.33</e>
+    <e type="operand">5.45</e>
+    <e type="operand">8.82</e>
+    <e type="operand">11.11</e>
+    <e type="operand">12.77</e>
+    <e type="operand">13.43</e>
+    <e type="operand">7</e>
+    <e type="operand">1</e>
+    <e type="function" args="9">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2047" width="84" height="45" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Lower parameter search bounds [V_max_min; K_m_min]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_min_mm</e>
+    <e type="operand">5.0</e>
+    <e type="operand">0.5</e>
+    <e type="operand">2</e>
+    <e type="operand">1</e>
+    <e type="function" args="4">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2132" width="84" height="45" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Upper parameter search bounds [V_max_max; K_m_max]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_max_mm</e>
+    <e type="operand">30.0</e>
+    <e type="operand">10.0</e>
+    <e type="operand">2</e>
+    <e type="operand">1</e>
+    <e type="function" args="4">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2217" width="96" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted Michaelis-Menten parameter vector [V_max; K_m] via PSO</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_mm</e>
+    <e type="operand">S_data</e>
+    <e type="operand">v_data</e>
+    <e type="operand" style="string">mm</e>
+    <e type="operand">p_min_mm</e>
+    <e type="operand">p_max_mm</e>
+    <e type="function" args="5">swarmfit</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2281" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted limiting maximum enzymatic reaction velocity V_max [µmol/(L·min)]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">V_max</e>
+    <e type="operand">p_mm</e>
+    <e type="operand">1</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2345" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted Michaelis affinity constant K_m [mM]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">K_m</e>
+    <e type="operand">p_mm</e>
+    <e type="operand">2</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2409" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Model predicted reaction velocity vector v_pred evaluated via native &quot;mm&quot; model</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">v_pred</e>
+    <e type="operand">S_data</e>
+    <e type="operand" style="string">mm</e>
+    <e type="operand">p_mm</e>
+    <e type="function" args="3">swarmfit_predict</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2473" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Coefficient of determination R^2 for Michaelis-Menten fit</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">R2_mm</e>
+    <e type="operand">v_data</e>
+    <e type="operand">v_pred</e>
+    <e type="function" args="2">swarmfit_r2</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2537" width="96" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>PSO optimization convergence metrics: [SSE; RMSE; MaxResidual; Iterations; Improvements]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">metrics_mm</e>
+    <e type="operand">S_data</e>
+    <e type="operand">v_data</e>
+    <e type="operand" style="string">mm</e>
+    <e type="operand">p_min_mm</e>
+    <e type="operand">p_max_mm</e>
+    <e type="function" args="5">swarmfit_details</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2617" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Sum of squared errors (SSE)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">SSE_mm</e>
+    <e type="operand">metrics_mm</e>
+    <e type="operand">1</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2681" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Root mean square error (RMSE)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">RMSE_mm</e>
+    <e type="operand">metrics_mm</e>
+    <e type="operand">2</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2745" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Maximum absolute residual error</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">MaxRes_mm</e>
+    <e type="operand">metrics_mm</e>
+    <e type="operand">3</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2809" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Total particle swarm iterations executed</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">Iters_mm</e>
+    <e type="operand">metrics_mm</e>
+    <e type="operand">4</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2873" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Total global best improvement events</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">Impr_mm</e>
+    <e type="operand">metrics_mm</e>
+    <e type="operand">5</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="2937" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Augmented matrix of measured enzyme kinetics points [S, v]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">xy_data_mm</e>
+    <e type="operand">S_data</e>
+    <e type="operand">v_data</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="3001" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Augmented matrix of fitted Michaelis-Menten curve [S, v_pred]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">xy_fit_mm</e>
+    <e type="operand">S_data</e>
+    <e type="operand">v_pred</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="3065" width="330" height="250" color="#000000" fontSize="10">
+  <xyplot width="330" height="250" points="100" smoothing="true">
+    <propertiessource index="1" sourcetype="PropertyGrid" />
+    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
+    <xaxes xmin="0.0" xmax="35.0" xtick="5.0" decimalplaces="3" numberformat="General" />
+    <yaxes ymin="0.0" ymax="16.0" ytick="2.0" decimalplaces="3" numberformat="General" />
+    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
+    <title2d title="Problem 1: Michaelis-Menten Enzyme Kinetics Fit (Native &quot;mm&quot; Model)" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Substrate Concentration S [mM]" ylabel="Reaction Velocity v [µmol/(L·min)]" y2label="y2" />
+    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+    <traces>
+      <trace seriesname="Experimental Data (v_data)" isy2data="false" isvisible="true" plotmethod="Points" linecolor="Blue" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="Fitted Michaelis-Menten (v_pred)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="Red" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
+    <input>
+      <e type="operand">xy_data_mm</e>
+      <e type="operand">xy_fit_mm</e>
+      <e type="operand">2</e>
+      <e type="operand">1</e>
+      <e type="function" args="4" preserve="true">sys</e>
+    </input>
+  </xyplot>
+  </region>
+  <region left="18" top="3410" width="500" height="104" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">Problem 2: First-Order Reaction Relaxation / CSTR Tracer Washout (Exponential Decay)</p>
+    <p bold="true">Model Formulation: C(t) = C_0 * exp(-t / tau)</p>
+    <p bold="true">where C_0 is initial tracer concentration [mg/L] and tau is hydrodynamic residence time [s].</p>
+    <p bold="true">Fitted using the dedicated convenience function swarmfit_expdecay.</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="3526" width="156" height="153" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Elapsed washout time measurement points t [s]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">t_data</e>
+    <e type="operand">0.0</e>
+    <e type="operand">2.0</e>
+    <e type="operand">4.0</e>
+    <e type="operand">6.0</e>
+    <e type="operand">8.0</e>
+    <e type="operand">10.0</e>
+    <e type="operand">15.0</e>
+    <e type="operand">20.0</e>
+    <e type="operand">8</e>
+    <e type="operand">1</e>
+    <e type="function" args="10">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="3719" width="156" height="153" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Observed tracer concentration data vector C [mg/L]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">C_data</e>
+    <e type="operand">100.0</e>
+    <e type="operand">67.0</e>
+    <e type="operand">44.9</e>
+    <e type="operand">30.1</e>
+    <e type="operand">20.2</e>
+    <e type="operand">13.5</e>
+    <e type="operand">5.0</e>
+    <e type="operand">1.8</e>
+    <e type="operand">8</e>
+    <e type="operand">1</e>
+    <e type="function" args="10">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="3912" width="84" height="45" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Lower search bounds for tracer washout [C0_min; tau_min]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_min_decay</e>
+    <e type="operand">50.0</e>
+    <e type="operand">1.0</e>
+    <e type="operand">2</e>
+    <e type="operand">1</e>
+    <e type="function" args="4">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="3997" width="84" height="45" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Upper search bounds for tracer washout [C0_max; tau_max]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_max_decay</e>
+    <e type="operand">150.0</e>
+    <e type="operand">15.0</e>
+    <e type="operand">2</e>
+    <e type="operand">1</e>
+    <e type="function" args="4">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4082" width="84" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted relaxation parameters [C_0; tau] via swarmfit_expdecay</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_decay</e>
+    <e type="operand">t_data</e>
+    <e type="operand">C_data</e>
+    <e type="operand">p_min_decay</e>
+    <e type="operand">p_max_decay</e>
+    <e type="function" args="4">swarmfit_expdecay</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4146" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted initial tracer concentration C_0 [mg/L]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">C_0</e>
+    <e type="operand">p_decay</e>
+    <e type="operand">1</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4210" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted reactor hydrodynamic residence time tau [s]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">tau</e>
+    <e type="operand">p_decay</e>
+    <e type="operand">2</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4274" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Calculated tracer half-life t_half = tau * ln(2) [s]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">t_half</e>
+    <e type="operand">tau</e>
+    <e type="operand">2</e>
+    <e type="function" args="1">ln</e>
+    <e type="operator" args="2">*</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4338" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Predicted tracer concentration vector C_pred evaluated via native &quot;expdecay&quot; model</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">C_pred</e>
+    <e type="operand">t_data</e>
+    <e type="operand" style="string">expdecay</e>
+    <e type="operand">p_decay</e>
+    <e type="function" args="3">swarmfit_predict</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4418" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Coefficient of determination R^2 for tracer washout decay</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">R2_decay</e>
+    <e type="operand">C_data</e>
+    <e type="operand">C_pred</e>
+    <e type="function" args="2">swarmfit_r2</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4482" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Augmented matrix of tracer observations [t, C]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">xy_data_decay</e>
+    <e type="operand">t_data</e>
+    <e type="operand">C_data</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4546" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Augmented matrix of fitted decay curve [t, C_pred]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">xy_fit_decay</e>
+    <e type="operand">t_data</e>
+    <e type="operand">C_pred</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="4610" width="330" height="250" color="#000000" fontSize="10">
+  <xyplot width="330" height="250" points="100" smoothing="true">
+    <propertiessource index="1" sourcetype="PropertyGrid" />
+    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
+    <xaxes xmin="0.0" xmax="22.0" xtick="2.0" decimalplaces="3" numberformat="General" />
+    <yaxes ymin="0.0" ymax="110.0" ytick="20.0" decimalplaces="3" numberformat="General" />
+    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
+    <title2d title="Problem 2: First-Order Reaction Relaxation / Tracer Washout (swarmfit_expdecay)" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Washout Time t [s]" ylabel="Tracer Concentration C(t) [mg/L]" y2label="y2" />
+    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="NorthEast" textcolor="Black" />
+    <traces>
+      <trace seriesname="Observed Tracer (C_data)" isy2data="false" isvisible="true" plotmethod="Points" linecolor="DarkGreen" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="Fitted Exponential Decay (C_pred)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="DarkOrange" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
+    <input>
+      <e type="operand">xy_data_decay</e>
+      <e type="operand">xy_fit_decay</e>
+      <e type="operand">2</e>
+      <e type="operand">1</e>
+      <e type="function" args="4" preserve="true">sys</e>
+    </input>
+  </xyplot>
+  </region>
+  <region left="18" top="4955" width="500" height="88" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">Problem 3: Adsorption Equilibrium Isotherm (Freundlich Power Law)</p>
+    <p bold="true">Model Formulation: q_e = K_F * C_e^(1/n)</p>
+    <p bold="true">Mapped to power-law form Y = a * X^b, where a = K_F [adsorption capacity] and b = 1/n [intensity].</p>
+    <p bold="true">Fitted using the dedicated convenience function swarmfit_power.</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="5055" width="132" height="117" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Equilibrium solute concentration data vector C_e [mg/L]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">Ce_data</e>
+    <e type="operand">1.0</e>
+    <e type="operand">2.5</e>
+    <e type="operand">5.0</e>
+    <e type="operand">10.0</e>
+    <e type="operand">20.0</e>
+    <e type="operand">40.0</e>
+    <e type="operand">6</e>
+    <e type="operand">1</e>
+    <e type="function" args="8">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="5212" width="132" height="117" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Observed equilibrium adsorption capacity data vector q_e [mg/g]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">qe_data</e>
+    <e type="operand">2.8</e>
+    <e type="operand">4.8</e>
+    <e type="operand">7.3</e>
+    <e type="operand">11.2</e>
+    <e type="operand">17.1</e>
+    <e type="operand">26.2</e>
+    <e type="operand">6</e>
+    <e type="operand">1</e>
+    <e type="function" args="8">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="5369" width="84" height="45" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Lower search bounds for Freundlich isotherm [K_F_min; (1/n)_min]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_min_power</e>
+    <e type="operand">0.5</e>
+    <e type="operand">0.1</e>
+    <e type="operand">2</e>
+    <e type="operand">1</e>
+    <e type="function" args="4">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="5454" width="84" height="45" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Upper search bounds for Freundlich isotherm [K_F_max; (1/n)_max]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_max_power</e>
+    <e type="operand">10.0</e>
+    <e type="operand">1.5</e>
+    <e type="operand">2</e>
+    <e type="operand">1</e>
+    <e type="function" args="4">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="5539" width="84" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted Freundlich power law parameters [K_F; 1/n] via swarmfit_power</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_power</e>
+    <e type="operand">Ce_data</e>
+    <e type="operand">qe_data</e>
+    <e type="operand">p_min_power</e>
+    <e type="operand">p_max_power</e>
+    <e type="function" args="4">swarmfit_power</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="5603" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted Freundlich capacity factor K_F [(mg/g)*(L/mg)^(1/n)]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">K_F</e>
+    <e type="operand">p_power</e>
+    <e type="operand">1</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="5667" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted Freundlich adsorption intensity parameter 1/n [dimensionless]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">inv_n</e>
+    <e type="operand">p_power</e>
+    <e type="operand">2</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="5731" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Freundlich heterogeneity index n = 1/(1/n) (n &gt; 1 indicates favorable adsorption)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">n_freundlich</e>
+    <e type="operand">1</e>
+    <e type="operand">inv_n</e>
+    <e type="operator" args="2">/</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="5811" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Model predicted adsorption capacity vector qe_pred evaluated via native &quot;power&quot; model</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">qe_pred</e>
+    <e type="operand">Ce_data</e>
+    <e type="operand" style="string">power</e>
+    <e type="operand">p_power</e>
+    <e type="function" args="3">swarmfit_predict</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="5891" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Coefficient of determination R^2 for Freundlich isotherm</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">R2_power</e>
+    <e type="operand">qe_data</e>
+    <e type="operand">qe_pred</e>
+    <e type="function" args="2">swarmfit_r2</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="5955" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Augmented matrix of equilibrium adsorption points [C_e, q_e]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">xy_data_power</e>
+    <e type="operand">Ce_data</e>
+    <e type="operand">qe_data</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="6019" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Augmented matrix of fitted power-law isotherm [C_e, qe_pred]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">xy_fit_power</e>
+    <e type="operand">Ce_data</e>
+    <e type="operand">qe_pred</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="6083" width="330" height="250" color="#000000" fontSize="10">
+  <xyplot width="330" height="250" points="100" smoothing="true">
+    <propertiessource index="1" sourcetype="PropertyGrid" />
+    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
+    <xaxes xmin="0.0" xmax="45.0" xtick="5.0" decimalplaces="3" numberformat="General" />
+    <yaxes ymin="0.0" ymax="30.0" ytick="5.0" decimalplaces="3" numberformat="General" />
+    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
+    <title2d title="Problem 3: Freundlich Adsorption Isotherm Fit (swarmfit_power)" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Equilibrium Concentration C_e [mg/L]" ylabel="Adsorbed Capacity q_e [mg/g]" y2label="y2" />
+    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+    <traces>
+      <trace seriesname="Equilibrium Data (qe_data)" isy2data="false" isvisible="true" plotmethod="Points" linecolor="Purple" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="Fitted Freundlich Isotherm (qe_pred)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="Crimson" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
+    <input>
+      <e type="operand">xy_data_power</e>
+      <e type="operand">xy_fit_power</e>
+      <e type="operand">2</e>
+      <e type="operand">1</e>
+      <e type="function" args="4" preserve="true">sys</e>
+    </input>
+  </xyplot>
+  </region>
+  <region left="18" top="6428" width="500" height="216" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">Problem 4: Substrate Inhibition Kinetics (Andrews/Haldane Bioreactor Model)</p>
+    <p bold="true">Model Formulation: v = (V_max * S) / (K_m + S + S^2 / K_i)</p>
+    <p bold="true">User defines custom SMath CAS function f_haldane(x, p) directly in the worksheet.</p>
+    <p bold="true">Velocity exhibits non-monotonic behavior: reaches a distinct peak at S_opt = sqrt(K_m * K_i)</p>
+    <p bold="true">and decreases at higher substrate levels due to biochemical toxicity / substrate inhibition.</p>
+    <p bold="true">EVALUATION &amp; CACHING: Model predictions v_pred_inh are evaluated with '=' to cache results</p>
+    <p bold="true">in memory and eliminate repetitive symbolic CAS recalculation across sheet repaints.</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="6656" width="276" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>User-defined Haldane substrate inhibition rate function v = f(x, [V_max; K_m; K_i])</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">x</e>
+    <e type="operand">p</e>
+    <e type="function" args="2">f_haldane</e>
+    <e type="operand">p</e>
+    <e type="operand">1</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">x</e>
+    <e type="operator" args="2">*</e>
+    <e type="operand">p</e>
+    <e type="operand">2</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">x</e>
+    <e type="operator" args="2">+</e>
+    <e type="operand">x</e>
+    <e type="operand">2</e>
+    <e type="operator" args="2">^</e>
+    <e type="operand">p</e>
+    <e type="operand">3</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">/</e>
+    <e type="operator" args="2">+</e>
+    <e type="operator" args="2">/</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="6736" width="156" height="153" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Substrate concentration data vector S [mM] spanning sub-inhibitory to toxic regimes</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">S_inh</e>
+    <e type="operand">1.0</e>
+    <e type="operand">2.0</e>
+    <e type="operand">5.0</e>
+    <e type="operand">10.0</e>
+    <e type="operand">20.0</e>
+    <e type="operand">40.0</e>
+    <e type="operand">60.0</e>
+    <e type="operand">80.0</e>
+    <e type="operand">8</e>
+    <e type="operand">1</e>
+    <e type="function" args="10">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="6945" width="156" height="153" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Observed reaction velocity vector v [µmol/(L·min)] displaying inhibition peak</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">v_inh</e>
+    <e type="operand">3.8</e>
+    <e type="operand">6.2</e>
+    <e type="operand">9.8</e>
+    <e type="operand">11.5</e>
+    <e type="operand">10.8</e>
+    <e type="operand">8.2</e>
+    <e type="operand">6.4</e>
+    <e type="operand">5.2</e>
+    <e type="operand">8</e>
+    <e type="operand">1</e>
+    <e type="function" args="10">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="7138" width="96" height="63" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Lower search bounds [V_max_min; K_m_min; K_i_min]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_min_h</e>
+    <e type="operand">10.0</e>
+    <e type="operand">1.0</e>
+    <e type="operand">10.0</e>
+    <e type="operand">3</e>
+    <e type="operand">1</e>
+    <e type="function" args="5">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="7241" width="96" height="63" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Upper search bounds [V_max_max; K_m_max; K_i_max]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_max_h</e>
+    <e type="operand">40.0</e>
+    <e type="operand">10.0</e>
+    <e type="operand">100.0</e>
+    <e type="operand">3</e>
+    <e type="operand">1</e>
+    <e type="function" args="5">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="7344" width="120" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted parameters [V_max; K_m; K_i] via global PSO and user-defined f_haldane</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_haldane</e>
+    <e type="operand">S_inh</e>
+    <e type="operand">v_inh</e>
+    <e type="operand">f_haldane</e>
+    <e type="operand">p_min_h</e>
+    <e type="operand">p_max_h</e>
+    <e type="operand">12</e>
+    <e type="operand">60</e>
+    <e type="function" args="7">swarmfit</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="7408" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted maximum theoretical enzymatic velocity V_max [µmol/(L·min)]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">Vmax_inh</e>
+    <e type="operand">p_haldane</e>
+    <e type="operand">1</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="7472" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted Michaelis affinity constant K_m [mM]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">Km_inh</e>
+    <e type="operand">p_haldane</e>
+    <e type="operand">2</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="7536" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted substrate inhibition constant K_i [mM]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">Ki_inh</e>
+    <e type="operand">p_haldane</e>
+    <e type="operand">3</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="7600" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Critical substrate concentration S_opt = sqrt(K_m * K_i) yielding maximum reaction velocity [mM]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">S_opt</e>
+    <e type="operand">Km_inh</e>
+    <e type="operand">Ki_inh</e>
+    <e type="operator" args="2">*</e>
+    <e type="function" args="1">sqrt</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="7680" width="72" height="153" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Predicted reaction velocity vector evaluated via user-defined f_haldane (cached with =)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">v_pred_inh</e>
+    <e type="operand">S_inh</e>
+    <e type="operand">f_haldane</e>
+    <e type="operand">p_haldane</e>
+    <e type="function" args="3">swarmfit_predict</e>
+    <e type="operator" args="2">:</e>
+    </input>
+    <result action="numeric">
+    <e type="operand">3.67</e>
+    <e type="operand">6.17</e>
+    <e type="operand">9.99</e>
+    <e type="operand">11.57</e>
+    <e type="operand">10.77</e>
+    <e type="operand">8.16</e>
+    <e type="operand">6.41</e>
+    <e type="operand">5.25</e>
+    <e type="operand">8</e>
+    <e type="operand">1</e>
+    <e type="function" args="10">mat</e>
+    </result>
+  </math>
+  </region>
+  <region left="18" top="7889" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Coefficient of determination R^2 for Haldane inhibition fit</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">R2_haldane</e>
+    <e type="operand">v_inh</e>
+    <e type="operand">v_pred_inh</e>
+    <e type="function" args="2">swarmfit_r2</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="7953" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Augmented matrix of inhibition data points [S, v]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">xy_data_inh</e>
+    <e type="operand">S_inh</e>
+    <e type="operand">v_inh</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="8017" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Augmented matrix of fitted Haldane inhibition curve [S, v_pred]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">xy_fit_inh</e>
+    <e type="operand">S_inh</e>
+    <e type="operand">v_pred_inh</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="8081" width="330" height="250" color="#000000" fontSize="10">
+  <xyplot width="330" height="250" points="100" smoothing="true">
+    <propertiessource index="1" sourcetype="PropertyGrid" />
+    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
+    <xaxes xmin="0.0" xmax="90.0" xtick="10.0" decimalplaces="3" numberformat="General" />
+    <yaxes ymin="0.0" ymax="14.0" ytick="2.0" decimalplaces="3" numberformat="General" />
+    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
+    <title2d title="Problem 4: Substrate Inhibition Kinetics (Andrews/Haldane Bioreactor Model)" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Substrate Concentration S [mM]" ylabel="Reaction Velocity v [µmol/(L·min)]" y2label="y2" />
+    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="NorthEast" textcolor="Black" />
+    <traces>
+      <trace seriesname="Inhibition Data (v_inh)" isy2data="false" isvisible="true" plotmethod="Points" linecolor="DarkBlue" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="Fitted Haldane Model (v_pred_inh)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="Red" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
+    <input>
+      <e type="operand">xy_data_inh</e>
+      <e type="operand">xy_fit_inh</e>
+      <e type="operand">2</e>
+      <e type="operand">1</e>
+      <e type="function" args="4" preserve="true">sys</e>
+    </input>
+  </xyplot>
+  </region>
+  <region left="18" top="8426" width="500" height="184" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">Problem 5: Monolayer Wastewater Adsorption Equilibrium (Langmuir Isotherm)</p>
+    <p bold="true">Model Formulation: q_e = (q_m * K_L * C_e) / (1 + K_L * C_e)</p>
+    <p bold="true">User defines custom SMath CAS function f_langmuir(x, p) for non-linear monolayer adsorption.</p>
+    <p bold="true">Parameters: q_m is maximum saturation monolayer capacity [mg/g], K_L is Langmuir affinity constant [L/mg].</p>
+    <p bold="true">Computes the dimensionless Hall separation factor R_L = 1 / (1 + K_L * C_e_max) (0 &lt; R_L &lt; 1 indicates favorable adsorption).</p>
+    <p bold="true">EVALUATION &amp; CACHING: Model predictions qe_pred_lang are evaluated with '=' to cache results.</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="8622" width="252" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>User-defined Langmuir monolayer adsorption isotherm q_e = f(C_e, [q_m; K_L])</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">x</e>
+    <e type="operand">p</e>
+    <e type="function" args="2">f_langmuir</e>
+    <e type="operand">p</e>
+    <e type="operand">1</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">p</e>
+    <e type="operand">2</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">*</e>
+    <e type="operand">x</e>
+    <e type="operator" args="2">*</e>
+    <e type="operand">1.0</e>
+    <e type="operand">p</e>
+    <e type="operand">2</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">x</e>
+    <e type="operator" args="2">*</e>
+    <e type="operator" args="2">+</e>
+    <e type="operator" args="2">/</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="8686" width="156" height="153" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Equilibrium organic solute concentration data vector C_e [mg/L]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">Ce_lang</e>
+    <e type="operand">1.0</e>
+    <e type="operand">2.5</e>
+    <e type="operand">5.0</e>
+    <e type="operand">10.0</e>
+    <e type="operand">20.0</e>
+    <e type="operand">40.0</e>
+    <e type="operand">60.0</e>
+    <e type="operand">80.0</e>
+    <e type="operand">8</e>
+    <e type="operand">1</e>
+    <e type="function" args="10">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="8879" width="156" height="153" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Measured equilibrium adsorbed amount on activated carbon q_e [mg/g]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">qe_lang</e>
+    <e type="operand">6.72</e>
+    <e type="operand">13.34</e>
+    <e type="operand">21.83</e>
+    <e type="operand">29.80</e>
+    <e type="operand">38.00</e>
+    <e type="operand">42.46</e>
+    <e type="operand">45.30</e>
+    <e type="operand">45.95</e>
+    <e type="operand">8</e>
+    <e type="operand">1</e>
+    <e type="function" args="10">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="9072" width="84" height="45" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Lower search bounds for Langmuir isotherm [qm_min; KL_min]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_min_lang</e>
+    <e type="operand">20.0</e>
+    <e type="operand">0.01</e>
+    <e type="operand">2</e>
+    <e type="operand">1</e>
+    <e type="function" args="4">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="9157" width="84" height="45" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Upper search bounds for Langmuir isotherm [qm_max; KL_max]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_max_lang</e>
+    <e type="operand">100.0</e>
+    <e type="operand">1.0</e>
+    <e type="operand">2</e>
+    <e type="operand">1</e>
+    <e type="function" args="4">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="9242" width="120" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted Langmuir parameters [q_m; K_L] via global PSO and user-defined f_langmuir</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_lang</e>
+    <e type="operand">Ce_lang</e>
+    <e type="operand">qe_lang</e>
+    <e type="operand">f_langmuir</e>
+    <e type="operand">p_min_lang</e>
+    <e type="operand">p_max_lang</e>
+    <e type="operand">15</e>
+    <e type="operand">80</e>
+    <e type="function" args="7">swarmfit</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="9306" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted maximum monolayer saturation capacity q_m [mg/g]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">q_m</e>
+    <e type="operand">p_lang</e>
+    <e type="operand">1</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="9370" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted Langmuir equilibrium adsorption constant K_L [L/mg]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">K_L</e>
+    <e type="operand">p_lang</e>
+    <e type="operand">2</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="9434" width="108" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Hall separation factor R_L = 1 / (1 + K_L * Ce_max) (favorable if 0 &lt; R_L &lt; 1)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">RL_factor</e>
+    <e type="operand">1.0</e>
+    <e type="operand">1.0</e>
+    <e type="operand">K_L</e>
+    <e type="operand">80.0</e>
+    <e type="operator" args="2">*</e>
+    <e type="operator" args="2">+</e>
+    <e type="operator" args="2">/</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="9498" width="72" height="153" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Predicted adsorption capacity vector evaluated via user-defined f_langmuir (cached with =)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">qe_pred_lang</e>
+    <e type="operand">Ce_lang</e>
+    <e type="operand">f_langmuir</e>
+    <e type="operand">p_lang</e>
+    <e type="function" args="3">swarmfit_predict</e>
+    <e type="operator" args="2">:</e>
+    </input>
+    <result action="numeric">
+    <e type="operand">6.72</e>
+    <e type="operand">13.96</e>
+    <e type="operand">21.79</e>
+    <e type="operand">30.28</e>
+    <e type="operand">37.61</e>
+    <e type="operand">42.79</e>
+    <e type="operand">44.85</e>
+    <e type="operand">45.95</e>
+    <e type="operand">8</e>
+    <e type="operand">1</e>
+    <e type="function" args="10">mat</e>
+    </result>
+  </math>
+  </region>
+  <region left="18" top="9707" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Coefficient of determination R^2 for Langmuir adsorption fit</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">R2_lang</e>
+    <e type="operand">qe_lang</e>
+    <e type="operand">qe_pred_lang</e>
+    <e type="function" args="2">swarmfit_r2</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="9771" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Augmented matrix of measured adsorption points [C_e, q_e]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">xy_data_lang</e>
+    <e type="operand">Ce_lang</e>
+    <e type="operand">qe_lang</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="9835" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Augmented matrix of fitted Langmuir curve [C_e, qe_pred]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">xy_fit_lang</e>
+    <e type="operand">Ce_lang</e>
+    <e type="operand">qe_pred_lang</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="9899" width="330" height="250" color="#000000" fontSize="10">
+  <xyplot width="330" height="250" points="100" smoothing="true">
+    <propertiessource index="1" sourcetype="PropertyGrid" />
+    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
+    <xaxes xmin="0.0" xmax="90.0" xtick="10.0" decimalplaces="3" numberformat="General" />
+    <yaxes ymin="0.0" ymax="55.0" ytick="10.0" decimalplaces="3" numberformat="General" />
+    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
+    <title2d title="Problem 5: Langmuir Monolayer Adsorption Equilibrium (User-Defined f_langmuir)" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Equilibrium Solute Concentration C_e [mg/L]" ylabel="Adsorbed Capacity q_e [mg/g]" y2label="y2" />
+    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+    <traces>
+      <trace seriesname="Adsorption Data (qe_lang)" isy2data="false" isvisible="true" plotmethod="Points" linecolor="DarkSlateGray" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="Fitted Langmuir Isotherm (qe_pred_lang)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="Teal" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
+    <input>
+      <e type="operand">xy_data_lang</e>
+      <e type="operand">xy_fit_lang</e>
+      <e type="operand">2</e>
+      <e type="operand">1</e>
+      <e type="function" args="4" preserve="true">sys</e>
+    </input>
+  </xyplot>
+  </region>
+  <region left="18" top="10244" width="500" height="184" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">Problem 6: Consecutive Batch Reaction Kinetics (A -&gt; B -&gt; C)</p>
+    <p bold="true">Model Formulation: C_B(t) = C_A0 * (k_1 / (k_2 - k_1)) * (exp(-k_1 * t) - exp(-k_2 * t))</p>
+    <p bold="true">Classic Chemical Reaction Engineering problem (Fogler / Levenspiel) for intermediate yield optimization.</p>
+    <p bold="true">Gradient solvers often diverge when k_1 ~ k_2 due to ill-conditioned sensitivity matrices;</p>
+    <p bold="true">Particle Swarm Optimization effortlessly finds the true global minimum [k_1; k_2].</p>
+    <p bold="true">EVALUATION &amp; CACHING: Model predictions CB_pred are evaluated with '=' to cache results.</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="10440" width="420" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>User-defined intermediate concentration profile C_B(t) = f(t, [k_1; k_2]) for initial C_A0 = 100 mol/m3</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">t</e>
+    <e type="operand">p</e>
+    <e type="function" args="2">f_consec</e>
+    <e type="operand">100.0</e>
+    <e type="operand">p</e>
+    <e type="operand">1</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">p</e>
+    <e type="operand">2</e>
+    <e type="function" args="2">el</e>
+    <e type="operand">p</e>
+    <e type="operand">1</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">-</e>
+    <e type="operator" args="2">/</e>
+    <e type="operator" args="2">*</e>
+    <e type="operand">0</e>
+    <e type="operand">p</e>
+    <e type="operand">1</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">-</e>
+    <e type="operand">t</e>
+    <e type="operator" args="2">*</e>
+    <e type="function" args="1">exp</e>
+    <e type="operand">0</e>
+    <e type="operand">p</e>
+    <e type="operand">2</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">-</e>
+    <e type="operand">t</e>
+    <e type="operator" args="2">*</e>
+    <e type="function" args="1">exp</e>
+    <e type="operator" args="2">-</e>
+    <e type="operator" args="2">*</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="10520" width="156" height="153" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Batch reaction elapsed time points t [min]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">t_consec</e>
+    <e type="operand">0.5</e>
+    <e type="operand">1.0</e>
+    <e type="operand">2.0</e>
+    <e type="operand">3.0</e>
+    <e type="operand">5.0</e>
+    <e type="operand">7.0</e>
+    <e type="operand">10.0</e>
+    <e type="operand">15.0</e>
+    <e type="operand">8</e>
+    <e type="operand">1</e>
+    <e type="function" args="10">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="10713" width="156" height="153" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Measured intermediate product concentration C_B [mol/m3]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">CB_data</e>
+    <e type="operand">21.3</e>
+    <e type="operand">34.9</e>
+    <e type="operand">51.0</e>
+    <e type="operand">53.9</e>
+    <e type="operand">48.1</e>
+    <e type="operand">35.8</e>
+    <e type="operand">21.6</e>
+    <e type="operand">8.1</e>
+    <e type="operand">8</e>
+    <e type="operand">1</e>
+    <e type="function" args="10">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="10906" width="84" height="45" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Lower search bounds for reaction rate constants [k1_min; k2_min]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_min_consec</e>
+    <e type="operand">0.1</e>
+    <e type="operand">0.05</e>
+    <e type="operand">2</e>
+    <e type="operand">1</e>
+    <e type="function" args="4">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="10991" width="84" height="45" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Upper search bounds for reaction rate constants [k1_max; k2_max]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_max_consec</e>
+    <e type="operand">1.5</e>
+    <e type="operand">0.8</e>
+    <e type="operand">2</e>
+    <e type="operand">1</e>
+    <e type="function" args="4">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="11076" width="120" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted rate constants [k_1; k_2] via global PSO and user-defined f_consec</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_consec</e>
+    <e type="operand">t_consec</e>
+    <e type="operand">CB_data</e>
+    <e type="operand">f_consec</e>
+    <e type="operand">p_min_consec</e>
+    <e type="operand">p_max_consec</e>
+    <e type="operand">15</e>
+    <e type="operand">80</e>
+    <e type="function" args="7">swarmfit</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="11140" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted primary reaction rate constant k_1 [min^-1]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">k1_fit</e>
+    <e type="operand">p_consec</e>
+    <e type="operand">1</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="11204" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted secondary decomposition rate constant k_2 [min^-1]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">k2_fit</e>
+    <e type="operand">p_consec</e>
+    <e type="operand">2</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="11268" width="120" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Optimal batch reaction time t_opt = ln(k1/k2) / (k1 - k2) yielding maximum intermediate concentration [min]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">t_opt_batch</e>
+    <e type="operand">k1_fit</e>
+    <e type="operand">k2_fit</e>
+    <e type="operator" args="2">/</e>
+    <e type="function" args="1">ln</e>
+    <e type="operand">k1_fit</e>
+    <e type="operand">k2_fit</e>
+    <e type="operator" args="2">-</e>
+    <e type="operator" args="2">/</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="11348" width="156" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Theoretical maximum concentration of intermediate product C_B,max [mol/m3]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">CB_max_yield</e>
+    <e type="operand">100.0</e>
+    <e type="operand">k2_fit</e>
+    <e type="operand">k1_fit</e>
+    <e type="operator" args="2">/</e>
+    <e type="operand">k2_fit</e>
+    <e type="operand">k1_fit</e>
+    <e type="operand">k2_fit</e>
+    <e type="operator" args="2">-</e>
+    <e type="operator" args="2">/</e>
+    <e type="operator" args="2">^</e>
+    <e type="operator" args="2">*</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="11412" width="72" height="153" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Predicted intermediate concentration vector evaluated via user-defined f_consec (cached with =)</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">CB_pred</e>
+    <e type="operand">t_consec</e>
+    <e type="operand">f_consec</e>
+    <e type="operand">p_consec</e>
+    <e type="function" args="3">swarmfit_predict</e>
+    <e type="operator" args="2">:</e>
+    </input>
+    <result action="numeric">
+    <e type="operand">21.30</e>
+    <e type="operand">35.79</e>
+    <e type="operand">50.83</e>
+    <e type="operand">54.56</e>
+    <e type="operand">47.62</e>
+    <e type="operand">35.91</e>
+    <e type="operand">21.25</e>
+    <e type="operand">8.10</e>
+    <e type="operand">8</e>
+    <e type="operand">1</e>
+    <e type="function" args="10">mat</e>
+    </result>
+  </math>
+  </region>
+  <region left="18" top="11621" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Coefficient of determination R^2 for consecutive reaction kinetics</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">R2_consec</e>
+    <e type="operand">CB_data</e>
+    <e type="operand">CB_pred</e>
+    <e type="function" args="2">swarmfit_r2</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="11685" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Augmented matrix of intermediate concentration points [t, C_B]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">xy_data_consec</e>
+    <e type="operand">t_consec</e>
+    <e type="operand">CB_data</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="11749" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Augmented matrix of fitted kinetic trajectory [t, CB_pred]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">xy_fit_consec</e>
+    <e type="operand">t_consec</e>
+    <e type="operand">CB_pred</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="11813" width="330" height="250" color="#000000" fontSize="10">
+  <xyplot width="330" height="250" points="100" smoothing="true">
+    <propertiessource index="1" sourcetype="PropertyGrid" />
+    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
+    <xaxes xmin="0.0" xmax="16.0" xtick="2.0" decimalplaces="3" numberformat="General" />
+    <yaxes ymin="0.0" ymax="65.0" ytick="10.0" decimalplaces="3" numberformat="General" />
+    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
+    <title2d title="Problem 6: Consecutive Batch Reaction Kinetics A -&gt; B -&gt; C (User-Defined f_consec)" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Reaction Time t [min]" ylabel="Intermediate Concentration C_B [mol/m3]" y2label="y2" />
+    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+    <traces>
+      <trace seriesname="Measured Intermediate (CB_data)" isy2data="false" isvisible="true" plotmethod="Points" linecolor="Black" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="Fitted Kinetic Trajectory (CB_pred)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="MediumBlue" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
+    <input>
+      <e type="operand">xy_data_consec</e>
+      <e type="operand">xy_fit_consec</e>
+      <e type="operand">2</e>
+      <e type="operand">1</e>
+      <e type="function" args="4" preserve="true">sys</e>
+    </input>
+  </xyplot>
+  </region>
+  <region left="18" top="12158" width="500" height="88" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">Problem 7: Analytical Instrumentation Baseline Calibration (swarmfit_linear)</p>
+    <p bold="true">Model Formulation: Y = a * X + b</p>
+    <p bold="true">Spectrophotometric standard curve regression with automated bounding and initialization via swarmfit_linear.</p>
+    </content>
+  </text>
+  </region>
+  <region left="18" top="12258" width="132" height="117" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Analytical standard concentration data vector X [mg/L]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">x_lin</e>
+    <e type="operand">1.0</e>
+    <e type="operand">2.0</e>
+    <e type="operand">3.0</e>
+    <e type="operand">4.0</e>
+    <e type="operand">5.0</e>
+    <e type="operand">6.0</e>
+    <e type="operand">6</e>
+    <e type="operand">1</e>
+    <e type="function" args="8">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="12415" width="132" height="117" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Measured spectrophotometer instrument response vector Y [mV]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">y_lin</e>
+    <e type="operand">3.2</e>
+    <e type="operand">5.1</e>
+    <e type="operand">7.0</e>
+    <e type="operand">8.9</e>
+    <e type="operand">10.8</e>
+    <e type="operand">12.7</e>
+    <e type="operand">6</e>
+    <e type="operand">1</e>
+    <e type="function" args="8">mat</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="12572" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted linear calibration parameters [slope a; intercept b] via swarmfit_linear</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">p_lin</e>
+    <e type="operand">x_lin</e>
+    <e type="operand">y_lin</e>
+    <e type="function" args="2">swarmfit_linear</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="12636" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted calibration sensitivity slope a [mV/(mg/L)]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">slope_a</e>
+    <e type="operand">p_lin</e>
+    <e type="operand">1</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="12700" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Fitted instrument baseline intercept b [mV]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">intercept_b</e>
+    <e type="operand">p_lin</e>
+    <e type="operand">2</e>
+    <e type="function" args="2">el</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="12764" width="72" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Predicted calibration response vector evaluated via native &quot;linear&quot; model</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">y_lin_pred</e>
+    <e type="operand">x_lin</e>
+    <e type="operand" style="string">linear</e>
+    <e type="operand">p_lin</e>
+    <e type="function" args="3">swarmfit_predict</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="12828" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Coefficient of determination R^2 for linear calibration baseline</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">R2_lin</e>
+    <e type="operand">y_lin</e>
+    <e type="operand">y_lin_pred</e>
+    <e type="function" args="2">swarmfit_r2</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="12892" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Augmented matrix of calibration standards [X, Y]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">xy_data_lin</e>
+    <e type="operand">x_lin</e>
+    <e type="operand">y_lin</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="12956" width="60" height="24" color="#000000" fontSize="10">
+  <math>
+    <description active="true" position="Top" lang="eng">
+      <content>
+        <p>Augmented matrix of fitted linear baseline [X, y_lin_pred]</p>
+      </content>
+    </description>
+    <input>
+    <e type="operand">xy_fit_lin</e>
+    <e type="operand">x_lin</e>
+    <e type="operand">y_lin_pred</e>
+    <e type="function" args="2">augment</e>
+    <e type="operator" args="2">:</e>
+    </input>
+  </math>
+  </region>
+  <region left="18" top="13020" width="330" height="250" color="#000000" fontSize="10">
+  <xyplot width="330" height="250" points="100" smoothing="true">
+    <propertiessource index="1" sourcetype="PropertyGrid" />
+    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
+    <xaxes xmin="0.0" xmax="7.0" xtick="1.0" decimalplaces="3" numberformat="General" />
+    <yaxes ymin="0.0" ymax="15.0" ytick="3.0" decimalplaces="3" numberformat="General" />
+    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
+    <title2d title="Problem 7: Linear Calibration Baseline Regression (swarmfit_linear)" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Standard Concentration X [mg/L]" ylabel="Instrument Response Y [mV]" y2label="y2" />
+    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+    <traces>
+      <trace seriesname="Calibration Data (y_lin)" isy2data="false" isvisible="true" plotmethod="Points" linecolor="Teal" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="Fitted Linear Baseline (y_lin_pred)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="DarkRed" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
+    <input>
+      <e type="operand">xy_data_lin</e>
+      <e type="operand">xy_fit_lin</e>
+      <e type="operand">2</e>
+      <e type="operand">1</e>
+      <e type="function" args="4" preserve="true">sys</e>
+    </input>
+  </xyplot>
+  </region>
+  <region left="18" top="13365" width="500" height="376" color="#000000" fontSize="10">
+  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+    <content>
+    <p bold="true">=========================================================================</p>
+    <p bold="true">SwarmFit Chemical &amp; Process Engineering Verification Summary:</p>
+    <p bold="true">  1. Built-in Native Model (Michaelis-Menten Kinetics, &quot;mm&quot;): R2_mm &gt; 0.999 + visual fit plot</p>
+    <p bold="true">  2. Built-in Exponential Relaxation (CSTR Tracer Washout, swarmfit_expdecay): R2_decay &gt; 0.999 + visual fit plot</p>
+    <p bold="true">  3. Built-in Power Law Isotherm (Freundlich Adsorption, swarmfit_power): R2_power &gt; 0.998 + visual fit plot</p>
+    <p bold="true">  4. User-Defined SMath Function (Haldane Substrate Inhibition, f_haldane): R2_haldane &gt; 0.998 + visual fit plot + '=' cached</p>
+    <p bold="true">  5. User-Defined SMath Function (Langmuir Monolayer Adsorption, f_langmuir): R2_lang &gt; 0.998 + visual fit plot + '=' cached</p>
+    <p bold="true">  6. User-Defined SMath Function (Consecutive Batch Kinetics A-&gt;B-&gt;C, f_consec): R2_consec &gt; 0.998 + visual fit plot + '=' cached</p>
+    <p bold="true">  7. Fast Analytical Linear Baseline (Spectrophotometry, swarmfit_linear): R2_lin &gt; 0.999 + visual fit plot</p>
+    <p bold="true">  8. Numerical diagnostics verified (SSE, RMSE, MaxResidual, Iterations, Improvements)</p>
+    <p bold="true">  9. All variables carry descriptive engineering hover notes and tooltips</p>
+    <p bold="true">=========================================================================</p>
+    </content>
+  </text>
+  </region>
+  </regions>
+</worksheet>

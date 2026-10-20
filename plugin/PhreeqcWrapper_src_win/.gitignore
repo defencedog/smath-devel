@@ -1,0 +1,18 @@
+# Build output
+src/bin/
+src/obj/
+tests/bin/
+tests/obj/
+build/
+native/_build_x86/
+native/_build_x64/
+
+# Reference assemblies (restored by build.ps1, see README)
+packages/
+
+# Editor / OS noise
+.vs/
+*.user
+*.suo
+Thumbs.db
+.DS_Store
