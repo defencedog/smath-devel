@@ -28,6 +28,29 @@ Each contains the wrapper assembly (`*Wrapper.dll`), its `.ini`, `metadata/*.jso
 where the plugin needs one — the native engines. CoolProp and Phreeqc also ship the Linux `.so` and
 (Phreeqc) its `databases/*.dat` set.
 
+## Worked examples — `examples/`
+
+Each `examples/` folder holds runnable SMath worksheets (`.sm`) with a rendered PDF (`.pdf`) beside
+them, so the expected output is visible without opening SMath:
+
+| Worksheet | Rendered |
+| :--- | :--- |
+| `IF97_src_win/examples/if97_steam_tables.sm` | `if97_steam_tables.pdf` (1.31 MB) |
+| `PsychroLib_src_win/examples/psychrolib_psychrometrics.sm` | `psychrolib_psychrometrics.pdf` (2.00 MB) |
+| `PsychroLib_src_win/examples/cooling_tower_water_makeup_psychrometrics.sm` | `cooling_tower_water_makeup_psychrometrics.pdf` (3.55 MB) |
+| `SwarmFit_src_win/examples/swarmfit_parameter_estimation.sm` | `swarmfit_parameter_estimation.pdf` (1.90 MB) |
+| `PhreeqcWrapper_src_win/examples/cooling_water_scaling_wet_utilities.sm` | *(no PDF yet)* |
+
+To run one, install the matching plugin from `dist/` and open the `.sm` in SMath Studio. The
+worksheets carry their own expected results, so a build that is wrong will disagree with them.
+
+Notes:
+
+- `CoolPropWrapper_src_win` has **no** `examples/` folder.
+- The Phreeqc worksheet is the current one and has no PDF; the other four were refreshed.
+- Worked-example snippets also appear in each project's own README (`## Worked examples`), which
+  describe results inline rather than shipping the sheet.
+
 > Older builds also appear under some `reference/*.zip`; those are superseded by `dist/`.
 
 ## ⚠️ The bundled Linux `.so` files are **aarch64** — replace them for x86-64 Linux

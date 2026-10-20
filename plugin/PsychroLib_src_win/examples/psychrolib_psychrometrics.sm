@@ -4,10 +4,10 @@
   <settings ppi="96">
     <identity>
       <id>a1d43899-26fc-4d88-8f9b-c644865c4bc9</id>
-      <revision>1</revision>
+      <revision>6</revision>
     </identity>
     <calculation>
-      <precision>4</precision>
+      <precision>3</precision>
       <exponentialThreshold>5</exponentialThreshold>
       <trailingZeros>false</trailingZeros>
       <significantDigitsMode>false</significantDigitsMode>
@@ -27,39 +27,39 @@
       <assembly name="SMath Core" version="1.75.9678.0" guid="a37cba83-b69c-4c71-9992-55ff666763bd" />
       <assembly name="MathRegion" version="1.75.9678.0" guid="02f1ab51-215b-466e-a74d-5d8b1cf85e8d" />
       <assembly name="SpecialFunctions" version="1.75.9678.0" guid="2814e667-4e12-48b1-8d51-194e480eabc5" />
-      <assembly name="TextRegion" version="1.75.9678.0" guid="485d28c5-349a-48b6-93be-12a35a1c1e39" />
       <assembly name="PsychroLib Wrapper" version="1.2.0.0" guid="36a0265c-b529-4440-88e1-88f9226cee6a" />
-      <assembly name="X-Y Plot Region (Chart2DLib)" version="0.4.9441.40064" guid="c12231ec-4873-43c1-a7d0-a167ebd17066" />
+      <assembly name="TextRegion" version="1.75.9678.0" guid="485d28c5-349a-48b6-93be-12a35a1c1e39" />
+      <assembly name="X-Y Plot Region (JXCharts)" version="0.4.9441.40064" guid="c12231ec-4873-43c1-a7d0-a167ebd17066" />
     </dependencies>
   </settings>
   <regions type="content">
-  <region left="18" top="9" width="476" height="24" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+    <region left="18" top="9" width="502" height="24" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">ASHRAE 2017 Moist Air Psychrometrics &amp; HVAC Engineering Calculations</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="45" width="70" height="24" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+      </text>
+    </region>
+    <region left="18" top="45" width="91" height="24" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="false">2026-10-20</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="81" width="500" height="136" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+      </text>
+    </region>
+    <region left="18" top="81" width="750" height="133" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">ASHRAE Handbook — Fundamentals (2017) Moist Air Psychrometrics Plugin for SMath Studio</p>
     <p bold="true">High-Precision Analytical &amp; Iterative Formulations for Building HVAC, Meteorology &amp; Process Design</p>
     <p bold="true">Native Assembly: PsychroLibWrapper.dll (Plugin GUID: 36a0265c-b529-4440-88e1-88f9226cee6a, v1.2.0.0)</p>
     <p bold="true">Strict SI Unit Guarantee: Pressure [Pa], Temperature [K], Enthalpy [J/kg] (m^2/s^2), Volume [m³/kg], Density [kg/m³]</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="229" width="500" height="360" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+      </text>
+    </region>
+    <region left="18" top="225" width="748" height="412" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="false">The ASHRAE 2017 formulation represents the gold standard in building environmental engineering,</p>
     <p bold="false">meteorological science, and industrial drying/conditioning processes. It models moist air as an</p>
     <p bold="false">ideal mixture of dry air and water vapor, accurately accounting for the temperature dependence of</p>
@@ -74,1855 +74,2131 @@
     <p bold="false">  4. Comprehensive 40-Function API: Clean Psy_&lt;Property&gt;_&lt;Inputs&gt; nomenclature covering dry air,</p>
     <p bold="false">     saturated air, moist air mixtures, altimetry, and backward inversions.</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="601" width="500" height="56" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+      </text>
+    </region>
+    <region left="18" top="648" width="761" height="71" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Section 1: Standard Atmosphere Altimetry &amp; Barometric Reductions</p>
     <p bold="true">Evaluation of ambient barometric pressure and temperature profiles from sea level to elevated sites (z = 1200 m).</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="669" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="729" width="122" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>HVAC project site elevation above mean sea level: 1200 m</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">z_site</e>
-    <e type="operand">1200</e>
-    <e type="operand" style="unit">m</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="733" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">z_site</e>
+          <e type="operand">1200</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="792" width="412" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Standard atmospheric pressure at 1200 m: 87715.52 Pa (0.877 bar)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">p_atm_site</e>
-    <e type="operand">z_site</e>
-    <e type="function" args="1">Psy_AtmPressure</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="797" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">p_atm_site</e>
+          <e type="operand">z_site</e>
+          <e type="function" args="1">Psy_AtmPressure</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">87715.5216</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="864" width="396" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Standard atmospheric temperature at 1200 m: 280.35 K (7.20 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_atm_site</e>
-    <e type="operand">z_site</e>
-    <e type="function" args="1">Psy_AtmTemperature</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="861" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_atm_site</e>
+          <e type="operand">z_site</e>
+          <e type="function" args="1">Psy_AtmTemperature</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">280.35</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="927" width="170" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Measured weather station barometric pressure: 87500 Pa (87.5 kPa)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">p_stn_meas</e>
-    <e type="operand">87500</e>
-    <e type="operand" style="unit">Pa</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="925" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">p_stn_meas</e>
+          <e type="operand">87500</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1008" width="170" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Measured station ambient temperature: 293.15 K (20.0 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_stn_meas</e>
-    <e type="operand">293.15</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="989" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_stn_meas</e>
+          <e type="operand">293.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1071" width="635" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Reduced sea-level barometric pressure: 100449.25 Pa (100.45 kPa)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">p_sl_calc</e>
-    <e type="operand">p_stn_meas</e>
-    <e type="operand">z_site</e>
-    <e type="operand">T_stn_meas</e>
-    <e type="function" args="3">Psy_SeaLevelPressure</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1053" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">p_sl_calc</e>
+          <e type="operand">p_stn_meas</e>
+          <e type="operand">z_site</e>
+          <e type="operand">T_stn_meas</e>
+          <e type="function" args="3">Psy_SeaLevelPressure</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.0045</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1134" width="600" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Inverse verification of station pressure from sea level: 87500.00 Pa</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">p_stn_verify</e>
-    <e type="operand">p_sl_calc</e>
-    <e type="operand">z_site</e>
-    <e type="operand">T_stn_meas</e>
-    <e type="function" args="3">Psy_StationPressure</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1117" width="500" height="56" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">p_stn_verify</e>
+          <e type="operand">p_sl_calc</e>
+          <e type="operand">z_site</e>
+          <e type="operand">T_stn_meas</e>
+          <e type="function" args="3">Psy_StationPressure</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">87500</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1197" width="759" height="55" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Section 2: Reference Air State &amp; Psychrometric Properties Evaluation</p>
     <p bold="true">Complete thermodynamic characterization of summer outdoor air at 35 °C dry-bulb and 60% relative humidity.</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="1185" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="1269" width="138" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Standard sea-level atmospheric pressure: 101325 Pa (1.01325 bar)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">p_ref</e>
-    <e type="operand">101325</e>
-    <e type="operand" style="unit">Pa</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1249" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">p_ref</e>
+          <e type="operand">101325</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1332" width="154" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Summer design dry-bulb temperature: 308.15 K (35.0 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">308.15</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1313" width="44" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">308.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1395" width="110" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Design relative humidity: 0.60 (60%)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">RH_ref</e>
-    <e type="operand">0.60</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1377" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">RH_ref</e>
+          <e type="operand">0.60</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1458" width="396" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturation vapor pressure at 35 °C: 5627.82 Pa (5.628 kPa)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">p_ws_ref</e>
-    <e type="operand">T_db_ref</e>
-    <e type="function" args="1">Psy_SatVapPres</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1441" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">p_ws_ref</e>
+          <e type="operand">T_db_ref</e>
+          <e type="function" args="1">Psy_SatVapPres</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">5627.8194</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1521" width="450" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Partial water vapor pressure: 3376.69 Pa (3.377 kPa)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">p_v_ref</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">RH_ref</e>
-    <e type="function" args="2">Psy_VapPres_RH</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1505" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">p_v_ref</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">RH_ref</e>
+          <e type="function" args="2">Psy_VapPres_RH</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">3376.6917</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1584" width="452" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Humidity ratio W: 0.021441 kg_H2O/kg_dry_air (21.44 g/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">W_ref</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">RH_ref</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_HumRatio_RH</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1569" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">W_ref</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">RH_ref</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_HumRatio_RH</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0214</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1647" width="280" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Specific humidity SH = W/(1+W): 0.020991 kg_H2O/kg_moist_air</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">SH_ref</e>
-    <e type="operand">W_ref</e>
-    <e type="function" args="1">Psy_SpecHum</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1633" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">SH_ref</e>
+          <e type="operand">W_ref</e>
+          <e type="function" args="1">Psy_SpecHum</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.021</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1710" width="450" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Dew-point temperature Tdp: 299.22 K (26.07 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_dp_ref</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">RH_ref</e>
-    <e type="function" args="2">Psy_TDewPoint_RH</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1697" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_dp_ref</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">RH_ref</e>
+          <e type="function" args="2">Psy_TDewPoint_RH</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">299.218</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1782" width="504" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Thermodynamic wet-bulb temperature Twb: 301.32 K (28.17 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_wb_ref</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">RH_ref</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_TWetBulb_RH</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1761" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_wb_ref</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">RH_ref</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_TWetBulb_RH</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">301.3248</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1845" width="418" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Moist air specific enthalpy h: 90229.93 J/kg (90.23 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_ref</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">W_ref</e>
-    <e type="function" args="2">Psy_Enthalpy</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1825" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_ref</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">W_ref</e>
+          <e type="function" args="2">Psy_Enthalpy</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">90229.9288</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1908" width="446" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Moist air specific volume v: 0.90305 m³/kg_dry_air</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">v_ref</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">W_ref</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_AirVolume</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1889" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">v_ref</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">W_ref</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_AirVolume</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.903</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1971" width="478" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Moist air density rho: 1.1311 kg/m³</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">rho_ref</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">W_ref</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_AirDensity</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1953" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">rho_ref</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">W_ref</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_AirDensity</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.1311</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2034" width="468" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Degree of saturation mu = W/Wsat: 0.5862</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">mu_ref</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">W_ref</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_DegSaturation</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2017" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">mu_ref</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">W_ref</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_DegSaturation</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.5862</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2097" width="440" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Vapor pressure deficit VPD = pws - pv: 2251.13 Pa (2.251 kPa)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">VPD_ref</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">W_ref</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_VPD</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2081" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">VPD_ref</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">W_ref</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_VPD</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2251.1278</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2160" width="396" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Dry air sensible enthalpy: 35210.00 J/kg (35.21 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_da_ref</e>
-    <e type="operand">T_db_ref</e>
-    <e type="function" args="1">Psy_DryAirEnthalpy</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2145" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_da_ref</e>
+          <e type="operand">T_db_ref</e>
+          <e type="function" args="1">Psy_DryAirEnthalpy</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">35210</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2223" width="440" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Dry air specific volume: 0.87295 m³/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">v_da_ref</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="2">Psy_DryAirVolume</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2209" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">v_da_ref</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="2">Psy_DryAirVolume</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.873</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2286" width="472" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Dry air density: 1.1455 kg/m³</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">rho_da_ref</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="2">Psy_DryAirDensity</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2273" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">rho_da_ref</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="2">Psy_DryAirDensity</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.1455</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2358" width="422" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturation humidity ratio at 35 °C: 0.036576 kg/kg (36.58 g/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">W_sat_ref</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="2">Psy_SatHumRatio</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2337" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">W_sat_ref</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="2">Psy_SatHumRatio</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0366</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2421" width="477" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturation moist air enthalpy: 129066.98 J/kg (129.07 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_sat_ref</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="2">Psy_SatEnthalpy</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2401" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_sat_ref</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="2">Psy_SatEnthalpy</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.2907</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2484" width="466" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Inverted dry-bulb temperature from enthalpy and humidity ratio: 308.15 K (35.0 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_db_inv_h</e>
-    <e type="operand">h_ref</e>
-    <e type="operand">W_ref</e>
-    <e type="function" args="2">Psy_TDryBulb_Enthalpy</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2481" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_db_inv_h</e>
+          <e type="operand">h_ref</e>
+          <e type="operand">W_ref</e>
+          <e type="function" args="2">Psy_TDryBulb_Enthalpy</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">308.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2565" width="504" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Inverted dry-bulb temperature from specific volume: 308.15 K (35.0 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_db_inv_v</e>
-    <e type="operand">v_ref</e>
-    <e type="operand">W_ref</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_TDryBulb_Volume</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2545" width="500" height="56" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">T_db_inv_v</e>
+          <e type="operand">v_ref</e>
+          <e type="operand">W_ref</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_TDryBulb_Volume</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">308.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2628" width="629" height="55" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Section 3: Cross-Property Inversion &amp; State Verification</p>
     <p bold="true">Verification of inverse relations and cross-dependencies across the 40 PsychroLib functions.</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="2613" width="44" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="2691" width="110" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Temperature in Celsius reading: 25 °C</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_C_test</e>
-    <e type="operand">25</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2677" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_C_test</e>
+          <e type="operand">25</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2754" width="420" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Temperature conversion helper: Psy_CelsiusToKelvin(25) = 298.15 K</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_K_from_C</e>
-    <e type="operand">T_C_test</e>
-    <e type="function" args="1">Psy_CelsiusToKelvin</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2741" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_K_from_C</e>
+          <e type="operand">T_C_test</e>
+          <e type="function" args="1">Psy_CelsiusToKelvin</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">298.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2826" width="392" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Inverse temperature conversion helper: Psy_KelvinToCelsius(298.15) = 25.0 °C</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_C_from_K</e>
-    <e type="operand">T_K_from_C</e>
-    <e type="function" args="1">Psy_KelvinToCelsius</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2805" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_C_from_K</e>
+          <e type="operand">T_K_from_C</e>
+          <e type="function" args="1">Psy_KelvinToCelsius</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">25</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2889" width="452" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Recover relative humidity from humidity ratio: Psy_RH_HumRatio = 0.60 (60% exact)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">RH_from_W</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">W_ref</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_RH_HumRatio</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2885" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">RH_from_W</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">W_ref</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_RH_HumRatio</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.6</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2970" width="492" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Recover relative humidity from wet-bulb temperature: Psy_RH_TWetBulb = 0.60</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">RH_from_Twb</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">T_wb_ref</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_RH_TWetBulb</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2949" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">RH_from_Twb</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">T_wb_ref</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_RH_TWetBulb</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.6</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3033" width="446" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Recover relative humidity from dew-point temperature: Psy_RH_TDewPoint = 0.60</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">RH_from_Tdp</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">T_dp_ref</e>
-    <e type="function" args="2">Psy_RH_TDewPoint</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3013" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">RH_from_Tdp</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">T_dp_ref</e>
+          <e type="function" args="2">Psy_RH_TDewPoint</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.6</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3096" width="414" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Recover relative humidity from vapor pressure: Psy_RH_VapPres = 0.60</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">RH_from_pv</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">p_v_ref</e>
-    <e type="function" args="2">Psy_RH_VapPres</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3077" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">RH_from_pv</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">p_v_ref</e>
+          <e type="function" args="2">Psy_RH_VapPres</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.6</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3159" width="556" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Recover humidity ratio from wet-bulb temperature: 0.021441 kg/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">W_from_Twb</e>
-    <e type="operand">T_db_ref</e>
-    <e type="operand">T_wb_ref</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_HumRatio_TWetBulb</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3141" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">W_from_Twb</e>
+          <e type="operand">T_db_ref</e>
+          <e type="operand">T_wb_ref</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_HumRatio_TWetBulb</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0214</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3222" width="486" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Recover humidity ratio from dew-point temperature: 0.021441 kg/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">W_from_Tdp</e>
-    <e type="operand">T_dp_ref</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="2">Psy_HumRatio_TDewPoint</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3205" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">W_from_Tdp</e>
+          <e type="operand">T_dp_ref</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="2">Psy_HumRatio_TDewPoint</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0214</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3285" width="462" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Recover humidity ratio from enthalpy: 0.021441 kg/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">W_from_h</e>
-    <e type="operand">h_ref</e>
-    <e type="operand">T_db_ref</e>
-    <e type="function" args="2">Psy_HumRatio_Enthalpy</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3269" width="500" height="88" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">W_from_h</e>
+          <e type="operand">h_ref</e>
+          <e type="operand">T_db_ref</e>
+          <e type="function" args="2">Psy_HumRatio_Enthalpy</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0214</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3348" width="765" height="102" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Section 4: HVAC Cooling and Dehumidification Coil Simulation</p>
     <p bold="true">Air handling unit (AHU) cooling coil simulation conditioning 2.5 kg/s of fresh outdoor air.</p>
     <p bold="true">Air enters at 32 °C, 65% RH and is cooled below its dew point to an apparatus dew point (ADP) of 10 °C with BF = 0.12.</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="3369" width="84" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="3447" width="142" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Dry air mass flow rate: 2.5 kg/s</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">m_dot_da</e>
-    <e type="operand">2.5</e>
-    <e type="operand" style="unit">kg</e>
-    <e type="operator" args="2">*</e>
-    <e type="operand" style="unit">s</e>
-    <e type="operator" args="2">/</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3433" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">m_dot_da</e>
+          <e type="operand">2.5</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="3510" width="122" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Entering air dry-bulb temperature: 305.15 K (32.0 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_in</e>
-    <e type="operand">305.15</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3497" width="44" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_in</e>
+          <e type="operand">305.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="3582" width="102" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Entering air relative humidity: 0.65 (65%)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">RH_in</e>
-    <e type="operand">0.65</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3561" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">RH_in</e>
+          <e type="operand">0.65</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="3645" width="404" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Entering humidity ratio W_in: 0.019583 kg/kg (19.58 g/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">W_in</e>
-    <e type="operand">T_in</e>
-    <e type="operand">RH_in</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_HumRatio_RH</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3625" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">W_in</e>
+          <e type="operand">T_in</e>
+          <e type="operand">RH_in</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_HumRatio_RH</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0196</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3708" width="370" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Entering specific enthalpy h_in: 82335.42 J/kg (82.34 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_in</e>
-    <e type="operand">T_in</e>
-    <e type="operand">W_in</e>
-    <e type="function" args="2">Psy_Enthalpy</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3689" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_in</e>
+          <e type="operand">T_in</e>
+          <e type="operand">W_in</e>
+          <e type="function" args="2">Psy_Enthalpy</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">82335.4176</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3771" width="410" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Entering dew point: 297.74 K (24.59 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_dp_in</e>
-    <e type="operand">T_in</e>
-    <e type="operand">RH_in</e>
-    <e type="function" args="2">Psy_TDewPoint_RH</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3753" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_dp_in</e>
+          <e type="operand">T_in</e>
+          <e type="operand">RH_in</e>
+          <e type="function" args="2">Psy_TDewPoint_RH</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">297.7425</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3834" width="130" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Coil Apparatus Dew Point (ADP) surface temperature: 283.15 K (10.0 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_adp</e>
-    <e type="operand">283.15</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3817" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_adp</e>
+          <e type="operand">283.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="3897" width="366" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturation humidity ratio at coil ADP: 0.007630 kg/kg (7.63 g/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">W_adp</e>
-    <e type="operand">T_adp</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="2">Psy_SatHumRatio</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3881" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">W_adp</e>
+          <e type="operand">T_adp</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="2">Psy_SatHumRatio</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0076</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3960" width="418" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturation enthalpy at coil ADP: 29284.68 J/kg (29.28 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_adp</e>
-    <e type="operand">T_adp</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="2">Psy_SatEnthalpy</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3945" width="44" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_adp</e>
+          <e type="operand">T_adp</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="2">Psy_SatEnthalpy</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">29284.6833</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4023" width="78" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Coil bypass factor BF: 0.12 (Contact Factor CF = 0.88)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">BF</e>
-    <e type="operand">0.12</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4009" width="108" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">BF</e>
+          <e type="operand">0.12</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="4086" width="334" height="26" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Leaving air dry-bulb temperature T_out: 285.79 K (12.64 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_out</e>
-    <e type="operand">T_adp</e>
-    <e type="operand">BF</e>
-    <e type="operand">T_in</e>
-    <e type="operand">T_adp</e>
-    <e type="operator" args="2">-</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">+</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4073" width="108" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_out</e>
+          <e type="operand">T_adp</e>
+          <e type="operand">BF</e>
+          <e type="operand">T_in</e>
+          <e type="operand">T_adp</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">285.79</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4158" width="322" height="26" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Leaving air humidity ratio W_out: 0.009064 kg/kg (9.06 g/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">W_out</e>
-    <e type="operand">W_adp</e>
-    <e type="operand">BF</e>
-    <e type="operand">W_in</e>
-    <e type="operand">W_adp</e>
-    <e type="operator" args="2">-</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">+</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4137" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">W_out</e>
+          <e type="operand">W_adp</e>
+          <e type="operand">BF</e>
+          <e type="operand">W_in</e>
+          <e type="operand">W_adp</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0091</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4221" width="394" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Leaving air specific enthalpy h_out: 35599.12 J/kg (35.60 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_out</e>
-    <e type="operand">T_out</e>
-    <e type="operand">W_out</e>
-    <e type="function" args="2">Psy_Enthalpy</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4201" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_out</e>
+          <e type="operand">T_out</e>
+          <e type="operand">W_out</e>
+          <e type="function" args="2">Psy_Enthalpy</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">35599.1197</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4284" width="420" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Leaving air relative humidity RH_out: 0.9950 (99.50% near-saturated)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">RH_out</e>
-    <e type="operand">T_out</e>
-    <e type="operand">W_out</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_RH_HumRatio</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4265" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">RH_out</e>
+          <e type="operand">T_out</e>
+          <e type="operand">W_out</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_RH_HumRatio</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.995</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4347" width="528" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Leaving air dew point Tdp_out: 285.71 K (12.56 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_dp_out</e>
-    <e type="operand">T_out</e>
-    <e type="operand">W_out</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_TDewPoint_HumRatio</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4329" width="84" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_dp_out</e>
+          <e type="operand">T_out</e>
+          <e type="operand">W_out</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_TDewPoint_HumRatio</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">285.7131</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4410" width="352" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Moisture condensation removal rate: 0.026297 kg/s</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">m_dot_w</e>
-    <e type="operand">m_dot_da</e>
-    <e type="operand">W_in</e>
-    <e type="operand">W_out</e>
-    <e type="operator" args="2">-</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4393" width="300" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">m_dot_w</e>
+          <e type="operand">m_dot_da</e>
+          <e type="operand">W_in</e>
+          <e type="operand">W_out</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0263</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4473" width="318" height="110" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Condensate drainage volume rate: 94.67 L/hr</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">V_dot_condense</e>
-    <e type="operand">m_dot_w</e>
-    <e type="operand">1000</e>
-    <e type="operand" style="unit">kg</e>
-    <e type="operator" args="2">*</e>
-    <e type="operand" style="unit">m</e>
-    <e type="operand">3</e>
-    <e type="operator" args="2">^</e>
-    <e type="operator" args="2">/</e>
-    <e type="operator" args="2">/</e>
-    <e type="operand">3600</e>
-    <e type="operator" args="2">*</e>
-    <e type="operand" style="unit">s</e>
-    <e type="operator" args="2">*</e>
-    <e type="operand" style="unit">hr</e>
-    <e type="operator" args="2">/</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">*</e>
-    <e type="operand" style="unit">L</e>
-    <e type="operator" args="2">*</e>
-    <e type="operand" style="unit">m</e>
-    <e type="operand">3</e>
-    <e type="operator" args="2">^</e>
-    <e type="operator" args="2">/</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4457" width="84" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">V_dot_condense</e>
+          <e type="operand">m_dot_w</e>
+          <e type="operand">1000</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">3600</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">hr</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">L</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="4608" width="375" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Total coil cooling capacity: 116840.74 W (116.84 kW)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">q_total</e>
-    <e type="operand">m_dot_da</e>
-    <e type="operand">h_in</e>
-    <e type="operand">h_out</e>
-    <e type="operator" args="2">-</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4521" width="300" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">q_total</e>
+          <e type="operand">m_dot_da</e>
+          <e type="operand">h_in</e>
+          <e type="operand">h_out</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.1684</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4671" width="549" height="60" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Sensible cooling load: 50453.37 W (50.45 kW)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">q_sens</e>
-    <e type="operand">m_dot_da</e>
-    <e type="operand">1006</e>
-    <e type="operand" style="unit">J</e>
-    <e type="operator" args="2">*</e>
-    <e type="operand" style="unit">kg</e>
-    <e type="operator" args="2">/</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">/</e>
-    <e type="operand">1860</e>
-    <e type="operand" style="unit">J</e>
-    <e type="operator" args="2">*</e>
-    <e type="operand" style="unit">kg</e>
-    <e type="operator" args="2">/</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">/</e>
-    <e type="operand">W_in</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">+</e>
-    <e type="operator" args="2">*</e>
-    <e type="operand">T_in</e>
-    <e type="operand">T_out</e>
-    <e type="operator" args="2">-</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4585" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">q_sens</e>
+          <e type="operand">m_dot_da</e>
+          <e type="operand">1006</e>
+          <e type="operand" style="unit">J</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">1860</e>
+          <e type="operand" style="unit">J</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">W_in</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">T_in</e>
+          <e type="operand">T_out</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">50453.3665</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4752" width="325" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Latent dehumidification load: 66387.38 W (66.39 kW)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">q_latent</e>
-    <e type="operand">q_total</e>
-    <e type="operand">q_sens</e>
-    <e type="operator" args="2">-</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4649" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">q_latent</e>
+          <e type="operand">q_total</e>
+          <e type="operand">q_sens</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">66387.3784</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4824" width="180" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Sensible Heat Ratio SHR = q_sens / q_total: 0.4318 (43.18% sensible)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">SHR</e>
-    <e type="operand">q_sens</e>
-    <e type="operand">q_total</e>
-    <e type="operator" args="2">/</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4713" width="500" height="88" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">SHR</e>
+          <e type="operand">q_sens</e>
+          <e type="operand">q_total</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.4318</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4977" width="754" height="86" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Section 5: Direct Evaporative Cooling in Arid Climate</p>
     <p bold="true">Simulation of direct evaporative cooling (swamp cooler) operating in hot, desert ambient conditions.</p>
     <p bold="true">Intake air at 40 °C, 15% RH is adiabatically humidified across a media pack with 85% saturation effectiveness.</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="4813" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="5076" width="162" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Desert ambient dry-bulb temperature: 313.15 K (40.0 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_dry_amb</e>
-    <e type="operand">313.15</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4877" width="44" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_dry_amb</e>
+          <e type="operand">313.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="5139" width="142" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Desert ambient relative humidity: 0.15 (15%)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">RH_dry_amb</e>
-    <e type="operand">0.15</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4941" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">RH_dry_amb</e>
+          <e type="operand">0.15</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="5202" width="524" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Ambient humidity ratio W_dry: 0.006873 kg/kg (6.87 g/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">W_dry_amb</e>
-    <e type="operand">T_dry_amb</e>
-    <e type="operand">RH_dry_amb</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_HumRatio_RH</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="5005" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">W_dry_amb</e>
+          <e type="operand">T_dry_amb</e>
+          <e type="operand">RH_dry_amb</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_HumRatio_RH</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0069</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="5265" width="490" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Ambient air enthalpy h_dry: 57941.27 J/kg (57.94 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_dry_amb</e>
-    <e type="operand">T_dry_amb</e>
-    <e type="operand">W_dry_amb</e>
-    <e type="function" args="2">Psy_Enthalpy</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="5069" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_dry_amb</e>
+          <e type="operand">T_dry_amb</e>
+          <e type="operand">W_dry_amb</e>
+          <e type="function" args="2">Psy_Enthalpy</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">57941.2679</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="5328" width="544" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Ambient wet-bulb limit Twb: 293.51 K (20.36 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_wb_dry</e>
-    <e type="operand">T_dry_amb</e>
-    <e type="operand">RH_dry_amb</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_TWetBulb_RH</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="5133" width="44" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_wb_dry</e>
+          <e type="operand">T_dry_amb</e>
+          <e type="operand">RH_dry_amb</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_TWetBulb_RH</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">293.5056</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="5391" width="126" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Evaporative media saturation effectiveness: 0.85 (85%)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">eta_evap</e>
-    <e type="operand">0.85</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="5197" width="108" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">eta_evap</e>
+          <e type="operand">0.85</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="5454" width="533" height="26" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Supply air dry-bulb temperature: 296.45 K (23.30 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_evap_out</e>
-    <e type="operand">T_dry_amb</e>
-    <e type="operand">eta_evap</e>
-    <e type="operand">T_dry_amb</e>
-    <e type="operand">T_wb_dry</e>
-    <e type="operator" args="2">-</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">-</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="5261" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_evap_out</e>
+          <e type="operand">T_dry_amb</e>
+          <e type="operand">eta_evap</e>
+          <e type="operand">T_dry_amb</e>
+          <e type="operand">T_wb_dry</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">296.4523</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="5526" width="526" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Supply air humidity ratio (constant enthalpy process): 0.013559 kg/kg (13.56 g/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">W_evap_out</e>
-    <e type="operand">h_dry_amb</e>
-    <e type="operand">T_evap_out</e>
-    <e type="function" args="2">Psy_HumRatio_Enthalpy</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="5341" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">W_evap_out</e>
+          <e type="operand">h_dry_amb</e>
+          <e type="operand">T_evap_out</e>
+          <e type="function" args="2">Psy_HumRatio_Enthalpy</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0136</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="5598" width="548" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Supply air relative humidity: 0.7553 (75.53% comfortable)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">RH_evap_out</e>
-    <e type="operand">T_evap_out</e>
-    <e type="operand">W_evap_out</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_RH_HumRatio</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="5405" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">RH_evap_out</e>
+          <e type="operand">T_evap_out</e>
+          <e type="operand">W_evap_out</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_RH_HumRatio</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.7553</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="5670" width="648" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Supply air dew point: 291.89 K (18.74 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_dp_evap_out</e>
-    <e type="operand">T_evap_out</e>
-    <e type="operand">W_evap_out</e>
-    <e type="operand">p_ref</e>
-    <e type="function" args="3">Psy_TDewPoint_HumRatio</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="5469" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_dp_evap_out</e>
+          <e type="operand">T_evap_out</e>
+          <e type="operand">W_evap_out</e>
+          <e type="operand">p_ref</e>
+          <e type="function" args="3">Psy_TDewPoint_HumRatio</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">291.8863</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="5733" width="381" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Temperature reduction achieved by evaporative cooling: 16.70 K (16.70 °C cooling)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">delta_T_cool</e>
-    <e type="operand">T_dry_amb</e>
-    <e type="operand">T_evap_out</e>
-    <e type="operator" args="2">-</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="5549" width="500" height="104" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">delta_T_cool</e>
+          <e type="operand">T_dry_amb</e>
+          <e type="operand">T_evap_out</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">16.6977</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="5814" width="673" height="86" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Section 6: High-Resolution 2D Visualizations &amp; Psychrometric Chart Curves</p>
     <p bold="true">Interactive engineering charts rendered via Chart2DLib (XYPlotRegion): saturation vapor pressure,</p>
     <p bold="true">humidity ratio psychrometric chart curves, moist air enthalpy, and atmospheric altimetry profile.</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="5665" width="500" height="56" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+      </text>
+    </region>
+    <region left="18" top="5976" width="757" height="55" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Visualization 1: Saturation Vapor Pressure Curve pws(T)</p>
     <p bold="true">ASHRAE 2017 equations 5 (ice regime &lt;= 0.01 °C) and 6 (water regime &gt; 0.01 °C) spanning -20 °C to +50 °C.</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="5733" width="264" height="279" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="6048" width="193" height="281" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Temperature nodes: [-20 ... +50] °C (253.15 ... 323.15 K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_pws_nodes</e>
-    <e type="operand">253.15</e>
-    <e type="operand">258.15</e>
-    <e type="operand">263.15</e>
-    <e type="operand">268.15</e>
-    <e type="operand">273.15</e>
-    <e type="operand">278.15</e>
-    <e type="operand">283.15</e>
-    <e type="operand">288.15</e>
-    <e type="operand">293.15</e>
-    <e type="operand">298.15</e>
-    <e type="operand">303.15</e>
-    <e type="operand">308.15</e>
-    <e type="operand">313.15</e>
-    <e type="operand">318.15</e>
-    <e type="operand">323.15</e>
-    <e type="operand">15</e>
-    <e type="operand">1</e>
-    <e type="function" args="17">mat</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6052" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_pws_nodes</e>
+          <e type="operand">253.15</e>
+          <e type="operand">258.15</e>
+          <e type="operand">263.15</e>
+          <e type="operand">268.15</e>
+          <e type="operand">273.15</e>
+          <e type="operand">278.15</e>
+          <e type="operand">283.15</e>
+          <e type="operand">288.15</e>
+          <e type="operand">293.15</e>
+          <e type="operand">298.15</e>
+          <e type="operand">303.15</e>
+          <e type="operand">308.15</e>
+          <e type="operand">313.15</e>
+          <e type="operand">318.15</e>
+          <e type="operand">323.15</e>
+          <e type="operand">15</e>
+          <e type="operand">1</e>
+          <e type="function" args="17">mat</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="6363" width="327" height="31" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturation vapor pressure values: [103.28 ... 12351.4] Pa</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">p_ws_curve</e>
-    <e type="operand">T_pws_nodes</e>
-    <e type="function" args="1">Psy_SatVapPres</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6116" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">p_ws_curve</e>
+          <e type="operand">T_pws_nodes</e>
+          <e type="function" args="1">Psy_SatVapPres</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="6435" width="180" height="47" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturation vapor pressure in kPa: [0.103 ... 12.35] kPa</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">p_ws_kPa</e>
-    <e type="operand">p_ws_curve</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">/</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6180" width="96" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">p_ws_kPa</e>
+          <e type="operand">p_ws_curve</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="6498" width="251" height="30" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Temperature in Celsius: [-20 ... +50] °C</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_pws_C</e>
-    <e type="operand">T_pws_nodes</e>
-    <e type="operand">273.15</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">-</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6244" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_pws_C</e>
+          <e type="operand">T_pws_nodes</e>
+          <e type="operand">273.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="6561" width="333" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>XY coordinates for saturation vapor pressure plot</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">xy_pws_curve</e>
-    <e type="operand">T_pws_C</e>
-    <e type="operand">p_ws_kPa</e>
-    <e type="function" args="2">augment</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6308" width="330" height="250" color="#000000" fontSize="10">
-  <xyplot width="330" height="250" points="100" smoothing="true">
-    <propertiessource index="1" sourcetype="PropertyGrid" />
-    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
-    <xaxes xmin="-20.0" xmax="50.0" xtick="10.0" decimalplaces="3" numberformat="General" />
-    <yaxes ymin="0.0" ymax="13.0" ytick="2.0" decimalplaces="3" numberformat="General" />
-    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
-    <title2d title="Water Vapor Saturation Pressure pws(T)" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
-    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Temperature T [°C]" ylabel="Saturation Pressure pws [kPa]" y2label="y2" />
-    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
-    <traces>
-      <trace seriesname="Saturation Vapor Pressure pws(T)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="DarkBlue" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
-    <input>
-      <e type="operand">xy_pws_curve</e>
-      <e type="operand">1</e>
-      <e type="operand">1</e>
-      <e type="function" args="3" preserve="true">sys</e>
-    </input>
-  </xyplot>
-  </region>
-  <region left="18" top="6653" width="500" height="72" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">xy_pws_curve</e>
+          <e type="operand">T_pws_C</e>
+          <e type="operand">p_ws_kPa</e>
+          <e type="function" args="2">augment</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="6624" width="746" height="347" color="#000000" fontSize="10">
+      <xyplot animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="736" height="339" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="-20" xmax="50" xtick="10" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="0" ymax="13" ytick="2" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Water Vapor Saturation Pressure pws(T)" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Temperature T [°C]" ylabel="Saturation Pressure pws [kPa]" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="Saturation Vapor Pressure pws(T)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="DarkBlue" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">xy_pws_curve</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="function" args="3">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="18" top="7056" width="659" height="55" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Visualization 2: Psychrometric Chart Skeleton — Humidity Ratio W(T) vs Temperature</p>
     <p bold="true">Constant relative humidity isolines at standard sea-level atmospheric pressure (p = 101325 Pa).</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="6737" width="204" height="189" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="7146" width="209" height="190" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Chart temperature nodes: [0 ... 45] °C (273.15 ... 318.15 K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_chart_nodes</e>
-    <e type="operand">273.15</e>
-    <e type="operand">278.15</e>
-    <e type="operand">283.15</e>
-    <e type="operand">288.15</e>
-    <e type="operand">293.15</e>
-    <e type="operand">298.15</e>
-    <e type="operand">303.15</e>
-    <e type="operand">308.15</e>
-    <e type="operand">313.15</e>
-    <e type="operand">318.15</e>
-    <e type="operand">10</e>
-    <e type="operand">1</e>
-    <e type="function" args="12">mat</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6966" width="96" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_chart_nodes</e>
+          <e type="operand">273.15</e>
+          <e type="operand">278.15</e>
+          <e type="operand">283.15</e>
+          <e type="operand">288.15</e>
+          <e type="operand">293.15</e>
+          <e type="operand">298.15</e>
+          <e type="operand">303.15</e>
+          <e type="operand">308.15</e>
+          <e type="operand">313.15</e>
+          <e type="operand">318.15</e>
+          <e type="operand">10</e>
+          <e type="operand">1</e>
+          <e type="function" args="12">mat</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="7371" width="283" height="30" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Chart temperatures in Celsius: [0 ... 45] °C</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_chart_C</e>
-    <e type="operand">T_chart_nodes</e>
-    <e type="operand">273.15</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">-</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7030" width="120" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_chart_C</e>
+          <e type="operand">T_chart_nodes</e>
+          <e type="operand">273.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="7434" width="480" height="31" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>100% RH saturation line humidity ratio: [3.77 ... 65.04] g/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">w_100_curve</e>
-    <e type="operand">T_chart_nodes</e>
-    <e type="operand">101325</e>
-    <e type="operand" style="unit">Pa</e>
-    <e type="operator" args="2">*</e>
-    <e type="function" args="2">Psy_SatHumRatio</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7094" width="132" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">w_100_curve</e>
+          <e type="operand">T_chart_nodes</e>
+          <e type="operand">101325</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="2">Psy_SatHumRatio</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="7497" width="516" height="31" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>75% RH isoline humidity ratio: [2.83 ... 47.54] g/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">w_75_curve</e>
-    <e type="operand">T_chart_nodes</e>
-    <e type="operand">0.75</e>
-    <e type="operand">101325</e>
-    <e type="operand" style="unit">Pa</e>
-    <e type="operator" args="2">*</e>
-    <e type="function" args="3">Psy_HumRatio_RH</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7158" width="132" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">w_75_curve</e>
+          <e type="operand">T_chart_nodes</e>
+          <e type="operand">0.75</e>
+          <e type="operand">101325</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="3">Psy_HumRatio_RH</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="7560" width="516" height="31" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>50% RH isoline humidity ratio: [1.88 ... 30.91] g/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">w_50_curve</e>
-    <e type="operand">T_chart_nodes</e>
-    <e type="operand">0.50</e>
-    <e type="operand">101325</e>
-    <e type="operand" style="unit">Pa</e>
-    <e type="operator" args="2">*</e>
-    <e type="function" args="3">Psy_HumRatio_RH</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7222" width="132" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">w_50_curve</e>
+          <e type="operand">T_chart_nodes</e>
+          <e type="operand">0.50</e>
+          <e type="operand">101325</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="3">Psy_HumRatio_RH</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="7623" width="516" height="31" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>25% RH isoline humidity ratio: [0.94 ... 15.08] g/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">w_25_curve</e>
-    <e type="operand">T_chart_nodes</e>
-    <e type="operand">0.25</e>
-    <e type="operand">101325</e>
-    <e type="operand" style="unit">Pa</e>
-    <e type="operator" args="2">*</e>
-    <e type="function" args="3">Psy_HumRatio_RH</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7286" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">w_25_curve</e>
+          <e type="operand">T_chart_nodes</e>
+          <e type="operand">0.25</e>
+          <e type="operand">101325</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="3">Psy_HumRatio_RH</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="7695" width="341" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>100% RH saturation curve coordinates</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">xy_w_100</e>
-    <e type="operand">T_chart_C</e>
-    <e type="operand">w_100_curve</e>
-    <e type="function" args="2">augment</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7350" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">xy_w_100</e>
+          <e type="operand">T_chart_C</e>
+          <e type="operand">w_100_curve</e>
+          <e type="function" args="2">augment</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="7758" width="325" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>75% RH isoline coordinates</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">xy_w_75</e>
-    <e type="operand">T_chart_C</e>
-    <e type="operand">w_75_curve</e>
-    <e type="function" args="2">augment</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7414" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">xy_w_75</e>
+          <e type="operand">T_chart_C</e>
+          <e type="operand">w_75_curve</e>
+          <e type="function" args="2">augment</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="7821" width="325" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>50% RH isoline coordinates</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">xy_w_50</e>
-    <e type="operand">T_chart_C</e>
-    <e type="operand">w_50_curve</e>
-    <e type="function" args="2">augment</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7478" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">xy_w_50</e>
+          <e type="operand">T_chart_C</e>
+          <e type="operand">w_50_curve</e>
+          <e type="function" args="2">augment</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="7884" width="325" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>25% RH isoline coordinates</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">xy_w_25</e>
-    <e type="operand">T_chart_C</e>
-    <e type="operand">w_25_curve</e>
-    <e type="function" args="2">augment</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7542" width="330" height="270" color="#000000" fontSize="10">
-  <xyplot width="330" height="270" points="100" smoothing="true">
-    <propertiessource index="1" sourcetype="PropertyGrid" />
-    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
-    <xaxes xmin="0.0" xmax="45.0" xtick="5.0" decimalplaces="3" numberformat="General" />
-    <yaxes ymin="0.0" ymax="70.0" ytick="10.0" decimalplaces="3" numberformat="General" />
-    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
-    <title2d title="ASHRAE Psychrometric Chart: Humidity Ratio W vs Temperature" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
-    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Dry-Bulb Temperature T [°C]" ylabel="Humidity Ratio W [g_H2O / kg_dry_air]" y2label="y2" />
-    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
-    <traces>
-      <trace seriesname="RH = 100% (Saturation)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="Blue" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="RH = 75%" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="DarkCyan" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Square" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="RH = 50%" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="Green" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Triangle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="RH = 25%" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="Orange" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Cross" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
-    <input>
-      <e type="operand">xy_w_100</e>
-      <e type="operand">xy_w_75</e>
-      <e type="operand">xy_w_50</e>
-      <e type="operand">xy_w_25</e>
-      <e type="operand">4</e>
-      <e type="operand">1</e>
-      <e type="function" args="6" preserve="true">sys</e>
-    </input>
-  </xyplot>
-  </region>
-  <region left="18" top="7907" width="500" height="56" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">xy_w_25</e>
+          <e type="operand">T_chart_C</e>
+          <e type="operand">w_25_curve</e>
+          <e type="function" args="2">augment</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="7947" width="740" height="366" color="#000000" fontSize="10">
+      <xyplot animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="730" height="358" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="0" xmax="45" xtick="5" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="0" ymax="70" ytick="10" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="ASHRAE Psychrometric Chart: Humidity Ratio W vs Temperature" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Dry-Bulb Temperature T [°C]" ylabel="Humidity Ratio W [g_H2O / kg_dry_air]" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="RH = 100% (Saturation)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="RH = 75%" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="DarkCyan" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Square" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="RH = 50%" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Green" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Triangle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="RH = 25%" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Orange" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Cross" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">xy_w_100</e>
+          <e type="operand">xy_w_75</e>
+          <e type="operand">xy_w_50</e>
+          <e type="operand">xy_w_25</e>
+          <e type="operand">4</e>
+          <e type="operand">1</e>
+          <e type="function" args="6">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="18" top="8388" width="749" height="71" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Visualization 3: Moist Air Enthalpy Isotherms h(T)</p>
     <p bold="true">Specific enthalpy profiles comparing saturated moist air (100% RH), typical indoor/outdoor air (50% RH), and dry air (0% RH).</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="7975" width="120" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="8469" width="420" height="48" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>100% RH saturated air enthalpy: [9.44 ... 213.39] kJ/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_100_kJ</e>
-    <e type="operand">T_chart_nodes</e>
-    <e type="operand">101325</e>
-    <e type="operand" style="unit">Pa</e>
-    <e type="operator" args="2">*</e>
-    <e type="function" args="2">Psy_SatEnthalpy</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">/</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8039" width="120" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_100_kJ</e>
+          <e type="operand">T_chart_nodes</e>
+          <e type="operand">101325</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="2">Psy_SatEnthalpy</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="8559" width="405" height="65" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>50% RH moist air enthalpy: [4.71 ... 125.15] kJ/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_50_kJ</e>
-    <e type="operand">T_chart_nodes</e>
-    <e type="operand">w_50_curve</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">/</e>
-    <e type="function" args="2">Psy_Enthalpy</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">/</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8103" width="84" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_50_kJ</e>
+          <e type="operand">T_chart_nodes</e>
+          <e type="operand">w_50_curve</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="2">Psy_Enthalpy</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="8649" width="347" height="48" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Dry air sensible enthalpy: [0.00 ... 45.27] kJ/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_0_kJ</e>
-    <e type="operand">T_chart_nodes</e>
-    <e type="function" args="1">Psy_DryAirEnthalpy</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">/</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8167" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_0_kJ</e>
+          <e type="operand">T_chart_nodes</e>
+          <e type="function" args="1">Psy_DryAirEnthalpy</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="8721" width="317" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>100% RH enthalpy coordinates</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">xy_h_100</e>
-    <e type="operand">T_chart_C</e>
-    <e type="operand">h_100_kJ</e>
-    <e type="function" args="2">augment</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8231" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">xy_h_100</e>
+          <e type="operand">T_chart_C</e>
+          <e type="operand">h_100_kJ</e>
+          <e type="function" args="2">augment</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="8793" width="301" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>50% RH enthalpy coordinates</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">xy_h_50</e>
-    <e type="operand">T_chart_C</e>
-    <e type="operand">h_50_kJ</e>
-    <e type="function" args="2">augment</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8295" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">xy_h_50</e>
+          <e type="operand">T_chart_C</e>
+          <e type="operand">h_50_kJ</e>
+          <e type="function" args="2">augment</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="8856" width="285" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>0% RH dry air enthalpy coordinates</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">xy_h_0</e>
-    <e type="operand">T_chart_C</e>
-    <e type="operand">h_0_kJ</e>
-    <e type="function" args="2">augment</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8359" width="330" height="260" color="#000000" fontSize="10">
-  <xyplot width="330" height="260" points="100" smoothing="true">
-    <propertiessource index="1" sourcetype="PropertyGrid" />
-    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
-    <xaxes xmin="0.0" xmax="45.0" xtick="5.0" decimalplaces="3" numberformat="General" />
-    <yaxes ymin="0.0" ymax="220.0" ytick="25.0" decimalplaces="3" numberformat="General" />
-    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
-    <title2d title="Moist Air Specific Enthalpy h(T) [kJ/kg]" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
-    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Dry-Bulb Temperature T [°C]" ylabel="Specific Enthalpy h [kJ/kg]" y2label="y2" />
-    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
-    <traces>
-      <trace seriesname="RH = 100% (Saturated)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="Red" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="RH = 50%" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="DarkGreen" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Square" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="Dry Air (0% RH)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="Black" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
-    <input>
-      <e type="operand">xy_h_100</e>
-      <e type="operand">xy_h_50</e>
-      <e type="operand">xy_h_0</e>
-      <e type="operand">3</e>
-      <e type="operand">1</e>
-      <e type="function" args="5" preserve="true">sys</e>
-    </input>
-  </xyplot>
-  </region>
-  <region left="18" top="8714" width="500" height="56" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">xy_h_0</e>
+          <e type="operand">T_chart_C</e>
+          <e type="operand">h_0_kJ</e>
+          <e type="function" args="2">augment</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="8919" width="727" height="330" color="#000000" fontSize="10">
+      <xyplot animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="717" height="322" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="0" xmax="45" xtick="5" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="0" ymax="220" ytick="25" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Moist Air Specific Enthalpy h(T) [kJ/kg]" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Dry-Bulb Temperature T [°C]" ylabel="Specific Enthalpy h [kJ/kg]" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="RH = 100% (Saturated)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="RH = 50%" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="DarkGreen" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Square" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="Dry Air (0% RH)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Black" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">xy_h_100</e>
+          <e type="operand">xy_h_50</e>
+          <e type="operand">xy_h_0</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="function" args="5">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="18" top="9333" width="738" height="55" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Visualization 4: Standard Atmosphere Barometric Profile p(z)</p>
     <p bold="true">ASHRAE 2017 equation 3 standard atmospheric barometric pressure reduction from sea level up to 5000 m.</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="8782" width="216" height="207" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="9405" width="145" height="208" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Altimetry nodes: [0 ... 5000] m</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">z_nodes</e>
-    <e type="operand">0</e>
-    <e type="operand">500</e>
-    <e type="operand">1000</e>
-    <e type="operand">1500</e>
-    <e type="operand">2000</e>
-    <e type="operand">2500</e>
-    <e type="operand">3000</e>
-    <e type="operand">3500</e>
-    <e type="operand">4000</e>
-    <e type="operand">4500</e>
-    <e type="operand">5000</e>
-    <e type="operand">11</e>
-    <e type="operand">1</e>
-    <e type="function" args="13">mat</e>
-    <e type="operand" style="unit">m</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9029" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">z_nodes</e>
+          <e type="operand">0</e>
+          <e type="operand">500</e>
+          <e type="operand">1000</e>
+          <e type="operand">1500</e>
+          <e type="operand">2000</e>
+          <e type="operand">2500</e>
+          <e type="operand">3000</e>
+          <e type="operand">3500</e>
+          <e type="operand">4000</e>
+          <e type="operand">4500</e>
+          <e type="operand">5000</e>
+          <e type="operand">11</e>
+          <e type="operand">1</e>
+          <e type="function" args="13">mat</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="9648" width="311" height="31" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Atmospheric pressure values: [101325 ... 54020] Pa</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">p_alt_curve</e>
-    <e type="operand">z_nodes</e>
-    <e type="function" args="1">Psy_AtmPressure</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9093" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">p_alt_curve</e>
+          <e type="operand">z_nodes</e>
+          <e type="function" args="1">Psy_AtmPressure</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="9711" width="196" height="47" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Atmospheric pressure in kPa: [101.33 ... 54.02] kPa</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">p_alt_kPa</e>
-    <e type="operand">p_alt_curve</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">/</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9157" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">p_alt_kPa</e>
+          <e type="operand">p_alt_curve</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="9774" width="124" height="47" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Elevation in km: [0 ... 5] km</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">z_km</e>
-    <e type="operand">z_nodes</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">/</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9221" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">z_km</e>
+          <e type="operand">z_nodes</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="9846" width="317" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Altimetry pressure profile coordinates</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">xy_alt_curve</e>
-    <e type="operand">z_km</e>
-    <e type="operand">p_alt_kPa</e>
-    <e type="function" args="2">augment</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9285" width="330" height="250" color="#000000" fontSize="10">
-  <xyplot width="330" height="250" points="100" smoothing="true">
-    <propertiessource index="1" sourcetype="PropertyGrid" />
-    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
-    <xaxes xmin="0.0" xmax="5.0" xtick="1.0" decimalplaces="3" numberformat="General" />
-    <yaxes ymin="50.0" ymax="105.0" ytick="10.0" decimalplaces="3" numberformat="General" />
-    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
-    <title2d title="Standard Atmosphere Barometric Pressure Profile" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
-    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Altitude z [km]" ylabel="Barometric Pressure p [kPa]" y2label="y2" />
-    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
-    <traces>
-      <trace seriesname="Standard Atmosphere Pressure p(z)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="DarkSlateBlue" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Diamond" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
-    <input>
-      <e type="operand">xy_alt_curve</e>
-      <e type="operand">1</e>
-      <e type="operand">1</e>
-      <e type="function" args="3" preserve="true">sys</e>
-    </input>
-  </xyplot>
-  </region>
+        </description>
+        <input>
+          <e type="operand">xy_alt_curve</e>
+          <e type="operand">z_km</e>
+          <e type="operand">p_alt_kPa</e>
+          <e type="function" args="2">augment</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="9909" width="727" height="275" color="#000000" fontSize="10">
+      <xyplot animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="717" height="267" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="0" xmax="5" xtick="1" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="50" ymax="105" ytick="10" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Standard Atmosphere Barometric Pressure Profile" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Altitude z [km]" ylabel="Barometric Pressure p [kPa]" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="Standard Atmosphere Pressure p(z)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="DarkSlateBlue" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Diamond" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">xy_alt_curve</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="function" args="3">sys</e>
+        </input>
+      </xyplot>
+    </region>
   </regions>
 </worksheet>

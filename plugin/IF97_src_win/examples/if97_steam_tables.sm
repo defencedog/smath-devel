@@ -3,11 +3,11 @@
 <worksheet xmlns="http://smath.info/schemas/worksheet/1.0">
   <settings ppi="96">
     <identity>
-      <id>5371a95b-be7f-4846-bc4d-4c1753fef553</id>
-      <revision>1</revision>
+      <id>8583e379-b8c9-4c01-bad9-f931ca85ce4c</id>
+      <revision>9</revision>
     </identity>
     <calculation>
-      <precision>4</precision>
+      <precision>3</precision>
       <exponentialThreshold>5</exponentialThreshold>
       <trailingZeros>false</trailingZeros>
       <significantDigitsMode>false</significantDigitsMode>
@@ -29,37 +29,37 @@
       <assembly name="SpecialFunctions" version="1.75.9678.0" guid="2814e667-4e12-48b1-8d51-194e480eabc5" />
       <assembly name="TextRegion" version="1.75.9678.0" guid="485d28c5-349a-48b6-93be-12a35a1c1e39" />
       <assembly name="IF97 Wrapper" version="1.1.1.0" guid="bdb8d1d9-11bf-4f8b-aca4-c1fa3f6e13ad" />
-      <assembly name="X-Y Plot Region (Chart2DLib)" version="0.4.9441.40064" guid="c12231ec-4873-43c1-a7d0-a167ebd17066" />
+      <assembly name="X-Y Plot Region (JXCharts)" version="0.4.9441.40064" guid="c12231ec-4873-43c1-a7d0-a167ebd17066" />
     </dependencies>
   </settings>
   <regions type="content">
-  <region left="18" top="9" width="455" height="24" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+    <region left="18" top="9" width="484" height="24" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">IAPWS-IF97 High-Precision Steam Tables &amp; Thermodynamic Properties</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="45" width="70" height="24" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
-    <p bold="false">2026-10-20</p>
+      </text>
+    </region>
+    <region left="18" top="45" width="91" height="24" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="false">2026-10-19</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="81" width="500" height="120" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+      </text>
+    </region>
+    <region left="18" top="81" width="728" height="133" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">IAPWS-IF97 Water and Steam Properties Plugin for SMath Studio</p>
     <p bold="true">Industrial Formulation 1997 for General &amp; Scientific Power-Plant Calculations</p>
     <p bold="true">Native Assembly: IF97Wrapper.dll (Plugin GUID: bdb8d1d9-11bf-4f8b-aca4-c1fa3f6e13ad, v1.1.1.0)</p>
     <p bold="true">Strict SI Unit Guarantee: Pressures in [Pa], Temperatures in [K], Energies in [J/kg] (m^2/s^2), Entropies in [J/(kg*K)]</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="213" width="500" height="360" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+      </text>
+    </region>
+    <region left="18" top="216" width="742" height="381" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="false">The International Association for the Properties of Water and Steam (IAPWS) IF97 formulation</p>
     <p bold="false">is the international industrial standard for calculating thermodynamic and transport properties</p>
     <p bold="false">of water and steam across power plant engineering, turbomachinery design, and thermal processes.</p>
@@ -73,2088 +73,2609 @@
     <p bold="false">  4. Wet Steam Two-Phase Region: Saturated liquid/vapor lines, latent heat hfg, and two-phase mixtures.</p>
     <p bold="false">  5. Standardized 46-Function API: Clean IF97_&lt;property&gt;_&lt;inputs&gt; nomenclature with strict base SI unit emission.</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="585" width="500" height="56" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+      </text>
+    </region>
+    <region left="18" top="585" width="743" height="55" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Section 1: Atmospheric &amp; Saturation Boundary Calculations</p>
     <p bold="true">Verification of saturation temperature, saturation pressure, surface tension, and saturated liquid/vapor lines.</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="653" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="657" width="138" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Standard atmospheric pressure: P_atm = 101325 Pa (1.01325 bar, 1 atm)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">P_atm</e>
-    <e type="operand">101325</e>
-    <e type="operand" style="unit">Pa</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="717" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
-        <p>Atmospheric boiling point: T_boil_1atm = 373.1243 K (99.974 °C)</p>
-      </content>
-    </description>
-    <input>
-    <e type="operand">T_boil_1atm</e>
-    <e type="operand">P_atm</e>
-    <e type="function" args="1">IF97_Tsat_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="781" width="84" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">P_atm</e>
+          <e type="operand">101325</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="720" width="356" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Atmospheric boiling point: T_boil_1atm = 373.1243 K (99.974 °C)</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">T_boil_1atm</e>
+          <e type="operand">P_atm</e>
+          <e type="function" args="1">IF97_Tsat_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">373.1243</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="783" width="179" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Boiling temperature benchmark: T_100C = 373.15 K (100.0 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_100C</e>
-    <e type="operand">100</e>
-    <e type="operand">273.15</e>
-    <e type="operator" args="2">+</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="845" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_100C</e>
+          <e type="operand">100</e>
+          <e type="operand">273.15</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="846" width="383" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturation vapor pressure at 100 °C: P_sat_100C = 101417.98 Pa (1.01418 bar)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">P_sat_100C</e>
-    <e type="operand">T_100C</e>
-    <e type="function" args="1">IF97_psat_T</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="909" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">P_sat_100C</e>
+          <e type="operand">T_100C</e>
+          <e type="function" args="1">IF97_psat_T</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.0142</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="909" width="369" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Water-steam surface tension at 100 °C: sigma_100C = 0.05891 N/m</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">sigma_100C</e>
-    <e type="operand">T_100C</e>
-    <e type="function" args="1">IF97_sigma_T</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="973" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">sigma_100C</e>
+          <e type="operand">T_100C</e>
+          <e type="function" args="1">IF97_sigma_T</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0589</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="972" width="186" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Reference saturation pressure: P_sat_1MPa = 1.0 MPa (10.0 bar, 1e6 Pa)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="operand">1000000</e>
-    <e type="operand" style="unit">Pa</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1037" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="operand">1000000</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1035" width="388" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturation temperature at 1 MPa: T_sat_1MPa = 453.0356 K (179.886 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_sat_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_Tsat_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1101" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_sat_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_Tsat_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">453.0356</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1098" width="399" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid enthalpy at 1 MPa: h_f_1MPa = 762682.8 J/kg (762.68 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_f_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_hliq_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1165" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_f_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_hliq_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">7.6268</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1161" width="399" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated vapor enthalpy at 1 MPa: h_g_1MPa = 2777119.5 J/kg (2777.12 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_g_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_hvap_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1229" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_g_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_hvap_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2.7771</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1233" width="399" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Latent heat of vaporization at 1 MPa: h_fg_1MPa = 2014436.7 J/kg (2014.44 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_fg_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_hfg_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1293" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_fg_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_hfg_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2.0144</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1296" width="392" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid entropy at 1 MPa: s_f_1MPa = 2138.43 J/(kg·K) (2.1384 kJ/(kg·K))</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">s_f_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_sliq_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1373" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">s_f_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_sliq_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2138.4314</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1377" width="384" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated vapor entropy at 1 MPa: s_g_1MPa = 6584.98 J/(kg·K) (6.5850 kJ/(kg·K))</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">s_g_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_svap_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1437" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">s_g_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_svap_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">6584.979</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1440" width="418" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid density at 1 MPa: rho_f_1MPa = 887.13 kg/m³</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">rho_f_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_rholiq_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1501" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">rho_f_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_rholiq_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">887.1275</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1521" width="402" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated vapor density at 1 MPa: rho_g_1MPa = 5.145 kg/m³</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">rho_g_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_rhovap_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1565" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">rho_g_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_rhovap_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">5.1454</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1593" width="271" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid specific volume at 1 MPa: v_f_1MPa = 0.001127 m³/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">v_f_1MPa</e>
-    <e type="operand">1</e>
-    <e type="operand">rho_f_1MPa</e>
-    <e type="operator" args="2">/</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1629" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">v_f_1MPa</e>
+          <e type="operand">1</e>
+          <e type="operand">rho_f_1MPa</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0011</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1656" width="271" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated vapor specific volume at 1 MPa: v_g_1MPa = 0.19435 m³/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">v_g_1MPa</e>
-    <e type="operand">1</e>
-    <e type="operand">rho_g_1MPa</e>
-    <e type="operator" args="2">/</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1693" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">v_g_1MPa</e>
+          <e type="operand">1</e>
+          <e type="operand">rho_g_1MPa</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.1943</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1719" width="393" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid dynamic viscosity at 1 MPa: mu_f_1MPa = 1.5049e-4 Pa·s</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">mu_f_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_muliq_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1757" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">mu_f_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_muliq_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0002</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1782" width="440" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated vapor dynamic viscosity at 1 MPa: mu_g_1MPa = 1.4981e-5 Pa·s</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">mu_g_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_muvap_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1821" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">mu_g_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_muvap_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.4981</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1845" width="389" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid thermal conductivity at 1 MPa: tc_f_1MPa = 0.6713 W/(m·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">tc_f_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_tcliq_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1885" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">tc_f_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_tcliq_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.6713</e>
+          <e type="operand" style="unit">N</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1908" width="389" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated vapor thermal conductivity at 1 MPa: tc_g_1MPa = 0.03481 W/(m·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">tc_g_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_tcvap_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="1949" width="500" height="56" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">tc_g_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_tcvap_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0348</e>
+          <e type="operand" style="unit">N</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1980" width="709" height="55" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Visualization 1: Water Vapor Pressure Saturation Curve Psat(T)</p>
     <p bold="true">Clausius-Clapeyron exponential vapor pressure rise spanning 10 °C up to near-critical 370 °C (210 bar).</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="2017" width="252" height="261" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="2043" width="193" height="262" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Temperature nodes for vapor pressure curve: [10 ... 370] °C (283.15 ... 643.15 K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_sat_nodes</e>
-    <e type="operand">283.15</e>
-    <e type="operand">303.15</e>
-    <e type="operand">323.15</e>
-    <e type="operand">343.15</e>
-    <e type="operand">363.15</e>
-    <e type="operand">373.15</e>
-    <e type="operand">393.15</e>
-    <e type="operand">423.15</e>
-    <e type="operand">453.15</e>
-    <e type="operand">483.15</e>
-    <e type="operand">523.15</e>
-    <e type="operand">573.15</e>
-    <e type="operand">623.15</e>
-    <e type="operand">643.15</e>
-    <e type="operand">14</e>
-    <e type="operand">1</e>
-    <e type="function" args="16">mat</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2334" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_sat_nodes</e>
+          <e type="operand">283.15</e>
+          <e type="operand">303.15</e>
+          <e type="operand">323.15</e>
+          <e type="operand">343.15</e>
+          <e type="operand">363.15</e>
+          <e type="operand">373.15</e>
+          <e type="operand">393.15</e>
+          <e type="operand">423.15</e>
+          <e type="operand">453.15</e>
+          <e type="operand">483.15</e>
+          <e type="operand">523.15</e>
+          <e type="operand">573.15</e>
+          <e type="operand">623.15</e>
+          <e type="operand">643.15</e>
+          <e type="operand">14</e>
+          <e type="operand">1</e>
+          <e type="function" args="16">mat</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2358" width="311" height="31" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturation vapor pressures: [1228 ... 2.104e7] Pa</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">P_sat_curve</e>
-    <e type="operand">T_sat_nodes</e>
-    <e type="function" args="1">IF97_psat_T</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2398" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">P_sat_curve</e>
+          <e type="operand">T_sat_nodes</e>
+          <e type="function" args="1">IF97_psat_T</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2421" width="196" height="47" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturation pressure in bar: [0.012 ... 210.43] bar</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">P_sat_bar</e>
-    <e type="operand">P_sat_curve</e>
-    <e type="operand">100000</e>
-    <e type="operator" args="2">/</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2462" width="96" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">P_sat_bar</e>
+          <e type="operand">P_sat_curve</e>
+          <e type="operand">100000</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2493" width="251" height="30" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturation temperatures in Celsius: [10 ... 370] °C</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_sat_C</e>
-    <e type="operand">T_sat_nodes</e>
-    <e type="operand">273.15</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">-</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2526" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_sat_C</e>
+          <e type="operand">T_sat_nodes</e>
+          <e type="operand">273.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2556" width="349" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Vapor pressure curve coordinates (T [°C], Psat [bar]) for 2D XY plot</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">xy_psat_curve</e>
-    <e type="operand">T_sat_C</e>
-    <e type="operand">P_sat_bar</e>
-    <e type="function" args="2">augment</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="2590" width="330" height="250" color="#000000" fontSize="10">
-  <xyplot width="330" height="250" points="100" smoothing="true">
-    <propertiessource index="1" sourcetype="PropertyGrid" />
-    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
-    <xaxes xmin="0.0" xmax="380.0" xtick="50.0" decimalplaces="3" numberformat="General" />
-    <yaxes ymin="0.0" ymax="225.0" ytick="25.0" decimalplaces="3" numberformat="General" />
-    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
-    <title2d title="Water-Steam Vapor Pressure Curve Psat(T)" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
-    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Temperature T [°C]" ylabel="Saturation Pressure Psat [bar]" y2label="y2" />
-    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
-    <traces>
-      <trace seriesname="Saturation Pressure Psat(T)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="DarkBlue" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
-    <input>
-      <e type="operand">xy_psat_curve</e>
-      <e type="operand">1</e>
-      <e type="operand">1</e>
-      <e type="function" args="3" preserve="true">sys</e>
-    </input>
-  </xyplot>
-  </region>
-  <region left="18" top="2935" width="500" height="56" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">xy_psat_curve</e>
+          <e type="operand">T_sat_C</e>
+          <e type="operand">P_sat_bar</e>
+          <e type="function" args="2">augment</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2619" width="727" height="295" color="#000000" fontSize="10">
+      <xyplot animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="717" height="287" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="0" xmax="380" xtick="50" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="0" ymax="225" ytick="25" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Water-Steam Vapor Pressure Curve Psat(T)" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Temperature T [°C]" ylabel="Saturation Pressure Psat [bar]" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="Saturation Pressure Psat(T)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="DarkBlue" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">xy_psat_curve</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="function" args="3">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="18" top="2961" width="657" height="55" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Section 2: Phase Diagram &amp; Saturation Dome Visualization</p>
     <p bold="true">Temperature-Entropy (T-s) diagram displaying the two-phase vapor-liquid equilibrium envelope.</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="3003" width="192" height="207" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="3033" width="157" height="208" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturation pressure nodes: 11 points spanning 10 kPa to 22 MPa</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">P_dome</e>
-    <e type="operand">10000</e>
-    <e type="operand">50000</e>
-    <e type="operand">100000</e>
-    <e type="operand">500000</e>
-    <e type="operand">1000000</e>
-    <e type="operand">2000000</e>
-    <e type="operand">5000000</e>
-    <e type="operand">10000000</e>
-    <e type="operand">15000000</e>
-    <e type="operand">20000000</e>
-    <e type="operand">22000000</e>
-    <e type="operand">11</e>
-    <e type="operand">1</e>
-    <e type="function" args="13">mat</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3250" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">P_dome</e>
+          <e type="operand">10000</e>
+          <e type="operand">50000</e>
+          <e type="operand">100000</e>
+          <e type="operand">500000</e>
+          <e type="operand">1000000</e>
+          <e type="operand">2000000</e>
+          <e type="operand">5000000</e>
+          <e type="operand">10000000</e>
+          <e type="operand">15000000</e>
+          <e type="operand">20000000</e>
+          <e type="operand">22000000</e>
+          <e type="operand">11</e>
+          <e type="operand">1</e>
+          <e type="function" args="13">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="3276" width="231" height="31" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturation temperatures: T_dome = [318.96 ... 646.86] K</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_dome</e>
-    <e type="operand">P_dome</e>
-    <e type="function" args="1">IF97_Tsat_p</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3314" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_dome</e>
+          <e type="operand">P_dome</e>
+          <e type="function" args="1">IF97_Tsat_p</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="3339" width="247" height="31" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid entropies: s_dome_f = [649.2 ... 4297.6] J/(kg·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">s_dome_f</e>
-    <e type="operand">P_dome</e>
-    <e type="function" args="1">IF97_sliq_p</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3378" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">s_dome_f</e>
+          <e type="operand">P_dome</e>
+          <e type="function" args="1">IF97_sliq_p</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="3402" width="247" height="31" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated vapor entropies: s_dome_g = [8148.9 ... 4529.3] J/(kg·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">s_dome_g</e>
-    <e type="operand">P_dome</e>
-    <e type="function" args="1">IF97_svap_p</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3442" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">s_dome_g</e>
+          <e type="operand">P_dome</e>
+          <e type="function" args="1">IF97_svap_p</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="3465" width="148" height="47" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Scaled liquid entropy coordinates: [0.649 ... 4.298] kJ/(kg·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">s_f_kJ</e>
-    <e type="operand">s_dome_f</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">/</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3506" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">s_f_kJ</e>
+          <e type="operand">s_dome_f</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="3537" width="148" height="47" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Scaled vapor entropy coordinates: [8.149 ... 4.529] kJ/(kg·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">s_g_kJ</e>
-    <e type="operand">s_dome_g</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">/</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3570" width="96" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">s_g_kJ</e>
+          <e type="operand">s_dome_g</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="3600" width="219" height="30" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturation temperatures in Celsius: [45.81 ... 373.71] °C</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_dome_C</e>
-    <e type="operand">T_dome</e>
-    <e type="operand">273.15</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">-</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3634" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_dome_C</e>
+          <e type="operand">T_dome</e>
+          <e type="operand">273.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="3663" width="317" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid coordinates (s_f, T) for 2D XY plot</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">xy_dome_liq</e>
-    <e type="operand">s_f_kJ</e>
-    <e type="operand">T_dome_C</e>
-    <e type="function" args="2">augment</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3698" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">xy_dome_liq</e>
+          <e type="operand">s_f_kJ</e>
+          <e type="operand">T_dome_C</e>
+          <e type="function" args="2">augment</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="3726" width="317" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated vapor coordinates (s_g, T) for 2D XY plot</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">xy_dome_vap</e>
-    <e type="operand">s_g_kJ</e>
-    <e type="operand">T_dome_C</e>
-    <e type="function" args="2">augment</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="3762" width="330" height="260" color="#000000" fontSize="10">
-  <xyplot width="330" height="260" points="100" smoothing="true">
-    <propertiessource index="1" sourcetype="PropertyGrid" />
-    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
-    <xaxes xmin="0.0" xmax="10.0" xtick="1.0" decimalplaces="3" numberformat="General" />
-    <yaxes ymin="0.0" ymax="400.0" ytick="50.0" decimalplaces="3" numberformat="General" />
-    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
-    <title2d title="Water-Steam T-s Saturation Dome" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
-    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Specific Entropy s [kJ/(kg·K)]" ylabel="Temperature T [°C]" y2label="y2" />
-    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
-    <traces>
-      <trace seriesname="Saturated Liquid (sf)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="Blue" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="Saturated Vapor (sg)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="Red" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
-    <input>
-      <e type="operand">xy_dome_liq</e>
-      <e type="operand">xy_dome_vap</e>
-      <e type="operand">2</e>
-      <e type="operand">1</e>
-      <e type="function" args="4" preserve="true">sys</e>
-    </input>
-  </xyplot>
-  </region>
-  <region left="18" top="4117" width="500" height="72" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">xy_dome_vap</e>
+          <e type="operand">s_g_kJ</e>
+          <e type="operand">T_dome_C</e>
+          <e type="function" args="2">augment</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="3789" width="330" height="260" color="#000000" fontSize="10">
+      <xyplot animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="320" height="252" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="0" xmax="10" xtick="1" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="0" ymax="400" ytick="50" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Water-Steam T-s Saturation Dome" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Specific Entropy s [kJ/(kg·K)]" ylabel="Temperature T [°C]" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="Saturated Liquid (sf)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="Saturated Vapor (sg)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">xy_dome_liq</e>
+          <e type="operand">xy_dome_vap</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="18" top="4140" width="658" height="86" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Section 3: Superheated Steam Forward Evaluation</p>
     <p bold="true">State determination at turbine admission conditions: P = 4 MPa (40 bar), T = 400 °C (673.15 K).</p>
     <p bold="true">Forward functions strictly take (T, p) as inputs.</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="4201" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="4230" width="138" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Turbine admission pressure: P_sh = 4.0 MPa (40.0 bar)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">P_sh</e>
-    <e type="operand">4000000</e>
-    <e type="operand" style="unit">Pa</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4265" width="84" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">P_sh</e>
+          <e type="operand">4000000</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="4293" width="163" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Turbine admission temperature: T_sh = 673.15 K (400.0 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_sh</e>
-    <e type="operand">400</e>
-    <e type="operand">273.15</e>
-    <e type="operator" args="2">+</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4329" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_sh</e>
+          <e type="operand">400</e>
+          <e type="operand">273.15</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="4356" width="349" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Specific enthalpy: h_sh = 3214373.5 J/kg (3214.37 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_sh</e>
-    <e type="operand">T_sh</e>
-    <e type="operand">P_sh</e>
-    <e type="function" args="2">IF97_h_Tp</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4393" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_sh</e>
+          <e type="operand">T_sh</e>
+          <e type="operand">P_sh</e>
+          <e type="function" args="2">IF97_h_Tp</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">3.2144</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4419" width="334" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Specific entropy: s_sh = 6771.19 J/(kg·K) (6.7712 kJ/(kg·K))</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">s_sh</e>
-    <e type="operand">T_sh</e>
-    <e type="operand">P_sh</e>
-    <e type="function" args="2">IF97_s_Tp</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4457" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">s_sh</e>
+          <e type="operand">T_sh</e>
+          <e type="operand">P_sh</e>
+          <e type="function" args="2">IF97_s_Tp</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">6771.192</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4482" width="349" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Specific internal energy: u_sh = 2920646.3 J/kg (2920.65 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">u_sh</e>
-    <e type="operand">T_sh</e>
-    <e type="operand">P_sh</e>
-    <e type="function" args="2">IF97_u_Tp</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4521" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">u_sh</e>
+          <e type="operand">T_sh</e>
+          <e type="operand">P_sh</e>
+          <e type="function" args="2">IF97_u_Tp</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2.9206</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4545" width="360" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Steam density: rho_sh = 13.618 kg/m³</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">rho_sh</e>
-    <e type="operand">T_sh</e>
-    <e type="operand">P_sh</e>
-    <e type="function" args="2">IF97_rho_Tp</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4585" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">rho_sh</e>
+          <e type="operand">T_sh</e>
+          <e type="operand">P_sh</e>
+          <e type="function" args="2">IF97_rho_Tp</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">13.6181</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4608" width="320" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Specific volume: v_sh = 0.07343 m³/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">v_sh</e>
-    <e type="operand">T_sh</e>
-    <e type="operand">P_sh</e>
-    <e type="function" args="2">IF97_v_Tp</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4649" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">v_sh</e>
+          <e type="operand">T_sh</e>
+          <e type="operand">P_sh</e>
+          <e type="function" args="2">IF97_v_Tp</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0734</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4680" width="358" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Isobaric heat capacity: cp_sh = 2364.22 J/(kg·K) (2.364 kJ/(kg·K))</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">cp_sh</e>
-    <e type="operand">T_sh</e>
-    <e type="operand">P_sh</e>
-    <e type="function" args="2">IF97_cp_Tp</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4713" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">cp_sh</e>
+          <e type="operand">T_sh</e>
+          <e type="operand">P_sh</e>
+          <e type="function" args="2">IF97_cp_Tp</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2364.2243</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4743" width="358" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Isochoric heat capacity: cv_sh = 1733.70 J/(kg·K) (1.734 kJ/(kg·K))</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">cv_sh</e>
-    <e type="operand">T_sh</e>
-    <e type="operand">P_sh</e>
-    <e type="function" args="2">IF97_cv_Tp</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4777" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">cv_sh</e>
+          <e type="operand">T_sh</e>
+          <e type="operand">P_sh</e>
+          <e type="function" args="2">IF97_cv_Tp</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1733.7029</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4806" width="326" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Speed of sound: w_sh = 614.49 m/s</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">w_sh</e>
-    <e type="operand">T_sh</e>
-    <e type="operand">P_sh</e>
-    <e type="function" args="2">IF97_w_Tp</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4841" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">w_sh</e>
+          <e type="operand">T_sh</e>
+          <e type="operand">P_sh</e>
+          <e type="function" args="2">IF97_w_Tp</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">614.4893</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4869" width="390" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Dynamic viscosity: mu_sh = 2.4403e-5 Pa·s (24.40 µPa·s)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">mu_sh</e>
-    <e type="operand">T_sh</e>
-    <e type="operand">P_sh</e>
-    <e type="function" args="2">IF97_mu_Tp</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4905" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">mu_sh</e>
+          <e type="operand">T_sh</e>
+          <e type="operand">P_sh</e>
+          <e type="function" args="2">IF97_mu_Tp</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2.4403</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4932" width="339" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Thermal conductivity: tc_sh = 0.05923 W/(m·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">tc_sh</e>
-    <e type="operand">T_sh</e>
-    <e type="operand">P_sh</e>
-    <e type="function" args="2">IF97_tc_Tp</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="4969" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">tc_sh</e>
+          <e type="operand">T_sh</e>
+          <e type="operand">P_sh</e>
+          <e type="function" args="2">IF97_tc_Tp</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0592</e>
+          <e type="operand" style="unit">N</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4995" width="310" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Prandtl number: pr_sh = 0.9741</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">pr_sh</e>
-    <e type="operand">T_sh</e>
-    <e type="operand">P_sh</e>
-    <e type="function" args="2">IF97_Pr_Tp</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="5033" width="500" height="72" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">pr_sh</e>
+          <e type="operand">T_sh</e>
+          <e type="operand">P_sh</e>
+          <e type="function" args="2">IF97_Pr_Tp</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.9741</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="5058" width="715" height="71" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Visualization 3: Superheated Steam Heat Capacity cp(T) at 40 bar (4 MPa)</p>
     <p bold="true">Temperature dependence of cp from near saturation (260 °C) up to 600 °C, showing the sharp rise near saturation.</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="5117" width="204" height="189" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="5148" width="185" height="190" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Temperature nodes for 40 bar isobar: [260 ... 600] °C (533.15 ... 873.15 K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_cp_nodes</e>
-    <e type="operand">533.15</e>
-    <e type="operand">553.15</e>
-    <e type="operand">573.15</e>
-    <e type="operand">603.15</e>
-    <e type="operand">633.15</e>
-    <e type="operand">673.15</e>
-    <e type="operand">723.15</e>
-    <e type="operand">773.15</e>
-    <e type="operand">823.15</e>
-    <e type="operand">873.15</e>
-    <e type="operand">10</e>
-    <e type="operand">1</e>
-    <e type="function" args="12">mat</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="5346" width="96" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_cp_nodes</e>
+          <e type="operand">533.15</e>
+          <e type="operand">553.15</e>
+          <e type="operand">573.15</e>
+          <e type="operand">603.15</e>
+          <e type="operand">633.15</e>
+          <e type="operand">673.15</e>
+          <e type="operand">723.15</e>
+          <e type="operand">773.15</e>
+          <e type="operand">823.15</e>
+          <e type="operand">873.15</e>
+          <e type="operand">10</e>
+          <e type="operand">1</e>
+          <e type="function" args="12">mat</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="5373" width="360" height="31" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Isobaric heat capacities at 4 MPa: [3553.6 ... 2298.2] J/(kg·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">cp_nodes</e>
-    <e type="operand">T_cp_nodes</e>
-    <e type="operand">4000000</e>
-    <e type="operand" style="unit">Pa</e>
-    <e type="operator" args="2">*</e>
-    <e type="function" args="2">IF97_cp_Tp</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="5410" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">cp_nodes</e>
+          <e type="operand">T_cp_nodes</e>
+          <e type="operand">4000000</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="2">IF97_cp_Tp</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="5436" width="188" height="47" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Scaled heat capacity in kJ/(kg·K): [3.554 ... 2.298] kJ/(kg·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">cp_nodes_kJ</e>
-    <e type="operand">cp_nodes</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">/</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="5474" width="96" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">cp_nodes_kJ</e>
+          <e type="operand">cp_nodes</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="5499" width="235" height="30" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Temperatures in Celsius: [260 ... 600] °C</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_cp_C</e>
-    <e type="operand">T_cp_nodes</e>
-    <e type="operand">273.15</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">-</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="5538" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_cp_C</e>
+          <e type="operand">T_cp_nodes</e>
+          <e type="operand">273.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="5562" width="349" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Isobaric heat capacity coordinates (T [°C], cp [kJ/(kg·K)]) at 40 bar</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">xy_cp_isobar</e>
-    <e type="operand">T_cp_C</e>
-    <e type="operand">cp_nodes_kJ</e>
-    <e type="function" args="2">augment</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="5602" width="330" height="250" color="#000000" fontSize="10">
-  <xyplot width="330" height="250" points="100" smoothing="true">
-    <propertiessource index="1" sourcetype="PropertyGrid" />
-    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
-    <xaxes xmin="250.0" xmax="620.0" xtick="50.0" decimalplaces="3" numberformat="General" />
-    <yaxes ymin="2.0" ymax="4.0" ytick="0.5" decimalplaces="3" numberformat="General" />
-    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
-    <title2d title="Superheated Steam Heat Capacity cp(T) at 40 bar" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
-    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Temperature T [°C]" ylabel="Isobaric Heat Capacity cp [kJ/(kg·K)]" y2label="y2" />
-    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
-    <traces>
-      <trace seriesname="cp at P = 40 bar (4 MPa)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="DarkGreen" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
-    <input>
-      <e type="operand">xy_cp_isobar</e>
-      <e type="operand">1</e>
-      <e type="operand">1</e>
-      <e type="function" args="3" preserve="true">sys</e>
-    </input>
-  </xyplot>
-  </region>
-  <region left="18" top="5947" width="500" height="56" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">xy_cp_isobar</e>
+          <e type="operand">T_cp_C</e>
+          <e type="operand">cp_nodes_kJ</e>
+          <e type="function" args="2">augment</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="5778" width="743" height="312" color="#000000" fontSize="10">
+      <xyplot animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="733" height="304" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="250" xmax="620" xtick="50" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="2" ymax="4" ytick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Superheated Steam Heat Capacity cp(T) at 40 bar" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Temperature T [°C]" ylabel="Isobaric Heat Capacity cp [kJ/(kg·K)]" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="cp at P = 40 bar (4 MPa)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="DarkGreen" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">xy_cp_isobar</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="function" args="3">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="18" top="6129" width="661" height="55" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Section 4: Backward Functions &amp; State Inversion</p>
     <p bold="true">Verification of IF97 dedicated backward equations T(p,h), rho(p,h), T(p,s), rho(p,s), p(h,s), T(h,s).</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="6015" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="6192" width="362" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Backward temperature from (p, h): T_from_ph = 673.1434 K (recovers 673.15 K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_from_ph</e>
-    <e type="operand">P_sh</e>
-    <e type="operand">h_sh</e>
-    <e type="function" args="2">IF97_T_ph</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6079" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_from_ph</e>
+          <e type="operand">P_sh</e>
+          <e type="operand">h_sh</e>
+          <e type="function" args="2">IF97_T_ph</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">673.1434</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="6255" width="400" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Backward density from (p, h): rho_from_ph = 13.618 kg/m³</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">rho_from_ph</e>
-    <e type="operand">P_sh</e>
-    <e type="operand">h_sh</e>
-    <e type="function" args="2">IF97_rho_ph</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6143" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">rho_from_ph</e>
+          <e type="operand">P_sh</e>
+          <e type="operand">h_sh</e>
+          <e type="function" args="2">IF97_rho_ph</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">13.6182</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="6327" width="362" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Backward temperature from (p, s): T_from_ps = 673.1486 K (recovers 673.15 K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_from_ps</e>
-    <e type="operand">P_sh</e>
-    <e type="operand">s_sh</e>
-    <e type="function" args="2">IF97_T_ps</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6207" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_from_ps</e>
+          <e type="operand">P_sh</e>
+          <e type="operand">s_sh</e>
+          <e type="function" args="2">IF97_T_ps</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">673.1486</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="6390" width="400" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Backward density from (p, s): rho_from_ps = 13.618 kg/m³</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">rho_from_ps</e>
-    <e type="operand">P_sh</e>
-    <e type="operand">s_sh</e>
-    <e type="function" args="2">IF97_rho_ps</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6271" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">rho_from_ps</e>
+          <e type="operand">P_sh</e>
+          <e type="operand">s_sh</e>
+          <e type="function" args="2">IF97_rho_ps</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">13.6181</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="6453" width="349" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Backward pressure from (h, s): P_from_hs = 3999966.6 Pa (recovers 4.0 MPa)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">P_from_hs</e>
-    <e type="operand">h_sh</e>
-    <e type="operand">s_sh</e>
-    <e type="function" args="2">IF97_p_hs</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6335" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">P_from_hs</e>
+          <e type="operand">h_sh</e>
+          <e type="operand">s_sh</e>
+          <e type="function" args="2">IF97_p_hs</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">4</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="6516" width="362" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Backward temperature from (h, s): T_from_hs = 673.1432 K (recovers 673.15 K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_from_hs</e>
-    <e type="operand">h_sh</e>
-    <e type="operand">s_sh</e>
-    <e type="function" args="2">IF97_T_hs</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6399" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_from_hs</e>
+          <e type="operand">h_sh</e>
+          <e type="operand">s_sh</e>
+          <e type="function" args="2">IF97_T_hs</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">673.1432</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="6579" width="334" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>IF97 Region from (p, h): reg_sh_ph = 2 (Superheated Vapor Region)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">reg_sh_ph</e>
-    <e type="operand">P_sh</e>
-    <e type="operand">h_sh</e>
-    <e type="function" args="2">IF97_Region_ph</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6463" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">reg_sh_ph</e>
+          <e type="operand">P_sh</e>
+          <e type="operand">h_sh</e>
+          <e type="function" args="2">IF97_Region_ph</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="6642" width="334" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>IF97 Region from (p, s): reg_sh_ps = 2 (Superheated Vapor Region)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">reg_sh_ps</e>
-    <e type="operand">P_sh</e>
-    <e type="operand">s_sh</e>
-    <e type="function" args="2">IF97_Region_ps</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6527" width="500" height="88" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">reg_sh_ps</e>
+          <e type="operand">P_sh</e>
+          <e type="operand">s_sh</e>
+          <e type="function" args="2">IF97_Region_ps</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="6768" width="652" height="86" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Section 5: Wet Steam Mixture &amp; Two-Phase Thermodynamics</p>
     <p bold="true">Properties of two-phase liquid-vapor mixture at P = 2 MPa and specified vapor quality Q = 0.75</p>
     <p bold="true">calculated directly via fundamental thermodynamic relations: M = M_liq + Q * (M_vap - M_liq).</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="6627" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="6867" width="146" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Two-phase mixture pressure: P_mix = 2.0 MPa (20.0 bar)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">P_mix</e>
-    <e type="operand">2000000</e>
-    <e type="operand" style="unit">Pa</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6691" width="44" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">P_mix</e>
+          <e type="operand">2000000</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="6930" width="110" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Specified dry steam vapor quality: Q_spec = 0.75 (75% vapor mass fraction)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">Q_spec</e>
-    <e type="operand">0.75</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6755" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">Q_spec</e>
+          <e type="operand">0.75</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="7002" width="367" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid enthalpy at 2 MPa: h_liq_mix = 908605.2 J/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_liq_mix</e>
-    <e type="operand">P_mix</e>
-    <e type="function" args="1">IF97_hliq_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6819" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_liq_mix</e>
+          <e type="operand">P_mix</e>
+          <e type="function" args="1">IF97_hliq_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">9.0862</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="7065" width="351" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Latent heat of vaporization at 2 MPa: h_fg_mix = 1889784.6 J/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_fg_mix</e>
-    <e type="operand">P_mix</e>
-    <e type="function" args="1">IF97_hfg_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6883" width="84" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_fg_mix</e>
+          <e type="operand">P_mix</e>
+          <e type="function" args="1">IF97_hfg_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.8898</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="7128" width="404" height="33" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Wet mixture enthalpy: h_mix = 2325943.6 J/kg (2325.94 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_mix</e>
-    <e type="operand">h_liq_mix</e>
-    <e type="operand">Q_spec</e>
-    <e type="operand">h_fg_mix</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">+</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="6947" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_mix</e>
+          <e type="operand">h_liq_mix</e>
+          <e type="operand">Q_spec</e>
+          <e type="operand">h_fg_mix</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2.3259</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="7191" width="360" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid entropy at 2 MPa: s_liq_mix = 2447.34 J/(kg·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">s_liq_mix</e>
-    <e type="operand">P_mix</e>
-    <e type="function" args="1">IF97_sliq_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7011" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">s_liq_mix</e>
+          <e type="operand">P_mix</e>
+          <e type="function" args="1">IF97_sliq_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2447.0239</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="7254" width="360" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated vapor entropy at 2 MPa: s_vap_mix = 6340.50 J/(kg·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">s_vap_mix</e>
-    <e type="operand">P_mix</e>
-    <e type="function" args="1">IF97_svap_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7075" width="108" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">s_vap_mix</e>
+          <e type="operand">P_mix</e>
+          <e type="function" args="1">IF97_svap_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">6339.1644</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="7317" width="506" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Wet mixture entropy: s_mix = 5367.21 J/(kg·K) (5.367 kJ/(kg·K))</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">s_mix</e>
-    <e type="operand">s_liq_mix</e>
-    <e type="operand">Q_spec</e>
-    <e type="operand">s_vap_mix</e>
-    <e type="operand">s_liq_mix</e>
-    <e type="operator" args="2">-</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">+</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7139" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">s_mix</e>
+          <e type="operand">s_liq_mix</e>
+          <e type="operand">Q_spec</e>
+          <e type="operand">s_vap_mix</e>
+          <e type="operand">s_liq_mix</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">5366.1293</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="7380" width="378" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid density at 2 MPa: rho_liq_mix = 852.79 kg/m³</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">rho_liq_mix</e>
-    <e type="operand">P_mix</e>
-    <e type="function" args="1">IF97_rholiq_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7203" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">rho_liq_mix</e>
+          <e type="operand">P_mix</e>
+          <e type="function" args="1">IF97_rholiq_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">849.798</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="7443" width="378" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated vapor density at 2 MPa: rho_vap_mix = 10.047 kg/m³</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">rho_vap_mix</e>
-    <e type="operand">P_mix</e>
-    <e type="function" args="1">IF97_rhovap_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7267" width="132" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">rho_vap_mix</e>
+          <e type="operand">P_mix</e>
+          <e type="function" args="1">IF97_rhovap_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">10.0421</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="7506" width="357" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Wet mixture specific volume: v_mix = 0.07494 m³/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">v_mix</e>
-    <e type="operand">1</e>
-    <e type="operand">Q_spec</e>
-    <e type="operator" args="2">-</e>
-    <e type="operand">rho_liq_mix</e>
-    <e type="operator" args="2">/</e>
-    <e type="operand">Q_spec</e>
-    <e type="operand">rho_vap_mix</e>
-    <e type="operator" args="2">/</e>
-    <e type="operator" args="2">+</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7331" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">v_mix</e>
+          <e type="operand">1</e>
+          <e type="operand">Q_spec</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">rho_liq_mix</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">Q_spec</e>
+          <e type="operand">rho_vap_mix</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.075</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="7578" width="223" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Wet mixture density: rho_mix = 13.344 kg/m³</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">rho_mix</e>
-    <e type="operand">1</e>
-    <e type="operand">v_mix</e>
-    <e type="operator" args="2">/</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7395" width="84" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">rho_mix</e>
+          <e type="operand">1</e>
+          <e type="operand">v_mix</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">13.337</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="7641" width="285" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Recovered vapor quality from (p, h): Q_from_ph = 0.7500 (100% exact)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">Q_from_ph</e>
-    <e type="operand">h_mix</e>
-    <e type="operand">h_liq_mix</e>
-    <e type="operator" args="2">-</e>
-    <e type="operand">h_fg_mix</e>
-    <e type="operator" args="2">/</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7459" width="108" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">Q_from_ph</e>
+          <e type="operand">h_mix</e>
+          <e type="operand">h_liq_mix</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">h_fg_mix</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.75</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="7758" width="317" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Recovered vapor quality from (p, s): Q_from_ps = 0.7500 (100% exact)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">Q_from_ps</e>
-    <e type="operand">s_mix</e>
-    <e type="operand">s_liq_mix</e>
-    <e type="operator" args="2">-</e>
-    <e type="operand">s_vap_mix</e>
-    <e type="operand">s_liq_mix</e>
-    <e type="operator" args="2">-</e>
-    <e type="operator" args="2">/</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7523" width="500" height="56" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">Q_from_ps</e>
+          <e type="operand">s_mix</e>
+          <e type="operand">s_liq_mix</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">s_vap_mix</e>
+          <e type="operand">s_liq_mix</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.75</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="7821" width="634" height="55" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Section 6: Temperature-Based Saturation &amp; Extended Transport Properties</p>
     <p bold="true">Verification of temperature-driven saturation functions, speed of sound, and heat capacities.</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="7591" width="84" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="7884" width="211" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Evaluation temperature: T_sat_test = 423.15 K (150.0 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_sat_test</e>
-    <e type="operand">150</e>
-    <e type="operand">273.15</e>
-    <e type="operator" args="2">+</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7655" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_sat_test</e>
+          <e type="operand">150</e>
+          <e type="operand">273.15</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="7956" width="295" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid enthalpy from T: h_liq_at_T = 632198.8 J/kg (632.20 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_liq_at_T</e>
-    <e type="operand">T_sat_test</e>
-    <e type="function" args="1">IF97_hliq_T</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7719" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_liq_at_T</e>
+          <e type="operand">T_sat_test</e>
+          <e type="function" args="1">IF97_hliq_T</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="8019" width="295" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated vapor enthalpy from T: h_vap_at_T = 2745914.8 J/kg (2745.91 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_vap_at_T</e>
-    <e type="operand">T_sat_test</e>
-    <e type="function" args="1">IF97_hvap_T</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7783" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_vap_at_T</e>
+          <e type="operand">T_sat_test</e>
+          <e type="function" args="1">IF97_hvap_T</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="8082" width="279" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Latent heat of vaporization from T: h_fg_at_T = 2113716.0 J/kg (2113.72 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_fg_at_T</e>
-    <e type="operand">T_sat_test</e>
-    <e type="function" args="1">IF97_hfg_T</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7847" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_fg_at_T</e>
+          <e type="operand">T_sat_test</e>
+          <e type="function" args="1">IF97_hfg_T</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="8145" width="400" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid speed of sound at 1 MPa: w_liq_1MPa = 1386.41 m/s</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">w_liq_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_wliq_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7911" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">w_liq_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_wliq_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1391.6387</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="8208" width="392" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated vapor speed of sound at 1 MPa: w_vap_1MPa = 512.43 m/s</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">w_vap_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_wvap_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="7975" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">w_vap_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_wvap_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">500.8939</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="8271" width="416" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid isobaric heat capacity: cp_liq_1MPa = 4423.82 J/(kg·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">cp_liq_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_cpliq_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8039" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">cp_liq_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_cpliq_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">4405.112</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="8334" width="424" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated vapor isobaric heat capacity: cp_vap_1MPa = 2697.55 J/(kg·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">cp_vap_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_cpvap_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8103" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">cp_vap_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_cpvap_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2714.9848</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="8397" width="376" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid Prandtl number: Pr_liq_1MPa = 0.9916</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">Pr_liq_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_Prliq_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8167" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">Pr_liq_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_Prliq_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.9874</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="8460" width="376" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated vapor Prandtl number: Pr_vap_1MPa = 1.1624</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">Pr_vap_1MPa</e>
-    <e type="operand">P_sat_1MPa</e>
-    <e type="function" args="1">IF97_Prvap_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8231" width="500" height="104" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">Pr_vap_1MPa</e>
+          <e type="operand">P_sat_1MPa</e>
+          <e type="function" args="1">IF97_Prvap_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.1684</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="8532" width="754" height="86" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Section 7: Industrial Case Study — Rankine Cycle Steam Turbine Expansion</p>
     <p bold="true">High-pressure turbine expansion from 8 MPa, 520 °C down to condenser vacuum (8 kPa) with eta_turb = 88%.</p>
     <p bold="true">Includes Mollier (h-s) Diagram visualization with the steam expansion trajectory.</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="8347" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="8640" width="178" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>High-pressure turbine inlet: P_turb_in = 8.0 MPa (80.0 bar)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">P_turb_in</e>
-    <e type="operand">8000000</e>
-    <e type="operand" style="unit">Pa</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8411" width="84" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">P_turb_in</e>
+          <e type="operand">8000000</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="8712" width="203" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Turbine inlet steam temperature: T_turb_in = 793.15 K (520.0 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_turb_in</e>
-    <e type="operand">520</e>
-    <e type="operand">273.15</e>
-    <e type="operator" args="2">+</e>
-    <e type="operand" style="unit">K</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8475" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_turb_in</e>
+          <e type="operand">520</e>
+          <e type="operand">273.15</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="8775" width="469" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Turbine inlet enthalpy: h_turb_in = 3448640.8 J/kg (3448.64 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_turb_in</e>
-    <e type="operand">T_turb_in</e>
-    <e type="operand">P_turb_in</e>
-    <e type="function" args="2">IF97_h_Tp</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8539" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_turb_in</e>
+          <e type="operand">T_turb_in</e>
+          <e type="operand">P_turb_in</e>
+          <e type="function" args="2">IF97_h_Tp</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">3.4486</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="8838" width="462" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Turbine inlet entropy: s_turb_in = 6789.29 J/(kg·K) (6.7893 kJ/(kg·K))</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">s_turb_in</e>
-    <e type="operand">T_turb_in</e>
-    <e type="operand">P_turb_in</e>
-    <e type="function" args="2">IF97_s_Tp</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8603" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">s_turb_in</e>
+          <e type="operand">T_turb_in</e>
+          <e type="operand">P_turb_in</e>
+          <e type="function" args="2">IF97_s_Tp</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">6789.2941</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="8901" width="130" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Condenser operating vacuum pressure: P_cond = 8000 Pa (0.080 bar, 8.0 kPa)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">P_cond</e>
-    <e type="operand">8000</e>
-    <e type="operand" style="unit">Pa</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8667" width="44" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">P_cond</e>
+          <e type="operand">8000</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="8964" width="200" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Ideal isentropic expansion: s_turb_out_s = 6789.29 J/(kg·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">s_turb_out_s</e>
-    <e type="operand">s_turb_in</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8731" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">s_turb_out_s</e>
+          <e type="operand">s_turb_in</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="9027" width="352" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid entropy at condenser pressure: s_cond_f = 559.08 J/(kg·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">s_cond_f</e>
-    <e type="operand">P_cond</e>
-    <e type="function" args="1">IF97_sliq_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8795" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">s_cond_f</e>
+          <e type="operand">P_cond</e>
+          <e type="function" args="1">IF97_sliq_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">592.5316</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="9090" width="360" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated vapor entropy at condenser pressure: s_cond_g = 8246.33 J/(kg·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">s_cond_g</e>
-    <e type="operand">P_cond</e>
-    <e type="function" args="1">IF97_svap_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8859" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">s_cond_g</e>
+          <e type="operand">P_cond</e>
+          <e type="function" args="1">IF97_svap_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">8227.4109</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="9153" width="367" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid enthalpy at condenser pressure: h_cond_f = 173846.5 J/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_cond_f</e>
-    <e type="operand">P_cond</e>
-    <e type="function" args="1">IF97_hliq_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8923" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_cond_f</e>
+          <e type="operand">P_cond</e>
+          <e type="function" args="1">IF97_hliq_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.7385</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="9216" width="367" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Latent heat at condenser pressure: h_cond_fg = 2403144.2 J/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_cond_fg</e>
-    <e type="operand">P_cond</e>
-    <e type="function" args="1">IF97_hfg_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="8987" width="108" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_cond_fg</e>
+          <e type="operand">P_cond</e>
+          <e type="function" args="1">IF97_hfg_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2.4024</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="9288" width="373" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Isentropic exhaust vapor quality: Q_turb_out_s = 0.8105 (81.05% dry steam)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">Q_turb_out_s</e>
-    <e type="operand">s_turb_out_s</e>
-    <e type="operand">s_cond_f</e>
-    <e type="operator" args="2">-</e>
-    <e type="operand">s_cond_g</e>
-    <e type="operand">s_cond_f</e>
-    <e type="operator" args="2">-</e>
-    <e type="operator" args="2">/</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9051" width="84" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">Q_turb_out_s</e>
+          <e type="operand">s_turb_out_s</e>
+          <e type="operand">s_cond_f</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">s_cond_g</e>
+          <e type="operand">s_cond_f</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.8116</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="9351" width="508" height="33" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Isentropic exhaust enthalpy: h_turb_out_s = 2121575.4 J/kg (2121.58 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_turb_out_s</e>
-    <e type="operand">h_cond_f</e>
-    <e type="operand">Q_turb_out_s</e>
-    <e type="operand">h_cond_fg</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">+</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9115" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_turb_out_s</e>
+          <e type="operand">h_cond_f</e>
+          <e type="operand">Q_turb_out_s</e>
+          <e type="operand">h_cond_fg</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2.1237</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="9414" width="400" height="33" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Isentropic specific turbine work: w_turb_s = 1327065.4 J/kg (1327.07 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">w_turb_s</e>
-    <e type="operand">h_turb_in</e>
-    <e type="operand">h_turb_out_s</e>
-    <e type="operator" args="2">-</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9179" width="44" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">w_turb_s</e>
+          <e type="operand">h_turb_in</e>
+          <e type="operand">h_turb_out_s</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.3249</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="9477" width="126" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Internal isentropic turbine efficiency: eta_turb = 0.88 (88.0%)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">eta_turb</e>
-    <e type="operand">0.88</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9243" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">eta_turb</e>
+          <e type="operand">0.88</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="9540" width="370" height="33" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Actual specific shaft work: w_turb_act = 1167817.5 J/kg (1167.82 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">w_turb_act</e>
-    <e type="operand">w_turb_s</e>
-    <e type="operand">eta_turb</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9307" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">w_turb_act</e>
+          <e type="operand">w_turb_s</e>
+          <e type="operand">eta_turb</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.1659</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="9603" width="400" height="33" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Actual turbine exhaust enthalpy: h_turb_out = 2280823.3 J/kg (2280.82 kJ/kg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_turb_out</e>
-    <e type="operand">h_turb_in</e>
-    <e type="operand">w_turb_act</e>
-    <e type="operator" args="2">-</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9371" width="84" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_turb_out</e>
+          <e type="operand">h_turb_in</e>
+          <e type="operand">w_turb_act</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2.2827</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Gy</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="9666" width="341" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Actual turbine exhaust vapor quality: Q_turb_out = 0.8768 (87.68% dry steam)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">Q_turb_out</e>
-    <e type="operand">h_turb_out</e>
-    <e type="operand">h_cond_f</e>
-    <e type="operator" args="2">-</e>
-    <e type="operand">h_cond_fg</e>
-    <e type="operator" args="2">/</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9435" width="48" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">Q_turb_out</e>
+          <e type="operand">h_turb_out</e>
+          <e type="operand">h_cond_f</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">h_cond_fg</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.8778</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="9729" width="356" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Turbine exhaust condensing temperature: T_turb_out = 314.6601 K (41.51 °C)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">T_turb_out</e>
-    <e type="operand">P_cond</e>
-    <e type="function" args="1">IF97_Tsat_p</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9499" width="84" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">T_turb_out</e>
+          <e type="operand">P_cond</e>
+          <e type="function" args="1">IF97_Tsat_p</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">314.6601</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="9792" width="110" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Main steam mass flow rate: m_dot = 50.0 kg/s (180.0 t/h)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">m_dot</e>
-    <e type="operand">50</e>
-    <e type="operand" style="unit">kg</e>
-    <e type="operator" args="2">*</e>
-    <e type="operand" style="unit">s</e>
-    <e type="operator" args="2">/</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9563" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">m_dot</e>
+          <e type="operand">50</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="9864" width="322" height="33" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Mechanical shaft power output: P_mech = 58390875.0 W (58.39 MW)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">P_mech</e>
-    <e type="operand">m_dot</e>
-    <e type="operand">w_turb_act</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9627" width="44" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">P_mech</e>
+          <e type="operand">m_dot</e>
+          <e type="operand">w_turb_act</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">5.8296</e>
+          <e type="operand">10</e>
+          <e type="operand">7</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="9927" width="118" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Electrical generator efficiency: eta_gen = 0.98 (98.0%)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">eta_gen</e>
-    <e type="operand">0.98</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9691" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">eta_gen</e>
+          <e type="operand">0.98</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="9990" width="306" height="33" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Net electrical generator power: P_elec = 57223057.5 W (57.22 MWe)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">P_elec</e>
-    <e type="operand">P_mech</e>
-    <e type="operand">eta_gen</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9755" width="500" height="88" color="#000000" fontSize="10">
-  <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
-    <content>
+        </description>
+        <input>
+          <e type="operand">P_elec</e>
+          <e type="operand">P_mech</e>
+          <e type="operand">eta_gen</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">5.7131</e>
+          <e type="operand">10</e>
+          <e type="operand">7</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="10053" width="707" height="86" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
     <p bold="true">Visualization 4: Mollier (h-s) Diagram &amp; Turbine Expansion Trajectory</p>
     <p bold="true">Enthalpy-Entropy chart showing saturated liquid (hf) and saturated vapor (hg) dome</p>
     <p bold="true">alongside the irreversible turbine expansion path from admission (8 MPa, 520 °C) to condenser (8 kPa).</p>
     </content>
-  </text>
-  </region>
-  <region left="18" top="9855" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+      </text>
+    </region>
+    <region left="18" top="10152" width="247" height="31" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated liquid enthalpies: h_dome_f = [1.918e5 ... 2.013e6] J/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_dome_f</e>
-    <e type="operand">P_dome</e>
-    <e type="function" args="1">IF97_hliq_p</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9919" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_dome_f</e>
+          <e type="operand">P_dome</e>
+          <e type="function" args="1">IF97_hliq_p</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="10215" width="247" height="31" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Saturated vapor enthalpies: h_dome_g = [2.584e6 ... 2.163e6] J/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_dome_g</e>
-    <e type="operand">P_dome</e>
-    <e type="function" args="1">IF97_hvap_p</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="9983" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_dome_g</e>
+          <e type="operand">P_dome</e>
+          <e type="function" args="1">IF97_hvap_p</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="10278" width="148" height="47" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Scaled liquid enthalpy in kJ/kg: [191.8 ... 2013.4] kJ/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_f_kJ</e>
-    <e type="operand">h_dome_f</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">/</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="10047" width="72" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_f_kJ</e>
+          <e type="operand">h_dome_f</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="10341" width="148" height="47" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Scaled vapor enthalpy in kJ/kg: [2583.9 ... 2163.2] kJ/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_g_kJ</e>
-    <e type="operand">h_dome_g</e>
-    <e type="operand">1000</e>
-    <e type="operator" args="2">/</e>
-    <e type="function" args="1">vectorize</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="10111" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_g_kJ</e>
+          <e type="operand">h_dome_g</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="10404" width="325" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Mollier saturated liquid curve (sf, hf)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">xy_mollier_liq</e>
-    <e type="operand">s_f_kJ</e>
-    <e type="operand">h_f_kJ</e>
-    <e type="function" args="2">augment</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="10175" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">xy_mollier_liq</e>
+          <e type="operand">s_f_kJ</e>
+          <e type="operand">h_f_kJ</e>
+          <e type="function" args="2">augment</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="10476" width="325" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Mollier saturated vapor curve (sg, hg)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">xy_mollier_vap</e>
-    <e type="operand">s_g_kJ</e>
-    <e type="operand">h_g_kJ</e>
-    <e type="function" args="2">augment</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="10239" width="108" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">xy_mollier_vap</e>
+          <e type="operand">s_g_kJ</e>
+          <e type="operand">h_g_kJ</e>
+          <e type="function" args="2">augment</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="10539" width="461" height="24" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Actual turbine exhaust entropy: s_turb_out_act = 7298.54 J/(kg·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">s_turb_out_act</e>
-    <e type="operand">s_cond_f</e>
-    <e type="operand">Q_turb_out</e>
-    <e type="operand">s_cond_g</e>
-    <e type="operand">s_cond_f</e>
-    <e type="operator" args="2">-</e>
-    <e type="operator" args="2">*</e>
-    <e type="operator" args="2">+</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="10303" width="84" height="45" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">s_turb_out_act</e>
+          <e type="operand">s_cond_f</e>
+          <e type="operand">Q_turb_out</e>
+          <e type="operand">s_cond_g</e>
+          <e type="operand">s_cond_f</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="10602" width="189" height="45" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Turbine expansion entropy path: inlet 6.789 to exit 7.299 kJ/(kg·K)</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">s_turb_path</e>
-    <e type="operand">6.78929</e>
-    <e type="operand">7.29854</e>
-    <e type="operand">2</e>
-    <e type="operand">1</e>
-    <e type="function" args="4">mat</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="10388" width="84" height="45" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">s_turb_path</e>
+          <e type="operand">6.78929</e>
+          <e type="operand">7.29854</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="10683" width="189" height="45" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Turbine expansion enthalpy path: inlet 3448.6 to exit 2280.8 kJ/kg</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">h_turb_path</e>
-    <e type="operand">3448.64</e>
-    <e type="operand">2280.82</e>
-    <e type="operand">2</e>
-    <e type="operand">1</e>
-    <e type="function" args="4">mat</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="10473" width="60" height="24" color="#000000" fontSize="10">
-  <math>
-    <description active="true" position="Top" lang="eng">
-      <content>
+        </description>
+        <input>
+          <e type="operand">h_turb_path</e>
+          <e type="operand">3448.64</e>
+          <e type="operand">2280.82</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="10773" width="381" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
         <p>Turbine expansion line (s, h) on Mollier diagram</p>
       </content>
-    </description>
-    <input>
-    <e type="operand">xy_turb_exp</e>
-    <e type="operand">s_turb_path</e>
-    <e type="operand">h_turb_path</e>
-    <e type="function" args="2">augment</e>
-    <e type="operator" args="2">:</e>
-    </input>
-  </math>
-  </region>
-  <region left="18" top="10537" width="330" height="270" color="#000000" fontSize="10">
-  <xyplot width="330" height="270" points="100" smoothing="true">
-    <propertiessource index="1" sourcetype="PropertyGrid" />
-    <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" />
-    <xaxes xmin="0.0" xmax="9.0" xtick="1.0" decimalplaces="3" numberformat="General" />
-    <yaxes ymin="0.0" ymax="3600.0" ytick="500.0" decimalplaces="3" numberformat="General" />
-    <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" decimalplaces="3" numberformat="General" />
-    <title2d title="Mollier h-s Diagram &amp; Turbine Expansion Trajectory" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
-    <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Specific Entropy s [kJ/(kg·K)]" ylabel="Specific Enthalpy h [kJ/kg]" y2label="y2" />
-    <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
-    <traces>
-      <trace seriesname="Saturated Liquid (hf)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="Blue" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="Saturated Vapor (hg)" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="Red" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />      <trace seriesname="Turbine Expansion Path" isy2data="false" isvisible="true" plotmethod="Lines" linecolor="Black" linethickness="1" linepattern="Solid" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />    </traces>
-    <input>
-      <e type="operand">xy_mollier_liq</e>
-      <e type="operand">xy_mollier_vap</e>
-      <e type="operand">xy_turb_exp</e>
-      <e type="operand">3</e>
-      <e type="operand">1</e>
-      <e type="function" args="5" preserve="true">sys</e>
-    </input>
-  </xyplot>
-  </region>
+        </description>
+        <input>
+          <e type="operand">xy_turb_exp</e>
+          <e type="operand">s_turb_path</e>
+          <e type="operand">h_turb_path</e>
+          <e type="function" args="2">augment</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="10836" width="729" height="307" color="#000000" fontSize="10">
+      <xyplot animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="719" height="299" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="-1.471968" xmax="10.47197" xtick="2" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="-588.7872" ymax="4188.788" ytick="2000" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Mollier h-s Diagram &amp; Turbine Expansion Trajectory" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Specific Entropy s [kJ/(kg·K)]" ylabel="Specific Enthalpy h [kJ/kg]" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="Saturated Liquid (hf)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="Saturated Vapor (hg)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="Turbine Expansion Path" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Black" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">xy_mollier_liq</e>
+          <e type="operand">xy_mollier_vap</e>
+          <e type="operand">xy_turb_exp</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="function" args="5">sys</e>
+        </input>
+      </xyplot>
+    </region>
   </regions>
 </worksheet>
