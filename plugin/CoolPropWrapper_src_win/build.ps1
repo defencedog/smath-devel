@@ -116,6 +116,7 @@ Copy-Item -Force (Join-Path $root "packaging\CoolPropWrapper.dll.ini")    $stage
 Copy-Item -Force (Join-Path $root "packaging\CoolPropWrapper.config")     $stage
 Copy-Item -Force (Join-Path $root "packaging\CoolPropWrapper.dll.config") $stage
 Copy-Item -Force $dll (Join-Path $stage "CoolPropWrapper.dll")
+Copy-Item -Force (Join-Path $root "packaging\LICENSE")                    $stage
 
 Copy-Item -Recurse -Force (Join-Path $root "packaging\metadata") $stage
 
