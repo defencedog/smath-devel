@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4D2F8B60-9E71-4C85-A6D3-7B1E5A0C2F48}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>OptimHarness</RootNamespace>
+    <AssemblyName>OptimHarness</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <LangVersion>latest</LangVersion>
+    <!-- Defaults to x86 so the run exercises Optim_x86.dll; the x64 engine
+         is exercised with -p:PlatformTarget=x64 -t:Rebuild. SMath on 64-bit
+         Windows is a 64-bit process and loads the x64 engine there. -->
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>2</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RepoRoot>$(MSBuildThisFileDirectory)..\</RepoRoot>
+    <PackagesPath Condition=" '$(PackagesPath)' == '' ">$(RepoRoot)packages</PackagesPath>
+    <NetRefPath Condition=" '$(NetRefPath)' == '' ">$(PackagesPath)\microsoft.netframework.referenceassemblies.net20.1.0.3\build\.NETFramework\v2.0</NetRefPath>
+    <SMathRefPath Condition=" '$(SMathRefPath)' == '' ">$(PackagesPath)</SMathRefPath>
+    <TargetFrameworkRootPath Condition=" '$(TargetFrameworkRootPath)' == '' ">$(PackagesPath)\microsoft.netframework.referenceassemblies.net20.1.0.3\build\</TargetFrameworkRootPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib">
+      <HintPath>$(NetRefPath)\mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>$(NetRefPath)\System.dll</HintPath>
+    </Reference>
+    <Reference Include="SMath.Manager">
+      <HintPath>$(SMathRefPath)\smathstudio.core.ref.1.73.9126\ref\net20\SMath.Manager.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SMath.Math.Numeric">
+      <HintPath>$(SMathRefPath)\smathstudio.core.ref.1.73.9126\ref\net20\SMath.Math.Numeric.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SMath.Math.Symbolic">
+      <HintPath>$(SMathRefPath)\smathstudio.core.ref.1.73.9126\ref\net20\SMath.Math.Symbolic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SMath.Controls">
+      <HintPath>$(SMathRefPath)\smathstudio.core.ref.1.73.9126\ref\net20\SMath.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Project reference, not a HintPath: building the harness builds the
+         plugin first, so the tests can never run against a stale DLL. -->
+    <ProjectReference Include="..\src\OptimWrapper.csproj">
+      <Project>{7C4E2A91-5B8D-4F36-9E27-1A6C3D5B8F04}</Project>
+      <Name>OptimWrapper</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Copied to <name>.exe.config: rolls the net20 EXE forward to CLR 4,
+         without which it exits with 0x80131700 before printing anything. -->
+    <None Include="App.config" />
+  </ItemGroup>
+
+  <!-- Stage the native engines next to the harness, which is what the plugin
+       folder looks like once installed. Both Windows engines go to the output
+       root; the harness loads the one matching its own bitness. -->
+  <ItemGroup>
+    <NativeBinary Include="$(RepoRoot)native\Optim_x86.dll" Condition="Exists('$(RepoRoot)native\Optim_x86.dll')" />
+    <NativeBinary Include="$(RepoRoot)native\Optim_x64.dll" Condition="Exists('$(RepoRoot)native\Optim_x64.dll')" />
+    <NativeBinary Include="$(RepoRoot)native\libOptim.so" Condition="Exists('$(RepoRoot)native\libOptim.so')" />
+  </ItemGroup>
+  <Target Name="StageNative" AfterTargets="Build">
+    <Copy SourceFiles="@(NativeBinary)" DestinationFolder="$(OutputPath)" SkipUnchangedFiles="true" />
+  </Target>
+
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

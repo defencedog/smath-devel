@@ -1,0 +1,21 @@
+{
+  "Settings": {
+    "ArgumentsSeparator": ",",
+    "DecimalSymbol": ".",
+    "NamingType": "795b9275-56b5-45c8-bff0-74c4feaa4195",
+    "UICultureName": "en",
+    "UnitsCultureName": "en"
+  },
+  "Summaries": [
+    {
+      "Author": "Keith O'Hara (OptimLib) / SMath Studio Wrapper",
+      "Description": "An SMath Studio plugin wrapping OptimLib's optimisation algorithms (BFGS, L-BFGS, CG, GD, Newton, Nelder-Mead, DE, PSO, SUMT, Broyden) for user-defined worksheet expressions and functions, including box-bounded global search (DE/PSO), constrained problems and residual systems. All values are unitless.",
+      "FileTypes": [],
+      "Id": "3c9f7e0a-c2b1-4eae-ab68-9ea2c518c510",
+      "Regions": [],
+      "Terms": [],
+      "Title": "Optim Wrapper",
+      "Version": "1.0.0.0"
+    }
+  ]
+}

@@ -1,0 +1,1423 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?application progid="SMath Solver" version="1.5.0.9678"?>
+<worksheet xmlns="http://smath.info/schemas/worksheet/1.0">
+  <settings ppi="96">
+    <identity>
+      <id>039faafa-6ada-495a-8054-cfc3cdc908d8</id>
+      <revision>2</revision>
+    </identity>
+    <calculation>
+      <precision>4</precision>
+      <exponentialThreshold>5</exponentialThreshold>
+      <trailingZeros>false</trailingZeros>
+      <significantDigitsMode>false</significantDigitsMode>
+      <mixedNumbers>false</mixedNumbers>
+      <roundingMode>0</roundingMode>
+      <approximateEqualAccuracy>3</approximateEqualAccuracy>
+      <fractions>decimal</fractions>
+    </calculation>
+    <pageModel active="false" viewMode="2" printGrid="false" printAreas="true" simpleEqualsOnly="false" printBackgroundImages="true" hideElementsHighlightings="true">
+      <paper id="0" orientation="Portrait" width="850" height="1100" />
+      <margins left="39" right="39" top="49" bottom="49" />
+      <header alignment="Center" color="#a9a9a9">&amp;[DATE] &amp;[TIME] - &amp;[FILENAME]</header>
+      <footer alignment="Center" color="#a9a9a9">&amp;[PAGENUM] / &amp;[COUNT]</footer>
+      <backgrounds />
+    </pageModel>
+    <dependencies>
+      <assembly name="SMath Core" version="1.75.9678.0" guid="a37cba83-b69c-4c71-9992-55ff666763bd" />
+      <assembly name="MathRegion" version="1.75.9678.0" guid="02f1ab51-215b-466e-a74d-5d8b1cf85e8d" />
+      <assembly name="OptimWrapper" version="1.0.0.0" guid="3c9f7e0a-c2b1-4eae-ab68-9ea2c518c510" />
+      <assembly name="TextRegion" version="1.75.9678.0" guid="485d28c5-349a-48b6-93be-12a35a1c1e39" />
+      <assembly name="X-Y Plot Region (JXCharts)" version="0.4.9441.40064" guid="c12231ec-4873-43c1-a7d0-a167ebd17066" />
+    </dependencies>
+  </settings>
+  <regions type="content">
+    <region left="18" top="9" width="379" height="23" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="true">OptimWrapper - complete solver reference (CAS-defined problems)</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="45" width="76" height="23" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="false">2026-10-24</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="81" width="477" height="203" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="true">OptimWrapper - every solver, user-defined problems</p>
+    <p bold="true">GUID 3c9f7e0a-c2b1-4eae-ab68-9ea2c518c510, v1.0.0.0 (OptimLib 3.1.3 bridge).</p>
+    <p bold="true">The plugin ships NO built-in test problems: every objective / constraint / system</p>
+    <p bold="true">below is defined here in SMath CAS. Solver result layout: [x1; ...; xn; f; iterations; ok]</p>
+    <p bold="true">  f = el(result, n+1);  iterations = el(result, n+2);  ok = el(result, n+3) (1 = converged).</p>
+    <p bold="true">All values are unitless. DE/PSO take explicit box bounds (p_min, p_max).</p>
+    <p bold="true">Run Calculate All (Ctrl+Shift+F9) if values are not filled in on open.</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="324" width="503" height="533" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="true">1. The 13 optimisation algorithms</p>
+    <p bold="true">LOCAL DETERMINISTIC - unconstrained scalar objective f(x):</p>
+    <p bold="true">  0 bfgs     Quasi-Newton (BFGS inverse-Hessian update + line search); robust default.</p>
+    <p bold="true">  1 lbfgs    Limited-memory BFGS: low memory, good for many variables.</p>
+    <p bold="true">  2 cg       Nonlinear conjugate gradient: little memory; needs a good line search.</p>
+    <p bold="true">  3 gd       Gradient descent (steepest descent): simple; slow/diverges with a fixed step.</p>
+    <p bold="true">  4 newton   Newton with a numerical Hessian: fast near a minimum, O(n^2) memory.</p>
+    <p bold="true">  5 nm       Nelder-Mead simplex: derivative-free; robust but slow in high dimension.</p>
+    <p bold="true">GLOBAL STOCHASTIC - population 200, require bounds:</p>
+    <p bold="true">  6 de       Differential evolution: mutation/crossover/selection global search.</p>
+    <p bold="true">  7 de_prmm  DE with pro-active mutation: extra diversity to avoid premature convergence.</p>
+    <p bold="true">  8 pso      Particle swarm: particles follow personal/global bests.</p>
+    <p bold="true">  9 pso_dv   PSO with differential variation: more explorative, noisier.</p>
+    <p bold="true">CONSTRAINED:</p>
+    <p bold="true"> 10 sumt     Sequential Unconstrained Minimisation (penalty) for ci(x) &lt;= 0.</p>
+    <p bold="true">ROOT FINDING - square system F(x) = 0:</p>
+    <p bold="true"> 11 broyden     Broyden quasi-Newton root finder (secant update of the Jacobian).</p>
+    <p bold="true"> 12 broyden_df  Broyden dual-form variant (same goal, different update).</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="1017" width="475" height="23" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="true">2. Problems defined in SMath CAS (objectives, a constraint system, two root systems)</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="1071" width="280" height="43" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Rosenbrock objective; minimum (1, 1), f = 0.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="function" args="2">f_rosen</e>
+          <e type="operand">1</e>
+          <e type="operand">u</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">100</e>
+          <e type="operand">v</e>
+          <e type="operand">u</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1134" width="321" height="34" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Booth objective; minimum (1, 3), f = 0.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="function" args="2">f_booth</e>
+          <e type="operand">u</e>
+          <e type="operand">2</e>
+          <e type="operand">v</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">7</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">2</e>
+          <e type="operand">u</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">v</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1197" width="277" height="34" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Convex quadratic; minimum (2.25, -4.75), f = 0.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="function" args="2">f_quad</e>
+          <e type="operand">u</e>
+          <e type="operand">2.25</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">v</e>
+          <e type="operand">4.75</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1269" width="298" height="34" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>4-D sphere; minimum (0, 0, 0, 0), f = 0.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="operand">w</e>
+          <e type="operand">z</e>
+          <e type="function" args="4">f_sph4</e>
+          <e type="operand">u</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">w</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">z</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1332" width="458" height="34" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Rastrigin multimodal objective; global minimum (0, 0), f = 0.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="function" args="2">f_rast</e>
+          <e type="operand">20</e>
+          <e type="operand">u</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">10</e>
+          <e type="operand">2</e>
+          <e type="operand">π</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">u</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="1">cos</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">10</e>
+          <e type="operand">2</e>
+          <e type="operand">π</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">v</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="1">cos</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1395" width="246" height="54" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Constrained [f; c1] with c1 = -2u - v + 14 &lt;= 0; minimum (5, 4).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="function" args="2">c_quad</e>
+          <e type="operand">u</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">v</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">0</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">u</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">v</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">14</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1476" width="203" height="54" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Root system u^2+v^2=1, u=v -&gt; (0.7071068, 0.7071068).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="function" args="2">sys1</e>
+          <e type="operand">u</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">1</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1566" width="215" height="46" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Root system u*exp(u)=1 (omega constant), u=v -&gt; (0.5671433, 0.5671433).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="function" args="2">sys2</e>
+          <e type="operand">u</e>
+          <e type="operand">u</e>
+          <e type="function" args="1">exp</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1647" width="124" height="45" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Rosenbrock start [-1.2; 1].</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">s_rn</e>
+          <e type="operand">0</e>
+          <e type="operand">1.2</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1737" width="85" height="45" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Zero start [0; 0].</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">s_r0</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1818" width="77" height="45" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Booth start [0; 0].</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">s_b</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1899" width="93" height="45" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Rastrigin start [3; 3].</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">s_ras</e>
+          <e type="operand">3</e>
+          <e type="operand">3</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1989" width="132" height="45" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Rastrigin lower bounds [-5.12; -5.12].</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">lo_r</e>
+          <e type="operand">0</e>
+          <e type="operand">5.12</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">0</e>
+          <e type="operand">5.12</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2070" width="109" height="45" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Rastrigin upper bounds [5.12; 5.12].</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">hi_r</e>
+          <e type="operand">5.12</e>
+          <e type="operand">5.12</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2160" width="77" height="45" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Constrained start [0; 0].</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">s_c</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2241" width="117" height="45" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Circle-line start [0.7; 0.7].</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">s_circ</e>
+          <e type="operand">0.7</e>
+          <e type="operand">0.7</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2331" width="101" height="45" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>omega-system start [0.5; 0.5].</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">s_om</e>
+          <e type="operand">0.5</e>
+          <e type="operand">0.5</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2412" width="349" height="23" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="true">3. Local deterministic solvers (bfgs, lbfgs, cg, gd, newton, nm)</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="2448" width="412" height="109" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_bfgs on Rosenbrock -&gt; (1, 1).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_bfgs</e>
+          <e type="operand">f_rosen</e>
+          <e type="operand">s_rn</e>
+          <e type="function" args="2">optim_bfgs</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="operand">5.2641</e>
+          <e type="operand">10</e>
+          <e type="operand">18</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">31</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2601" width="428" height="109" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_lbfgs on Rosenbrock -&gt; (1, 1).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_lbfgs</e>
+          <e type="operand">f_rosen</e>
+          <e type="operand">s_r0</e>
+          <e type="function" args="2">optim_lbfgs</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="operand">6.3331</e>
+          <e type="operand">10</e>
+          <e type="operand">19</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">21</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2745" width="372" height="109" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_cg on Booth -&gt; (1, 3).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_cg</e>
+          <e type="operand">f_booth</e>
+          <e type="operand">s_b</e>
+          <e type="function" args="2">optim_cg</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1</e>
+          <e type="operand">3</e>
+          <e type="operand">6.6505</e>
+          <e type="operand">10</e>
+          <e type="operand">20</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3015" width="372" height="109" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_gd on the quadratic -&gt; (2.25, -4.75).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_gd</e>
+          <e type="operand">f_quad</e>
+          <e type="operand">s_r0</e>
+          <e type="function" args="2">optim_gd</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2.25</e>
+          <e type="operand">4.75</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">1.6681</e>
+          <e type="operand">10</e>
+          <e type="operand">17</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">94</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3159" width="436" height="109" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_newton on the quadratic -&gt; (2.25, -4.75).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_newton</e>
+          <e type="operand">f_quad</e>
+          <e type="operand">s_r0</e>
+          <e type="function" args="2">optim_newton</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2.25</e>
+          <e type="operand">4.75</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">1.9722</e>
+          <e type="operand">10</e>
+          <e type="operand">31</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3321" width="364" height="109" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_nm on Booth -&gt; (1, 3).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_nm</e>
+          <e type="operand">f_booth</e>
+          <e type="operand">s_b</e>
+          <e type="function" args="2">optim_nm</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1</e>
+          <e type="operand">3</e>
+          <e type="operand">6.329</e>
+          <e type="operand">10</e>
+          <e type="operand">15</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">84</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3465" width="393" height="181" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_bfgs on the 4-D sphere -&gt; (0, 0, 0, 0).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_sph4</e>
+          <e type="operand">f_sph4</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="operand">1</e>
+          <e type="function" args="6">mat</e>
+          <e type="function" args="2">optim_bfgs</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2.7</e>
+          <e type="operand">10</e>
+          <e type="operand">14</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">2.7</e>
+          <e type="operand">10</e>
+          <e type="operand">14</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">2.6</e>
+          <e type="operand">10</e>
+          <e type="operand">14</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">2.7</e>
+          <e type="operand">10</e>
+          <e type="operand">14</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">2.8704</e>
+          <e type="operand">10</e>
+          <e type="operand">27</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="operand">7</e>
+          <e type="operand">1</e>
+          <e type="function" args="9">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3699" width="459" height="83" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="true">4. Stochastic global solvers on multimodal Rastrigin (explicit bounds required)</p>
+    <p bold="true">Signature: optim_de(expr|fn, vars, x0, p_min, p_max [, max_iter]); population 200;</p>
+    <p bold="true">max_iter = generations. ok = 0 is common - judge by f and x.</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="3798" width="410" height="46" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_de on Rastrigin -&gt; near (0, 0).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_de</e>
+          <e type="operand">f_rast</e>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">s_ras</e>
+          <e type="operand">lo_r</e>
+          <e type="operand">hi_r</e>
+          <e type="operand">100</e>
+          <e type="function" args="6">optim_de</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="3888" width="490" height="46" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_de_prmm on Rastrigin -&gt; (0, 0).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_de_prmm</e>
+          <e type="operand">f_rast</e>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">s_ras</e>
+          <e type="operand">lo_r</e>
+          <e type="operand">hi_r</e>
+          <e type="operand">100</e>
+          <e type="function" args="6">optim_de_prmm</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="3969" width="426" height="46" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_pso on Rastrigin -&gt; (0, 0).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_pso</e>
+          <e type="operand">f_rast</e>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">s_ras</e>
+          <e type="operand">lo_r</e>
+          <e type="operand">hi_r</e>
+          <e type="operand">100</e>
+          <e type="function" args="6">optim_pso</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="4059" width="474" height="46" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_pso_dv on Rastrigin -&gt; near (0, 0).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_pso_dv</e>
+          <e type="operand">f_rast</e>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">s_ras</e>
+          <e type="operand">lo_r</e>
+          <e type="operand">hi_r</e>
+          <e type="operand">100</e>
+          <e type="function" args="6">optim_pso_dv</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="4140" width="425" height="83" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="true">5. Constrained solver (sumt)</p>
+    <p bold="true">The problem is a column [f; c1; ...; cm] with ci(x) &lt;= 0; both a CAS function</p>
+    <p bold="true">and a raw expression form are shown.</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="4221" width="314" height="46" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_sumt on c_quad -&gt; (5, 4), f = 0.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_sumt_f</e>
+          <e type="operand">c_quad</e>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">s_c</e>
+          <e type="function" args="3">optim_sumt</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="4311" width="385" height="55" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_sumt on the inline constrained expression -&gt; (5, 4).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_sumt_e</e>
+          <e type="operand">u</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">v</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">0</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">u</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">v</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">14</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">s_c</e>
+          <e type="function" args="3">optim_sumt</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="4392" width="360" height="53" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="true">6. Root solvers (broyden, broyden_df) on CAS root systems</p>
+    <p bold="true">F(x) must be a square column [r1; ...; rm], m = n; f holds max|ri|.</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="4446" width="338" height="46" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_broyden on sys1 -&gt; (0.7071068, 0.7071068).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_broy1</e>
+          <e type="operand">sys1</e>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">s_circ</e>
+          <e type="function" args="3">optim_broyden</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="4536" width="378" height="46" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_broyden_df on sys1 -&gt; same root.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_broy1df</e>
+          <e type="operand">sys1</e>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">s_circ</e>
+          <e type="function" args="3">optim_broyden_df</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="4617" width="322" height="46" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_broyden on sys2 (omega constant) -&gt; (0.5671433, 0.5671433).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_broy2</e>
+          <e type="operand">sys2</e>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">s_om</e>
+          <e type="function" args="3">optim_broyden</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="4698" width="406" height="55" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_broyden on the inline residual expression -&gt; (0.7071068, 0.7071068).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_broy_e</e>
+          <e type="operand">u</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">1</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">s_circ</e>
+          <e type="function" args="3">optim_broyden</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="4788" width="407" height="23" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="true">7. Generic solver, point evaluation, a function name and a single equation</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="4842" width="406" height="46" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Generic optim_solve_expr(algo 0 = bfgs, f_rosen, vars, x0) -&gt; (1, 1).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_solve_e</e>
+          <e type="operand">0</e>
+          <e type="operand">f_rosen</e>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">s_rn</e>
+          <e type="function" args="4">optim_solve_expr</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="4923" width="396" height="46" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>optim_eval_expr at (2,3): (2-1)^2 + 4*(3-2)^2 = 5.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">ev_pt</e>
+          <e type="operand">u</e>
+          <e type="operand">1</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">4</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">u</e>
+          <e type="operand">v</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">2</e>
+          <e type="operand">3</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="function" args="3">optim_eval_expr</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="5013" width="93" height="27" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Single-equation start [0.5].</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">s_w</e>
+          <e type="operand">0.5</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="function" args="3">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="5076" width="356" height="35" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Single transcendental equation w = cos(w) as least-squares -&gt; w = 0.7390851.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">o_cosfix</e>
+          <e type="operand">w</e>
+          <e type="operand">w</e>
+          <e type="function" args="1">cos</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">w</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="function" args="3">mat</e>
+          <e type="operand">s_w</e>
+          <e type="function" args="3">optim_lbfgs</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="5139" width="496" height="83" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="true">8. Visualisation</p>
+    <p bold="true">CAS benchmark landscapes (with the optimum marked) and solver outcome comparisons.</p>
+    <p bold="true">Series are inline (Chart2D series-inline law).</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="5229" width="330" height="240" color="#000000" fontSize="10">
+      <xyplot error="25" animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="320" height="232" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="-2" xmax="2" xtick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="-5" ymax="60" ytick="5" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Rosenbrock valley slice (v = 1) from f_rosen" titlefont="Microsoft Sans Serif, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Microsoft Sans Serif, 10pt" labelfontcolor="Black" tickfont="Microsoft Sans Serif, 8pt" tickfontcolor="Black" xlabel="x" ylabel="f_rosen(x, 1)" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="Microsoft Sans Serif, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="Rosenbrock f_rosen(x, 1)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="optim_bfgs minimum" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">f_rosen</e>
+          <e type="operand">o_bfgs</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">o_bfgs</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">f_rosen</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="18" top="5562" width="330" height="240" color="#000000" fontSize="10">
+      <xyplot error="25" animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="320" height="232" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="-5.12" xmax="5.12" xtick="1" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="-5" ymax="45" ytick="5" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Rastrigin multimodal slice (v = 0) from f_rast" titlefont="Microsoft Sans Serif, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Microsoft Sans Serif, 10pt" labelfontcolor="Black" tickfont="Microsoft Sans Serif, 8pt" tickfontcolor="Black" xlabel="x" ylabel="f_rast(x, 0)" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="Microsoft Sans Serif, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="Rastrigin f_rast(x, 0)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Green" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="optim_de global minimum" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">0</e>
+          <e type="function" args="2">f_rast</e>
+          <e type="operand">o_de</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">o_de</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">0</e>
+          <e type="function" args="2">f_rast</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="18" top="5895" width="330" height="240" color="#000000" fontSize="10">
+      <xyplot animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="320" height="232" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="0" xmax="7" xtick="1" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="0" ymax="300" ytick="25" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Local solvers: iterations" titlefont="Microsoft Sans Serif, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Microsoft Sans Serif, 10pt" labelfontcolor="Black" tickfont="Microsoft Sans Serif, 8pt" tickfontcolor="Black" xlabel="1=bfgs 2=lbfgs 3=cg 4=gd 5=newton 6=nm" ylabel="iterations" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="Microsoft Sans Serif, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="iterations to convergence" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">3</e>
+          <e type="operand">4</e>
+          <e type="operand">5</e>
+          <e type="operand">6</e>
+          <e type="operand">6</e>
+          <e type="operand">1</e>
+          <e type="function" args="8">mat</e>
+          <e type="operand">o_bfgs</e>
+          <e type="operand">4</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">o_lbfgs</e>
+          <e type="operand">4</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">o_cg</e>
+          <e type="operand">4</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">o_gd</e>
+          <e type="operand">4</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">o_newton</e>
+          <e type="operand">4</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">o_nm</e>
+          <e type="operand">4</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">6</e>
+          <e type="operand">1</e>
+          <e type="function" args="8">mat</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="function" args="3">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="18" top="6228" width="330" height="240" color="#000000" fontSize="10">
+      <xyplot animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="320" height="232" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="0" xmax="5" xtick="1" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="-0.5" ymax="5" ytick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Stochastic solvers on Rastrigin: |f| at the found point" titlefont="Microsoft Sans Serif, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Microsoft Sans Serif, 10pt" labelfontcolor="Black" tickfont="Microsoft Sans Serif, 8pt" tickfontcolor="Black" xlabel="1=de 2=de_prmm 3=pso 4=pso_dv" ylabel="|f|" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="Microsoft Sans Serif, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="final objective |f| at the found point" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="DarkOrange" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">3</e>
+          <e type="operand">4</e>
+          <e type="operand">4</e>
+          <e type="operand">1</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">o_de</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="1">abs</e>
+          <e type="operand">o_de_prmm</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="1">abs</e>
+          <e type="operand">o_pso</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="1">abs</e>
+          <e type="operand">o_pso_dv</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="1">abs</e>
+          <e type="operand">4</e>
+          <e type="operand">1</e>
+          <e type="function" args="6">mat</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="function" args="3">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="18" top="6570" width="330" height="240" color="#000000" fontSize="10">
+      <xyplot animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="320" height="232" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="0" xmax="3" xtick="1" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="0" ymax="0.8" ytick="0.1" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Root solvers: component profiles (found vs known)" titlefont="Microsoft Sans Serif, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Microsoft Sans Serif, 10pt" labelfontcolor="Black" tickfont="Microsoft Sans Serif, 8pt" tickfontcolor="Black" xlabel="component 1=u, 2=v" ylabel="value" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="Microsoft Sans Serif, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="sys1 (found)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="sys1 (known)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="LightBlue" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Square" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="sys2 (found)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Green" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="sys2 (known)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="LightGreen" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Square" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">o_broy1</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">o_broy1</e>
+          <e type="operand">2</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">0.7071068</e>
+          <e type="operand">0.7071068</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">o_broy2</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">o_broy2</e>
+          <e type="operand">2</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">0.5671433</e>
+          <e type="operand">0.5671433</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">4</e>
+          <e type="operand">1</e>
+          <e type="function" args="6">sys</e>
+        </input>
+      </xyplot>
+    </region>
+  </regions>
+</worksheet>

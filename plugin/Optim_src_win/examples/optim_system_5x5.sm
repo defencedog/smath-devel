@@ -1,0 +1,822 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?application progid="SMath Solver" version="1.5.0.9678"?>
+<worksheet xmlns="http://smath.info/schemas/worksheet/1.0">
+  <settings ppi="96">
+    <identity>
+      <id>6b55b3bf-9a28-4a3c-9cfa-992e3890747f</id>
+      <revision>2</revision>
+    </identity>
+    <calculation>
+      <precision>4</precision>
+      <exponentialThreshold>5</exponentialThreshold>
+      <trailingZeros>false</trailingZeros>
+      <significantDigitsMode>false</significantDigitsMode>
+      <mixedNumbers>false</mixedNumbers>
+      <roundingMode>0</roundingMode>
+      <approximateEqualAccuracy>3</approximateEqualAccuracy>
+      <fractions>decimal</fractions>
+    </calculation>
+    <pageModel active="false" viewMode="2" printGrid="false" printAreas="true" simpleEqualsOnly="false" printBackgroundImages="true" hideElementsHighlightings="true">
+      <paper id="0" orientation="Portrait" width="850" height="1100" />
+      <margins left="39" right="39" top="49" bottom="49" />
+      <header alignment="Center" color="#a9a9a9">&amp;[DATE] &amp;[TIME] - &amp;[FILENAME]</header>
+      <footer alignment="Center" color="#a9a9a9">&amp;[PAGENUM] / &amp;[COUNT]</footer>
+      <backgrounds />
+    </pageModel>
+    <dependencies>
+      <assembly name="SMath Core" version="1.75.9678.0" guid="a37cba83-b69c-4c71-9992-55ff666763bd" />
+      <assembly name="MathRegion" version="1.75.9678.0" guid="02f1ab51-215b-466e-a74d-5d8b1cf85e8d" />
+      <assembly name="OptimWrapper" version="1.0.0.0" guid="3c9f7e0a-c2b1-4eae-ab68-9ea2c518c510" />
+      <assembly name="TextRegion" version="1.75.9678.0" guid="485d28c5-349a-48b6-93be-12a35a1c1e39" />
+      <assembly name="X-Y Plot Region (JXCharts)" version="0.4.9441.40064" guid="c12231ec-4873-43c1-a7d0-a167ebd17066" />
+    </dependencies>
+  </settings>
+  <regions type="content">
+    <region left="18" top="9" width="364" height="23" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="true">OptimWrapper - 5x5 linear and nonlinear systems (CAS-defined)</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="45" width="76" height="23" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="false">2026-10-24</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="81" width="511" height="263" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="true">OptimWrapper - two 5x5 systems solved from user-defined CAS residuals</p>
+    <p bold="true">GUID 3c9f7e0a-c2b1-4eae-ab68-9ea2c518c510, v1.0.0.0. The plugin has NO built-in</p>
+    <p bold="true">test-function ids: the residual systems below are defined here in SMath CAS.</p>
+    <p bold="true">Result layout for every solver: column [x1; ...; xn; f; iterations; ok], hence</p>
+    <p bold="true">  f = el(res, n+1) = el(res, 6);  ok = el(res, n+3) = el(res, 8)  (n = 5, ok = 1 means converged).</p>
+    <p bold="true">LINEAR    (exact x = [2, -1, 3, 1, -2]): optim_broyden on the 5x1 residual matrix.</p>
+    <p bold="true">NONLINEAR (exact x = [1, 2, -1, 1, 2]): plain Broyden OVERFLOWS here from a non-root</p>
+    <p bold="true">start (ResultIsAboveMaxAllowedPositiveNumber), so the sum of squared residuals is</p>
+    <p bold="true">minimised with optim_lbfgs (f ~ 0). Solver variables are x1..x5 (not x, the plot axis).</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="369" width="211" height="23" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="true">2. Initial guesses for the two systems</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="405" width="93" height="100" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Linear start x0 = [0, 0, 0, 0, 0] (used by optim_broyden).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">s_lin</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="549" width="85" height="100" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Nonlinear start x0 = [1, 1, 1, 1, 1] (used by optim_lbfgs).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">s_nl</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="684" width="441" height="53" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="true">3. Linear 5x5 system - optim_broyden on the residual matrix F(x) = LHS - RHS</p>
+    <p bold="true">Expected root [2, -1, 3, 1, -2]; f = max|ri| ~ 0; ok = 1.</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="756" width="642" height="163" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Root of the 5x5 linear system from [0,0,0,0,0] -&gt; [2, -1, 3, 1, -2].</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">r5lin</e>
+          <e type="operand">2</e>
+          <e type="operand">x1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">3</e>
+          <e type="operand">x2</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">x3</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operand">x4</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">x5</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">x1</e>
+          <e type="operand">2</e>
+          <e type="operand">x2</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">4</e>
+          <e type="operand">x3</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">x4</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">3</e>
+          <e type="operand">x5</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">9</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">3</e>
+          <e type="operand">x1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">x2</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">2</e>
+          <e type="operand">x3</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">3</e>
+          <e type="operand">x4</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">x5</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">x1</e>
+          <e type="operand">4</e>
+          <e type="operand">x2</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">x3</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operand">x4</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">x5</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">1</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">2</e>
+          <e type="operand">x1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">x2</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">3</e>
+          <e type="operand">x3</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">x4</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">2</e>
+          <e type="operand">x5</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">9</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">x1</e>
+          <e type="operand">x2</e>
+          <e type="operand">x3</e>
+          <e type="operand">x4</e>
+          <e type="operand">x5</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">s_lin</e>
+          <e type="function" args="3">optim_broyden</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">1.9</e>
+          <e type="operand">10</e>
+          <e type="operand">13</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">14</e>
+          <e type="operand">1</e>
+          <e type="operand">8</e>
+          <e type="operand">1</e>
+          <e type="function" args="10">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1026" width="107" height="33" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Linear root x1 = 2.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">xL1</e>
+          <e type="operand">r5lin</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1089" width="107" height="33" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Linear root x2 = -1.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">xL2</e>
+          <e type="operand">r5lin</e>
+          <e type="operand">2</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1161" width="107" height="33" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Linear root x3 = 3.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">xL3</e>
+          <e type="operand">r5lin</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1224" width="107" height="33" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Linear root x4 = 1.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">xL4</e>
+          <e type="operand">r5lin</e>
+          <e type="operand">4</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1287" width="107" height="33" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Linear root x5 = -2.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">xL5</e>
+          <e type="operand">r5lin</e>
+          <e type="operand">5</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1350" width="99" height="33" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Linear residual measure f = max|ri| (expected ~ 0).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">fL</e>
+          <e type="operand">r5lin</e>
+          <e type="operand">6</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1413" width="107" height="33" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Linear convergence flag (expected 1).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">okL</e>
+          <e type="operand">r5lin</e>
+          <e type="operand">8</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1494" width="379" height="267" color="#000000" fontSize="10">
+      <xyplot animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="369" height="259" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="0" xmax="6" xtick="1" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="-3" ymax="4" ytick="1" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Linear system 5x5: found roots vs known solution" titlefont="Microsoft Sans Serif, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Microsoft Sans Serif, 10pt" labelfontcolor="Black" tickfont="Microsoft Sans Serif, 8pt" tickfontcolor="Black" xlabel="component  1=x1 ... 5=x5" ylabel="value" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="Microsoft Sans Serif, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="linear found roots" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="linear known [2,-1,3,1,-2]" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Square" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">3</e>
+          <e type="operand">4</e>
+          <e type="operand">5</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">r5lin</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">r5lin</e>
+          <e type="operand">2</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">r5lin</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">r5lin</e>
+          <e type="operand">4</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">r5lin</e>
+          <e type="operand">5</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">3</e>
+          <e type="operand">4</e>
+          <e type="operand">5</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">2</e>
+          <e type="operand">0</e>
+          <e type="operand">1</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="operand">0</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="18" top="2034" width="436" height="83" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="true">4. Nonlinear 5x5 system - optim_lbfgs on the sum of squared residuals</p>
+    <p bold="true">Broyden diverges on this system, so SSE = r1^2 + r2^2 + r3^2 + r4^2 + r5^2 is</p>
+    <p bold="true">minimised directly. Expected root [1, 2, -1, 1, 2]; SSE ~ 0; ok = 1.</p>
+    </content>
+      </text>
+    </region>
+    <region left="9" top="2133" width="258" height="145" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">eq</e>
+          <e type="operand">x1</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">x2</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">x3</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">3</e>
+          <e type="operand">x4</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">x1</e>
+          <e type="operand">x2</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">x3</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">2</e>
+          <e type="operand">x5</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">7</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">x2</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">x1</e>
+          <e type="operand">x3</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">x4</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">x5</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">x1</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">x2</e>
+          <e type="operand">x3</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">2</e>
+          <e type="operand">x4</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">x5</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">1</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">x3</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">x4</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">x1</e>
+          <e type="operand">x5</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="9" top="2304" width="711" height="163" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Least-squares root of the 5x5 nonlinear system from [1,1,1,1,1] -&gt; [1, 2, -1, 1, 2].</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">r5nl</e>
+          <e type="operand">eq</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">eq</e>
+          <e type="operand">2</e>
+          <e type="function" args="2">el</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">eq</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">eq</e>
+          <e type="operand">4</e>
+          <e type="function" args="2">el</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">eq</e>
+          <e type="operand">5</e>
+          <e type="function" args="2">el</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">x1</e>
+          <e type="operand">x2</e>
+          <e type="operand">x3</e>
+          <e type="operand">x4</e>
+          <e type="operand">x5</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">s_nl</e>
+          <e type="function" args="3">optim_lbfgs</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">1.3077</e>
+          <e type="operand">10</e>
+          <e type="operand">18</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">27</e>
+          <e type="operand">1</e>
+          <e type="operand">8</e>
+          <e type="operand">1</e>
+          <e type="function" args="10">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2493" width="99" height="33" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Nonlinear root x1 = 1.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">xN1</e>
+          <e type="operand">r5nl</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2556" width="99" height="33" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Nonlinear root x2 = 2.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">xN2</e>
+          <e type="operand">r5nl</e>
+          <e type="operand">2</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2619" width="99" height="33" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Nonlinear root x3 = -1.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">xN3</e>
+          <e type="operand">r5nl</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2682" width="99" height="33" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Nonlinear root x4 = 1.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">xN4</e>
+          <e type="operand">r5nl</e>
+          <e type="operand">4</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2745" width="99" height="33" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Nonlinear root x5 = 2.</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">xN5</e>
+          <e type="operand">r5nl</e>
+          <e type="operand">5</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2808" width="91" height="33" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Nonlinear residual measure f = SSE (expected ~ 0).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">fN</e>
+          <e type="operand">r5nl</e>
+          <e type="operand">6</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2880" width="99" height="33" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Nonlinear convergence flag (expected 1).</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">okN</e>
+          <e type="operand">r5nl</e>
+          <e type="operand">8</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="3033" width="330" height="240" color="#000000" fontSize="10">
+      <xyplot animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="320" height="232" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="0" xmax="6" xtick="1" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="-2" ymax="3" ytick="1" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Nonlinear system 5x5: found roots vs known solution" titlefont="Microsoft Sans Serif, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Microsoft Sans Serif, 10pt" labelfontcolor="Black" tickfont="Microsoft Sans Serif, 8pt" tickfontcolor="Black" xlabel="component  1=x1 ... 5=x5" ylabel="value" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="Microsoft Sans Serif, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="nonlinear found roots" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Green" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="nonlinear known [1,2,-1,1,2]" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Square" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">3</e>
+          <e type="operand">4</e>
+          <e type="operand">5</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">r5nl</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">r5nl</e>
+          <e type="operand">2</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">r5nl</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">r5nl</e>
+          <e type="operand">4</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">r5nl</e>
+          <e type="operand">5</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">3</e>
+          <e type="operand">4</e>
+          <e type="operand">5</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">0</e>
+          <e type="operand">1</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="18" top="3528" width="364" height="83" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+    <p bold="true">5. Residual measure at the found point (|f|) for the two solvers</p>
+    <p bold="true">Both should be ~ 0: Broyden reports max|ri| for the linear system,</p>
+    <p bold="true">L-BFGS reports the sum of squares for the nonlinear system.</p>
+    </content>
+      </text>
+    </region>
+    <region left="18" top="3627" width="330" height="240" color="#000000" fontSize="10">
+      <xyplot animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="320" height="232" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="0" xmax="3" xtick="1" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="0" ymax="1" ytick="0.2" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Residual measure |f| at the found solution" titlefont="Microsoft Sans Serif, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Microsoft Sans Serif, 10pt" labelfontcolor="Black" tickfont="Microsoft Sans Serif, 8pt" tickfontcolor="Black" xlabel="1 = linear (broyden),  2 = nonlinear (lbfgs)" ylabel="|f|" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="Microsoft Sans Serif, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="|residual measure|" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="DarkOrange" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">r5lin</e>
+          <e type="operand">6</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="1">abs</e>
+          <e type="operand">r5nl</e>
+          <e type="operand">6</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="1">abs</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="function" args="3">sys</e>
+        </input>
+      </xyplot>
+    </region>
+  </regions>
+</worksheet>

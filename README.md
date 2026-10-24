@@ -8,7 +8,7 @@ Development home for fixes that make **SMath Studio Desktop (Mono Edition)** usa
 | [`setup/`](setup/) | The two official **SMath Studio 1.5.0.9678** installers (Windows `.msi`, Mono `.tar.gz`) that everything here was built and tested against — see [`setup/README.md`](setup/README.md) |
 | [`font-pack/`](font-pack/) | Self-contained font pack + config that fixes missing math/chemistry symbols (installer, fontconfig rules, SMath settings, verification script) |
 | [`print-patch/`](print-patch/) | Print fix: CUPS virtual `PDF` printer setup, plus a one-byte `SMath.Document.dll` IL patch that stops blank pages and the Print Preview `InvalidParameter` error |
-| [`plugin/`](plugin/) | Source trees for five SMath Studio plugins (IF97, PsychroLib, CoolPropWrapper, PhreeqcWrapper, SwarmFit) — see [`plugin/README.md`](plugin/README.md) |
+| [`plugin/`](plugin/) | Source trees for six SMath Studio plugins (IF97, PsychroLib, CoolPropWrapper, PhreeqcWrapper, SwarmFit, Optim) — see [`plugin/README.md`](plugin/README.md) |
 
 Both installers in `setup/` ship an **unpatched** `SMath.Document.dll` whose SHA-256
 (`74a99689…262df`) is the exact original recorded by `print-patch/` — so the patched state is

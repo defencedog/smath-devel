@@ -1,0 +1,21 @@
+{
+  "Settings": {
+    "ArgumentsSeparator": ",",
+    "DecimalSymbol": ".",
+    "NamingType": "083f4c4e-1074-4a34-af85-a8f26e9bc00b",
+    "UICultureName": "ru",
+    "UnitsCultureName": "ru"
+  },
+  "Summaries": [
+    {
+      "Author": "Keith O'Hara (OptimLib) / SMath Studio Wrapper",
+      "Description": "Плагин SMath Studio, оборачивающий алгоритмы оптимизации OptimLib (BFGS, L-BFGS, CG, GD, Newton, Nelder-Mead, DE, PSO, SUMT, Broyden). Решает пользовательские выражения и функции, заданные в SMath, включая глобальный поиск с границами (DE/PSO), задачи с ограничениями и системы уравнений. Все значения безразмерные.",
+      "FileTypes": [],
+      "Id": "3c9f7e0a-c2b1-4eae-ab68-9ea2c518c510",
+      "Regions": [],
+      "Terms": [],
+      "Title": "Optim Wrapper",
+      "Version": "1.0.0.0"
+    }
+  ]
+}
