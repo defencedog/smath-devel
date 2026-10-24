@@ -128,7 +128,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-IN="${IN:-$HOME/PDF/smath-demo.pdf}"
+IN="${IN:-sample.pdf}"
 [[ -f "$IN" ]] || die "input PDF not found: $IN"
 [[ -z "$OUT" ]] && OUT="${IN%.pdf}-clean.pdf"
 

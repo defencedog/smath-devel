@@ -23,18 +23,23 @@
 #   input  = sample.pdf
 #   output = <input>_clean.pdf
 #
-# Requires: ~/venv_engg with pymupdf, numpy and scipy installed.
-#   ~/venv_engg/bin/pip install pymupdf numpy scipy
-# Optional: tesseract, for the OCR half of --self-test.
+# Requirements:
+#   python3 -m pip install pymupdf numpy scipy
+# or install them system-wide (Debian/Ubuntu):
+#   sudo apt install python3-pymupdf python3-numpy python3-scipy
+# Optional: tesseract-ocr, for the OCR half of --self-test.
+#
+# Interpreter: "python3" from PATH by default. Point PYTHON at another one,
+# e.g. a virtualenv, with:  PYTHON=/path/to/venv/bin/python ./remove_wm.sh
 
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PY="$HOME/venv_engg/bin/python"
+PY="${PYTHON:-python3}"
 PY_SCRIPT="$SCRIPT_DIR/remove_wm.py"
 
-if [[ ! -x "$PY" ]]; then
-  echo "ERROR: python venv not found at $PY" >&2
+if ! command -v "$PY" >/dev/null 2>&1; then
+  echo "ERROR: python interpreter '$PY' not found (set PYTHON to override)" >&2
   exit 1
 fi
 
@@ -49,7 +54,7 @@ for arg in "$@"; do
   case "$arg" in
     --self-test) SELF_TEST=1 ;;
     -h|--help)
-      sed -n '2,32p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'
+      sed -n '2,33p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'
       exit 0
       ;;
     *) ARGS+=("$arg") ;;

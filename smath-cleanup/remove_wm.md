@@ -43,16 +43,33 @@ Two complications shape the design:
 | File | Role |
 |------|------|
 | `remove_wm.py` | All of the logic: cleaning plus the `--verify` self-test. |
-| `remove_wm.sh` | Thin wrapper that runs `remove_wm.py` inside `~/venv_engg`; adds `--self-test`. |
+| `remove_wm.sh` | Thin wrapper that runs `remove_wm.py` with `python3` from `PATH` (override with `PYTHON=…`); adds `--self-test`. |
+
+## Requirements
+
+The Python backend needs **PyMuPDF**, **NumPy** and **SciPy**. Install them either system-wide
+(Debian/Ubuntu — no venv needed) or into a virtual environment:
+
+```bash
+# Debian / Ubuntu (recommended)
+sudo apt install python3-pymupdf python3-numpy python3-scipy
+
+# or any platform, via pip (into a venv to avoid touching system Python)
+python3 -m venv ~/.venv-smath && . ~/.venv-smath/bin/activate
+pip install pymupdf numpy scipy
+```
+
+`tesseract` is **optional** — only the OCR half of `--self-test` uses it; without it that single
+check is reported as skipped.
 
 ## Usage
 
 ```bash
-# Wrapper:
+# Wrapper (uses python3 from PATH; PYTHON=/path/to/python to override):
 ./remove_wm.sh [--self-test] [input.pdf] [output.pdf]
 
 # Direct:
-~/venv_engg/bin/python remove_wm.py [input.pdf] [output.pdf] [-v]
+python3 remove_wm.py [input.pdf] [output.pdf] [-v]
 ```
 
 **Defaults**
@@ -100,7 +117,7 @@ Pointing it at an *uncleaned* PDF deliberately fails, which makes it usable as
 a regression test:
 
 ```
-$ ~/venv_engg/bin/python remove_wm.py --verify sample.pdf sample.pdf
+$ python3 remove_wm.py --verify sample.pdf sample.pdf
   [FAIL] watermark pixels gone from top/bottom bands (782360 signature pixel(s) left)
   [FAIL] OCR of watermark bands                      (16 band(s) read)
 FAIL: output is not clean            # exit status 1
@@ -150,14 +167,15 @@ images, so verify by **rendering to pixels** and OCR-ing the top and bottom
 bands:
 
 ```bash
-~/venv_engg/bin/python - <<'PY'
-import pymupdf, subprocess
+python3 - <<'PY'
+import os, subprocess, tempfile
+import pymupdf
 doc = pymupdf.open("sample_clean.pdf")
 for i, page in enumerate(doc):
     r = page.rect
     for band, box in (("top", pymupdf.Rect(0, 0, r.width, 55)),
                       ("bot", pymupdf.Rect(0, r.height - 45, r.width, r.height))):
-        png = f"/tmp/{band}{i+1}.png"
+        png = os.path.join(tempfile.gettempdir(), f"{band}{i+1}.png")
         page.get_pixmap(dpi=300, clip=box).save(png)
         text = subprocess.run(["tesseract", png, "-", "--psm", "6"],
                               capture_output=True, text=True).stdout
@@ -174,12 +192,12 @@ Quick checks that real content survived:
 
 ```bash
 # Searchable text must be identical to the source:
-pdftotext sample.pdf -       > /tmp/a.txt
-pdftotext sample_clean.pdf - > /tmp/b.txt
-diff /tmp/a.txt /tmp/b.txt        # expect no output
+pdftotext sample.pdf -       > a.txt
+pdftotext sample_clean.pdf - > b.txt
+diff a.txt b.txt                  # expect no output
 
 # The running header is a bitmap, so check it is still placed on each page:
-~/venv_engg/bin/python -c "import pymupdf; d=pymupdf.open('sample_clean.pdf'); \
+python3 -c "import pymupdf; d=pymupdf.open('sample_clean.pdf'); \
 print([len([r for x in p.get_images(full=True) for r in p.get_image_rects(x[0]) if r.y0<26]) for p in d])"
 ```
 
@@ -187,12 +205,8 @@ print([len([r for x in p.get_images(full=True) for r in p.get_image_rects(x[0]) 
 
 - **cpdf cannot do this.** It has no content-stream operator editor; white-out
   rectangles would only hide the ink and risk covering real content.
-- **PyMuPDF, NumPy and SciPy are required.** They live in `~/venv_engg`:
-
-  ```bash
-  ~/venv_engg/bin/pip install pymupdf numpy scipy
-  ```
-
+- **PyMuPDF, NumPy and SciPy are required** — see [Requirements](#requirements)
+  above for the `apt` and `pip` install forms.
 - **tesseract is optional**, only used by `--self-test` for the OCR half of the
   verification. Without it, that one check is reported as skipped.
 

@@ -85,7 +85,7 @@ an explicit selection is required.
                     -o sample2-clean.pdf sample2.pdf
 ```
 
-Default input `~/PDF/smath-demo.pdf`; default output `<input>-clean.pdf`.
+Default input `sample.pdf`; default output `<input>-clean.pdf`.
 
 Get the names and sizes with:
 
@@ -173,8 +173,15 @@ text-strip refusal keeps it safe there. When in doubt, use `--protect` and
 
 ## Tooling notes
 
-- Requires **cpdf** and **jq**, plus `pdfinfo` (poppler) for the page count
-  (falls back to `cpdf -list-images-json` if unavailable).
+- **Requirements:** `cpdf`, `jq`, and `pdfinfo` (poppler) for the page count —
+  it falls back to `cpdf -list-images-json` if `pdfinfo` is absent.
+
+  ```bash
+  # Debian / Ubuntu
+  sudo apt install cpdf jq poppler-utils
+  ```
+
+  No Python is needed for this script.
 - **cpdf gotcha:** only the **last** `-draft-remove-only` in one invocation takes
   effect, so the script chains one cpdf run per selected name.
 - `-draft-remove-only` matches the XObject **name** (`/R16`); the leading slash
@@ -191,16 +198,18 @@ cpdf -list-images sample2-clean.pdf
 pdftotext sample2-clean.pdf - | grep -E '1/2|2/2'
 
 # Watermark wording gone (render + OCR):
-~/venv_engg/bin/python - <<'PY'
-import pymupdf, subprocess
+python3 - <<'PY'
+import os, subprocess, tempfile
+import pymupdf
 d = pymupdf.open("sample2-clean.pdf")
 for i, p in enumerate(d):
     r = p.rect
     for name, box in (("top", pymupdf.Rect(0, 0, r.width, 60)),
                       ("bot", pymupdf.Rect(0, r.height - 50, r.width, r.height))):
-        p.get_pixmap(dpi=300, clip=box).save(f"/tmp/{name}{i+1}.png")
+        png = os.path.join(tempfile.gettempdir(), f"{name}{i+1}.png")
+        p.get_pixmap(dpi=300, clip=box).save(png)
         print(i + 1, name, " ".join(subprocess.run(
-            ["tesseract", f"/tmp/{name}{i+1}.png", "-", "--psm", "6"],
+            ["tesseract", png, "-", "--psm", "6"],
             capture_output=True, text=True).stdout.split())[:60])
 PY
 ```

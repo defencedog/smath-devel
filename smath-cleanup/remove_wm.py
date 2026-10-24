@@ -44,13 +44,26 @@ Requires PyMuPDF, NumPy and SciPy (`pip install pymupdf numpy scipy`).
 
 import argparse
 import hashlib
+import os
 import re
 import subprocess
 import sys
+import tempfile
 
-import numpy as np
-import pymupdf
-from scipy import ndimage
+try:
+    import numpy as np
+    import pymupdf
+    from scipy import ndimage
+except ImportError as exc:  # report the missing dependency, not a traceback
+    sys.exit(
+        f"ERROR: missing Python module: {exc.name}\n"
+        "This tool needs PyMuPDF, NumPy and SciPy. Install them with\n"
+        "    python3 -m pip install pymupdf numpy scipy\n"
+        "or system-wide on Debian/Ubuntu:\n"
+        "    sudo apt install python3-pymupdf python3-numpy python3-scipy\n"
+        "If they are installed in a virtualenv, run this script with that\n"
+        "interpreter (or set PYTHON=... when using remove_wm.sh)."
+    )
 
 # Colours used by the watermark glyphs (RGB).
 PALETTE = (
@@ -356,16 +369,23 @@ def _bands(page):
 
 def _ocr_band_text(page, rect, dpi=300):
     """OCR a band; returns None when tesseract is unavailable."""
-    png = "/tmp/smath_cleanup_selftest.png"
-    page.get_pixmap(dpi=dpi, clip=rect).save(png)
+    fd, png = tempfile.mkstemp(suffix=".png", prefix="smath_cleanup_selftest_")
+    os.close(fd)
     try:
-        out = subprocess.run(
-            ["tesseract", png, "-", "--psm", "6"],
-            capture_output=True, text=True, check=False,
-        )
-    except FileNotFoundError:
-        return None
-    return " ".join(out.stdout.split())
+        page.get_pixmap(dpi=dpi, clip=rect).save(png)
+        try:
+            out = subprocess.run(
+                ["tesseract", png, "-", "--psm", "6"],
+                capture_output=True, text=True, check=False,
+            )
+        except FileNotFoundError:
+            return None
+        return " ".join(out.stdout.split())
+    finally:
+        try:
+            os.unlink(png)
+        except OSError:
+            pass
 
 
 def verify(src, dst):
@@ -420,8 +440,9 @@ def verify(src, dst):
                 continue
             ocr_checked += 1
             low = text.lower()
-            # Match the watermark wording, not the file name in the header
-            # (a source called "smath-demo.sm" would otherwise false-positive).
+            # Match the watermark wording, not the source file name shown in
+            # the running header (a file whose name contains that wording
+            # would otherwise false-positive).
             if ("commercial" in low or "free version" in low
                     or "created using" in low):
                 ocr_failed += 1

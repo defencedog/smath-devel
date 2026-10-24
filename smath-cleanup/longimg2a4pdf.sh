@@ -22,7 +22,7 @@
 # Optional:     cpdf (exact A4 media box), pdfinfo (verification).
 #
 # Examples
-#   ./longimg2a4pdf.sh FlushWater_final_solve_units.png
+#   ./longimg2a4pdf.sh sheet.png
 #   ./longimg2a4pdf.sh -m 20 -d 200 sheet.png sheet-a4.pdf
 #   ./longimg2a4pdf.sh --no-smart-cut -d 150 tall.png
 #
@@ -78,7 +78,7 @@ Options:
   -h, --help           show this help
 
 Examples:
-  $PROG FlushWater_final_solve_units.png
+  $PROG sheet.png
   $PROG -m 20 -d 200 sheet.png sheet-a4.pdf
   $PROG --no-smart-cut tall.png
 EOF

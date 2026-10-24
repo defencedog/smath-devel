@@ -8,6 +8,22 @@ A4 text area, cuts it vertically into pages, and combines everything into a
 It is the sibling of the `remove_wm*` tools in this directory. Pure bash +
 ImageMagick; no Python required.
 
+## Requirements
+
+| Need | For | Install (Debian / Ubuntu) |
+| :--- | :--- | :--- |
+| `bash`, coreutils (`mktemp`), `awk` | the script itself | preinstalled |
+| ImageMagick 7 (`magick`) or 6 (`convert`), `identify` | all image work | `sudo apt install imagemagick` |
+| `cpdf` | optional — normalises every media box to exactly A4 | `sudo apt install cpdf` |
+| `pdfinfo` (poppler) | optional — reports the verified page count/size | `sudo apt install poppler-utils` |
+
+```bash
+sudo apt install imagemagick cpdf poppler-utils
+```
+
+Only ImageMagick is strictly required; the script degrades gracefully when `cpdf`
+and `pdfinfo` are missing (see *Tooling notes*).
+
 ## Behaviour at a glance
 
 | Property | Value |
@@ -26,7 +42,7 @@ ImageMagick; no Python required.
 ./longimg2a4pdf.sh [options] INPUT_IMAGE [OUTPUT_PDF]
 
 # Default: automatic page count, 25.4 mm margins, 300 dpi
-./longimg2a4pdf.sh ../FlushWater_final_solve_units.png
+./longimg2a4pdf.sh sheet.png
 
 # Exactly 3 pages instead of 2, with the content balanced
 ./longimg2a4pdf.sh -p 3 sheet.png sheet-3up.pdf
@@ -116,12 +132,12 @@ Without `OUTPUT_PDF` the output is `<input basename>.pdf` next to the input.
    the verified page count and page size. Temporary files are removed unless
    `-k` is given.
 
-## Worked example — the FlushWater sheet
+## Worked example — a 738 × 1913 px sheet export
 
-`../FlushWater_final_solve_units.png` is 738 × 1913 px. Default run:
+A sheet export measuring 738 × 1913 px. Default run:
 
 ```
-Input : ../FlushWater_final_solve_units.png  (738 x 1913 px)
+Input : sheet.png  (738 x 1913 px)
 Page  : A4 210 x 297 mm @ 300 dpi -> 2480 x 3508 px
         margin 25.4 mm on all four sides
 Scaled: fitted to text width -> 1880 x 4873 px  (x2.547)
@@ -129,7 +145,7 @@ Pages : 2
   page 1: rows      0 .. 2859    (height  2859 px)   (snapped to a blank line)
   page 2: rows   2859 .. 4873    (height  2014 px)
 
-Wrote : ../FlushWater_final_solve_units.pdf  (1.8M)
+Wrote : sheet.pdf  (1.8M)
         2 page(s), A4 210 x 297 mm, 25.4 mm margins
 Verify: pages=2  page size=595.2 x 841.89 pts (A4)
 ```
@@ -137,10 +153,10 @@ Verify: pages=2  page size=595.2 x 841.89 pts (A4)
 The nominal cut at row 2908 would have ended mid-equation; the smart cut moved
 it 49 px up into the big white gap, so:
 
-* **page 1** ends cleanly after `Enthalpy_D := Enthalpy_C`
-  (title, tank block, diagram, temperature + enthalpy sections),
-* **page 2** starts with the “Make up water requirement” note box and contains
-  the solve loop, the `Flush_B` matrix, the chart and the `augment[...]` lines.
+* **page 1** ends cleanly after a complete assignment (title block, diagram,
+  temperature + enthalpy sections),
+* **page 2** starts with the following note box and contains the solve loop,
+  a matrix and the chart.
 
 Rendered at 110 dpi for inspection: content sits inside a uniform 25.4 mm white
 border on both pages; no row of the source is missing (slices are contiguous by
@@ -155,7 +171,7 @@ identical to the default above.
 
 | Input / command | Result |
 |-----------------|--------|
-| FlushWater default | 2 pages, cut snapped 2908 → 2859 in a blank gap |
+| Default (tall sheet export) | 2 pages, cut snapped 2908 → 2859 in a blank gap |
 | `-p 2` | identical to default (min pages ⇒ proven fill cut) |
 | `-p 3` | 3 balanced pages, each cut snapped to a blank line |
 | `-p 1` | clean error: “minimum is 2 page(s)” |
@@ -172,7 +188,7 @@ Handy verification snippets:
 ```bash
 pdfinfo out.pdf | grep -E 'Pages|Page size'
 pdftoppm -png -r 110 out.pdf check        # then look at check-1.png, check-2.png
-~/venv_engg/bin/python -c 'import pymupdf,sys; \
+python3 -c 'import pymupdf,sys; \
   [print(p.number, p.mediabox) for p in pymupdf.open(sys.argv[1])]' out.pdf
 ```
 
