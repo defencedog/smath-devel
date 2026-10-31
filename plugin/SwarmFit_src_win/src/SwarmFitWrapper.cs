@@ -1,4 +1,4 @@
-﻿// SwarmFitWrapper — SMath Studio plugin wrapping SwarmFit (particle swarm optimization).
+// SwarmFitWrapper — SMath Studio plugin wrapping SwarmFit (particle swarm optimization).
 //
 // Ported from the Mono/Linux build to .NET Framework 2.0 so that the same assembly
 // loads on Windows and under Mono. The differences from the Linux source are
@@ -53,13 +53,22 @@ namespace SwarmFitWrapper
         // user wrote, two keyed by the expression signature. Name keys are the
         // fast path; signature keys survive a value being passed inline.
         private static readonly Dictionary<string, double[]> _matrixByName =
-            new Dictionary<string, double[]>(StringComparer.OrdinalIgnoreCase);
+            new Dictionary<string, double[]>(StringComparer.Ordinal);
         private static readonly Dictionary<string, double> _scalarByName =
-            new Dictionary<string, double>(StringComparer.OrdinalIgnoreCase);
+            new Dictionary<string, double>(StringComparer.Ordinal);
         private static readonly Dictionary<string, double[]> _matrixBySig =
             new Dictionary<string, double[]>();
         private static readonly Dictionary<string, double> _scalarBySig =
             new Dictionary<string, double>();
+
+        private static void LogDebug(string msg)
+        {
+            try
+            {
+                System.IO.File.AppendAllText("/tmp/swarmfit_debug.log", DateTime.Now.ToString("HH:mm:ss.fff") + " " + msg + Environment.NewLine);
+            }
+            catch {}
+        }
 
         public static void ClearCache()
         {
@@ -277,46 +286,12 @@ namespace SwarmFitWrapper
         {
             if (entry == null) return 0.0;
 
-            // 1. Variable already seen
-            if (entry.Type == TermType.Operand && !string.IsNullOrEmpty(entry.Text))
-            {
-                lock (_syncLock)
-                {
-                    double cachedScalar;
-                    if (_scalarByName.TryGetValue(entry.Text, out cachedScalar))
-                        return cachedScalar;
-
-                    double[] cachedArray;
-                    if (_matrixByName.TryGetValue(entry.Text, out cachedArray) && cachedArray.Length > 0)
-                        return cachedArray[0];
-                }
-            }
-
-            // 2. Expression already seen
-            string signature = GetEntrySignature(entry);
-            if (!string.IsNullOrEmpty(signature))
-            {
-                lock (_syncLock)
-                {
-                    double cachedBySignature;
-                    if (_scalarBySig.TryGetValue(signature, out cachedBySignature))
-                        return cachedBySignature;
-                }
-            }
-
-            // 3. Look the variable up in the worksheet
+            // 1. Look the variable up in the worksheet Store first (if context available)
             if (context != null && entry.Type == TermType.Operand && !string.IsNullOrEmpty(entry.Text))
             {
                 Definition def = LastWhere(context, d => d.Name == entry.Text);
                 if (def != null && def.Result != null)
                 {
-                    double fromStore = ExtractScalar(def.Result, null);
-                    if (!double.IsNaN(fromStore) && fromStore != 0.0)
-                    {
-                        lock (_syncLock) { _scalarByName[entry.Text] = fromStore; }
-                        return fromStore;
-                    }
-
                     // A definition whose result is still an unevaluated swarmfit call
                     if (def.Result.Type == TermType.Function && IsSwarmFitFunction(def.Result.Text))
                     {
@@ -342,8 +317,32 @@ namespace SwarmFitWrapper
                             }
                         }
                     }
+
+                    double fromStore = ExtractScalar(def.Result, context);
+                    if (!double.IsNaN(fromStore) && fromStore != 0.0)
+                    {
+                        lock (_syncLock) { _scalarByName[entry.Text] = fromStore; }
+                        return fromStore;
+                    }
                 }
             }
+
+            // 2. Variable already seen in cache (fallback)
+            if (entry.Type == TermType.Operand && !string.IsNullOrEmpty(entry.Text))
+            {
+                lock (_syncLock)
+                {
+                    double cachedScalar;
+                    if (_scalarByName.TryGetValue(entry.Text, out cachedScalar))
+                        return cachedScalar;
+
+                    double[] cachedArray;
+                    if (_matrixByName.TryGetValue(entry.Text, out cachedArray) && cachedArray.Length > 0)
+                        return cachedArray[0];
+                }
+            }
+
+            // 3. Expression already seen
 
             // 4. The entry is itself a swarmfit call
             if (entry.Type == TermType.Function && IsSwarmFitFunction(entry.Text))
@@ -427,44 +426,13 @@ namespace SwarmFitWrapper
         {
             if (entry == null) return new double[0];
 
-            // 1. Variable already seen
-            if (entry.Type == TermType.Operand && !string.IsNullOrEmpty(entry.Text))
-            {
-                lock (_syncLock)
-                {
-                    double[] cached;
-                    if (_matrixByName.TryGetValue(entry.Text, out cached))
-                        return cached;
-                }
-            }
-
-            // 2. Expression already seen
-            string signature = GetEntrySignature(entry);
-            if (!string.IsNullOrEmpty(signature))
-            {
-                lock (_syncLock)
-                {
-                    double[] cachedBySignature;
-                    if (_matrixBySig.TryGetValue(signature, out cachedBySignature))
-                        return cachedBySignature;
-                }
-            }
-
-            // 3. Look the variable up in the worksheet
+            // 1. Look the variable up in the worksheet Store first (if context available)
             if (context != null && entry.Type == TermType.Operand && !string.IsNullOrEmpty(entry.Text))
             {
                 Definition def = LastWhere(context, d => d.Name == entry.Text);
                 if (def != null && def.Result != null)
                 {
-                    // 3a. The stored result is already a matrix
-                    double[] fromStore = ExtractDoubleArray(def.Result, null);
-                    if (fromStore != null && fromStore.Length > 0)
-                    {
-                        lock (_syncLock) { _matrixByName[entry.Text] = fromStore; }
-                        return fromStore;
-                    }
-
-                    // 3b. The stored result is an unevaluated swarmfit call
+                    // 1a. The stored result is an unevaluated swarmfit call
                     if (def.Result.Type == TermType.Function && IsSwarmFitFunction(def.Result.Text))
                     {
                         Entry computed;
@@ -483,6 +451,37 @@ namespace SwarmFitWrapper
                             }
                         }
                     }
+
+                    // 1b. The stored result is already a matrix
+                    double[] fromStore = ExtractDoubleArray(def.Result, context);
+                    if (fromStore != null && fromStore.Length > 0)
+                    {
+                        lock (_syncLock) { _matrixByName[entry.Text] = fromStore; }
+                        return fromStore;
+                    }
+                }
+            }
+
+            // 2. Variable already seen in cache (fallback)
+            if (entry.Type == TermType.Operand && !string.IsNullOrEmpty(entry.Text))
+            {
+                lock (_syncLock)
+                {
+                    double[] cached;
+                    if (_matrixByName.TryGetValue(entry.Text, out cached) && cached != null && cached.Length > 0)
+                        return cached;
+                }
+            }
+
+            // 3. Expression already seen
+            string signature = GetEntrySignature(entry);
+            if (!string.IsNullOrEmpty(signature))
+            {
+                lock (_syncLock)
+                {
+                    double[] cachedBySignature;
+                    if (_matrixBySig.TryGetValue(signature, out cachedBySignature) && cachedBySignature != null && cachedBySignature.Length > 0)
+                        return cachedBySignature;
                 }
             }
 
@@ -496,24 +495,24 @@ namespace SwarmFitWrapper
                 if (isMatrixLiteral)
                 {
                     // Layout emitted by TMatrix.ToTerms(): [v0, v1, ..., rows, cols]
-                    int rows = (int)ExtractScalar(entry.Items[count - 2], null);
-                    int cols = (int)ExtractScalar(entry.Items[count - 1], null);
+                    int rows = (int)ExtractScalar(entry.Items[count - 2], context);
+                    int cols = (int)ExtractScalar(entry.Items[count - 1], context);
                     if (rows > 0 && cols > 0 && rows * cols == count - 2)
                     {
                         double[] values = new double[rows * cols];
                         for (int i = 0; i < values.Length; i++)
-                            values[i] = ExtractScalar(entry.Items[i], null);
+                            values[i] = ExtractScalar(entry.Items[i], context);
                         return values;
                     }
 
                     // Legacy layout: [rows, cols, v0, v1, ...]
-                    rows = (int)ExtractScalar(entry.Items[0], null);
-                    cols = (int)ExtractScalar(entry.Items[1], null);
+                    rows = (int)ExtractScalar(entry.Items[0], context);
+                    cols = (int)ExtractScalar(entry.Items[1], context);
                     if (rows > 0 && cols > 0 && rows * cols == count - 2)
                     {
                         double[] values = new double[rows * cols];
                         for (int i = 0; i < values.Length; i++)
-                            values[i] = ExtractScalar(entry.Items[2 + i], null);
+                            values[i] = ExtractScalar(entry.Items[2 + i], context);
                         return values;
                     }
                 }
@@ -586,7 +585,7 @@ namespace SwarmFitWrapper
                         Entry fromDefinition = def.ToEntry();
                         if (fromDefinition != null && fromDefinition != entry)
                         {
-                            double[] values = ExtractDoubleArray(fromDefinition, null);
+                            double[] values = ExtractDoubleArray(fromDefinition, context);
                             if (values != null && values.Length > 0) return values;
                         }
                     }
@@ -823,6 +822,18 @@ namespace SwarmFitWrapper
         {
             lock (_syncLock)
             {
+                if (parameterMin != null && parameterMax != null && parameterMin.Length == parameterMax.Length)
+                {
+                    for (int i = 0; i < parameterMin.Length; i++)
+                    {
+                        if (parameterMin[i] > parameterMax[i])
+                        {
+                            double tmp = parameterMin[i];
+                            parameterMin[i] = parameterMax[i];
+                            parameterMax[i] = tmp;
+                        }
+                    }
+                }
                 return SwarmFitCore.Fit(xs, ys, model, parameterMin, parameterMax,
                                         particleCount, maxIterations);
             }
@@ -861,6 +872,7 @@ namespace SwarmFitWrapper
 
             string functionName = (value.Text ?? string.Empty).ToLowerInvariant();
             Entry[] args = value.Items ?? new Entry[0];
+            LogDebug("Call: " + functionName + " (args=" + args.Length + ")");
 
             try
             {
@@ -946,6 +958,10 @@ namespace SwarmFitWrapper
                         double[] predicted = ExtractDoubleArray(args[1], context);
                         double r2 = SwarmFitCore.R2(ys, predicted);
 
+                        LogDebug(string.Format("swarmfit_r2: ys.Len={0}, pred.Len={1}, r2={2}", ys.Length, predicted.Length, r2));
+                        if (ys.Length > 0) LogDebug(string.Format("  ys[0]={0}, ys[{1}]={2}", ys[0], ys.Length - 1, ys[ys.Length - 1]));
+                        if (predicted.Length > 0) LogDebug(string.Format("  pred[0]={0}, pred[{1}]={2}", predicted[0], predicted.Length - 1, predicted[predicted.Length - 1]));
+
                         result = MakeDoubleResult(r2);
                         scalarResult = r2;
                         RecordEvaluationResult(value, context, result, null, scalarResult);
@@ -991,6 +1007,12 @@ namespace SwarmFitWrapper
                         double[] parameterMin = ExtractDoubleArray(args[2], context);
                         double[] parameterMax = ExtractDoubleArray(args[3], context);
 
+                        LogDebug(string.Format("swarmfit_exp: xs.Len={0}, ys.Len={1}, pMin.Len={2}, pMax.Len={3}", xs.Length, ys.Length, parameterMin.Length, parameterMax.Length));
+                        if (xs.Length > 0) LogDebug(string.Format("  xs[0]={0}, xs[{1}]={2}", xs[0], xs.Length - 1, xs[xs.Length - 1]));
+                        if (ys.Length > 0) LogDebug(string.Format("  ys[0]={0}, ys[{1}]={2}", ys[0], ys.Length - 1, ys[ys.Length - 1]));
+                        if (parameterMin.Length > 0) LogDebug("  pMin=" + string.Join(",", Array.ConvertAll(parameterMin, delegate(double d) { return d.ToString(); })));
+                        if (parameterMax.Length > 0) LogDebug("  pMax=" + string.Join(",", Array.ConvertAll(parameterMax, delegate(double d) { return d.ToString(); })));
+
                         int particles = 20;
                         int iterations = 5000;
                         ReadSwarmBudget(args, 4, context, ref particles, ref iterations);
@@ -1002,6 +1024,8 @@ namespace SwarmFitWrapper
 
                         FitResult fit = RunSwarmFit(xs, ys, model, parameterMin, parameterMax,
                                                     particles, iterations);
+
+                        LogDebug("  fit result: " + string.Join(",", Array.ConvertAll(fit.Parameters, delegate(double d) { return d.ToString(); })) + " R2=" + fit.R2 + " iters=" + fit.Iterations);
 
                         result = MakeMatrixResult(fit.Parameters);
                         arrayResult = fit.Parameters;

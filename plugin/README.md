@@ -26,7 +26,7 @@ SMath Studio; no build required. These are release artifacts and must stay in th
 | `PsychroLib_src_win/dist/PsychroLibWrapper.1_2_0_0.zip` | 44 KB | 1.2.0.0 |
 | `CoolPropWrapper_src_win/dist/CoolPropWrapper.8_0_0_5.zip` | 37 MB | 8.0.0.5 |
 | `PhreeqcWrapper_src_win/dist/PhreeqcWrapper.1_1_0_0.zip` | 20 MB | 1.1.0.0 |
-| `SwarmFit_src_win/dist/SwarmFitWrapper.1_1_0_0.zip` | 40 KB | 1.1.0.0 |
+| `SwarmFit_src_win/dist/SwarmFitWrapper.1_1_0_0.zip` | 44 KB | 1.1.0.0 |
 | `Optim_src_win/dist/OptimWrapper.1_0_0_0.zip` | 8.0 MB | 1.0.0.0 |
 
 Each contains the wrapper assembly (`*Wrapper.dll`), its `.ini`, `metadata/*.json` descriptors, and —
@@ -189,7 +189,7 @@ Details worth knowing:
 - **Phreeqc** ships its `databases/*.dat` as distributed with PHREEQC (USGS, public domain), so its
   zip carries no `LICENSE` — the other five each ship one.
 - Every tree states this in its own README: **§15 "Provenance and licence"** for IF97, CoolProp and
-  Phreeqc, **§14** for PsychroLib, **§8 "License & Acknowledgements"** for SwarmFit, and
+  Phreeqc, **§14** for PsychroLib, **§9 "License & Acknowledgements"** for SwarmFit, and
   `packaging/NOTICE` + `packaging/LICENSE` for Optim. Per-engine build provenance (compilers, source
   pins, hashes) is in each `patches/README.md`.
 - `packages/` (when populated) — Microsoft .NET reference assemblies and SMath Studio reference

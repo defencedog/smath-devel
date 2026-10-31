@@ -75,7 +75,11 @@ namespace SwarmFitWrapper
                 case "log":
                 case "logarithmic":
                     parameterCount = 2;
-                    return delegate(double x, double[] p) { return p[0] + p[1] * Math.Log(x); };
+                    return delegate(double x, double[] p)
+                    {
+                        double safeX = x > 0.0 ? x : 1e-12;
+                        return p[0] + p[1] * Math.Log(safeX);
+                    };
 
                 case "fourier1":
                     parameterCount = 4;

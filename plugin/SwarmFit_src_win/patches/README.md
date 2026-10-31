@@ -75,3 +75,26 @@ is covered headlessly (see the test output: 55 checks, all passing).
   headless; the worksheet supplies the data and receives the result vectors.
 - No native companion library — SwarmFit is pure managed code, so the package
   contains only `SwarmFitWrapper.dll` + manifests + metadata.
+
+---
+
+## SMath CAS Integration Fixes (v1.1.0.0)
+
+1. **`StringComparer.Ordinal` for Variable Caching:**
+   Changed the variable name cache dictionaries (`_matrixByName`, `_scalarByName`) from
+   `StringComparer.OrdinalIgnoreCase` to `StringComparer.Ordinal`. In mathematical sheets,
+   differently-cased variables (e.g. `t_dim` for time vs `T_dim` for temperature) must
+   never alias.
+2. **Context Preservation:**
+   Propagated `Store context` across all recursive entry/definition evaluations in
+   `ExtractDoubleArray` and `ExtractScalar`.
+3. **Bounds Swapping:**
+   Normalized $p_{\min}$ and $p_{\max}$ vectors automatically if inverted, avoiding solver
+   crashes when modeling inverse gradients.
+4. **Logarithmic Singularity Guard:**
+   Protected `"log"` and `"logarithmic"` models by clamping non-positive $x \le 0$ to
+   $10^{-12}$ to avoid $-\infty$ or NaN blowups at $t = 0$.
+5. **Store-First Evaluation Priority:**
+   Prioritized active worksheet `Store` definitions over static process-level caches in
+   `ExtractDoubleArray` and `ExtractScalar`, preventing cross-worksheet variable pollution
+   (e.g., shared variable names like `P_pred` between consecutive sheets).
