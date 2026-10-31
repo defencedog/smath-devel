@@ -10,6 +10,7 @@ Development home for fixes that make **SMath Studio Desktop (Mono Edition)** usa
 | [`print-patch/`](print-patch/) | Print fix: CUPS virtual `PDF` printer setup, plus a one-byte `SMath.Document.dll` IL patch that stops blank pages and the Print Preview `InvalidParameter` error |
 | [`plugin/`](plugin/) | Source trees for six SMath Studio plugins (IF97, PsychroLib, CoolPropWrapper, PhreeqcWrapper, SwarmFit, Optim) — see [`plugin/README.md`](plugin/README.md) |
 | [`smath-cleanup/`](smath-cleanup/) | Post-processing for SMath PDF output: watermark removal (PyMuPDF backend + a cpdf-only fallback) and a long-image → A4 splitter — see [`smath-cleanup/README.md`](smath-cleanup/README.md) |
+| [`calculations/`](calculations/) | Finished engineering calculations, each as three same-named artifacts (`.sm` worksheet, `.md` write-up, `.pdf` render) — see [`calculations/README.md`](calculations/README.md) |
 
 Both installers in `setup/` ship an **unpatched** `SMath.Document.dll` whose SHA-256
 (`74a99689…262df`) is the exact original recorded by `print-patch/` — so the patched state is

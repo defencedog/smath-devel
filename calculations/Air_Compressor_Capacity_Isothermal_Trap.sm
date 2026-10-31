@@ -1,0 +1,1467 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?application progid="SMath Solver" version="1.5.0.9678"?>
+<worksheet xmlns="http://smath.info/schemas/worksheet/1.0">
+  <settings ppi="96">
+    <identity>
+      <id>78f2e122-c90a-454e-9734-464d39fc8c82</id>
+      <revision>47</revision>
+    </identity>
+    <calculation>
+      <precision>3</precision>
+      <exponentialThreshold>5</exponentialThreshold>
+      <trailingZeros>false</trailingZeros>
+      <significantDigitsMode>false</significantDigitsMode>
+      <mixedNumbers>false</mixedNumbers>
+      <roundingMode>0</roundingMode>
+      <approximateEqualAccuracy>3</approximateEqualAccuracy>
+      <fractions>decimal</fractions>
+    </calculation>
+    <pageModel active="false" viewMode="2" printGrid="false" printAreas="true" simpleEqualsOnly="false" printBackgroundImages="true" hideElementsHighlightings="true">
+      <paper id="9" orientation="Portrait" width="827" height="1169" />
+      <margins left="39" right="39" top="49" bottom="49" />
+      <header alignment="Center" color="#a9a9a9">&amp;[DATE] &amp;[TIME] - &amp;[FILENAME]</header>
+      <footer alignment="Center" color="#a9a9a9">&amp;[PAGENUM] / &amp;[COUNT]</footer>
+      <backgrounds />
+    </pageModel>
+    <dependencies>
+      <assembly name="SMath Core" version="1.75.9678.0" guid="a37cba83-b69c-4c71-9992-55ff666763bd" />
+      <assembly name="MathRegion" version="1.75.9678.0" guid="02f1ab51-215b-466e-a74d-5d8b1cf85e8d" />
+      <assembly name="CustomFunctions" version="1.2.9372.30444" guid="18dadffd-79a3-4cf9-aee1-d66deb0ea720" />
+      <assembly name="SpecialFunctions" version="1.75.9678.0" guid="2814e667-4e12-48b1-8d51-194e480eabc5" />
+      <assembly name="TextRegion" version="1.75.9678.0" guid="485d28c5-349a-48b6-93be-12a35a1c1e39" />
+      <assembly name="AreaRegion" version="1.75.9678.0" guid="4974b228-4974-44cf-8274-bf2936b4a766" />
+      <assembly name="SwarmFitWrapper" version="1.1.0.0" guid="b0a439e5-20d5-46a3-bcb5-596cbd1d9934" />
+      <assembly name="X-Y Plot Region (JXCharts)" version="0.4.9441.40064" guid="c12231ec-4873-43c1-a7d0-a167ebd17066" />
+    </dependencies>
+  </settings>
+  <regions type="content">
+    <region left="36" top="18" width="646" height="24" color="#000000" fontSize="10">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-weight: bold; font-size: 10px; font-family: DejaVu Sans;">Industrial Air Compressor Capacity Estimation via Receiver Pump-Up Test Dynamics</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="63" width="749" height="258" color="#000000" fontSize="10" isBreakable="false">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+          <p>Test Procedure:</p>
+          <p>  • The receiver tank outlet isolation valve is tightly closed.</p>
+          <p>  • The compressor charges the empty receiver vessel (V = 2.50 m³) from 0.0 barg to 6.0 barg.</p>
+          <p>  • The plant DCS historian records high-resolution pressure P(t) and temperature T(t) telemetry.</p>
+          <p>  • The compressor's instantaneous and average throughput is back-calculated via numerical calculus.</p>
+          <p>The Isothermal Overestimation Trap:</p>
+          <p>Plant engineers may assume the vessel remains at constant temperature (isothermal assumption) for simplicity in calculations, however, as hot air enters from the aftercooler, vessel's internal temperature rises. Gas thermal expansion inflates the apparent pressure rise (dP/dt). Neglecting this thermal effect overestimates compressor capacity by 5% to 15%, <span style="font-weight: bold; font-family: DejaVu Sans;">masking degraded machine performance!</span></p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="333" width="271" height="24" color="#000000" fontSize="10" isBreakable="false">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+          <p style="font-family: DejaVu Sans;">Section 1: Plant Operating Parameters</p>
+        </content>
+      </text>
+    </region>
+    <region left="360" top="360" width="249" height="570" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Plant DCS Historian Receiver Telemetry Dataset  <br />Col 1 = t [s], Col 2 = P [bar abs], Col 3 = T [K]</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">DCS_log</e>
+          <e type="operand">0.0</e>
+          <e type="operand">1.01325</e>
+          <e type="operand">298.15</e>
+          <e type="operand">2.0</e>
+          <e type="operand">1.32715</e>
+          <e type="operand">320.52</e>
+          <e type="operand">4.0</e>
+          <e type="operand">1.60302</e>
+          <e type="operand">329.48</e>
+          <e type="operand">6.0</e>
+          <e type="operand">1.85936</e>
+          <e type="operand">333.5</e>
+          <e type="operand">8.0</e>
+          <e type="operand">2.10367</e>
+          <e type="operand">335.41</e>
+          <e type="operand">10.0</e>
+          <e type="operand">2.33947</e>
+          <e type="operand">336.32</e>
+          <e type="operand">12.0</e>
+          <e type="operand">2.56863</e>
+          <e type="operand">336.71</e>
+          <e type="operand">14.0</e>
+          <e type="operand">2.79223</e>
+          <e type="operand">336.81</e>
+          <e type="operand">16.0</e>
+          <e type="operand">3.01096</e>
+          <e type="operand">336.75</e>
+          <e type="operand">18.0</e>
+          <e type="operand">3.22529</e>
+          <e type="operand">336.59</e>
+          <e type="operand">20.0</e>
+          <e type="operand">3.43555</e>
+          <e type="operand">336.38</e>
+          <e type="operand">22.0</e>
+          <e type="operand">3.642</e>
+          <e type="operand">336.13</e>
+          <e type="operand">24.0</e>
+          <e type="operand">3.84484</e>
+          <e type="operand">335.85</e>
+          <e type="operand">26.0</e>
+          <e type="operand">4.04426</e>
+          <e type="operand">335.57</e>
+          <e type="operand">28.0</e>
+          <e type="operand">4.24039</e>
+          <e type="operand">335.27</e>
+          <e type="operand">30.0</e>
+          <e type="operand">4.43336</e>
+          <e type="operand">334.97</e>
+          <e type="operand">32.0</e>
+          <e type="operand">4.62328</e>
+          <e type="operand">334.67</e>
+          <e type="operand">34.0</e>
+          <e type="operand">4.81025</e>
+          <e type="operand">334.37</e>
+          <e type="operand">36.0</e>
+          <e type="operand">4.99438</e>
+          <e type="operand">334.07</e>
+          <e type="operand">38.0</e>
+          <e type="operand">5.17574</e>
+          <e type="operand">333.78</e>
+          <e type="operand">40.0</e>
+          <e type="operand">5.35441</e>
+          <e type="operand">333.48</e>
+          <e type="operand">42.0</e>
+          <e type="operand">5.53047</e>
+          <e type="operand">333.19</e>
+          <e type="operand">44.0</e>
+          <e type="operand">5.70399</e>
+          <e type="operand">332.9</e>
+          <e type="operand">46.0</e>
+          <e type="operand">5.87503</e>
+          <e type="operand">332.62</e>
+          <e type="operand">48.0</e>
+          <e type="operand">6.04365</e>
+          <e type="operand">332.33</e>
+          <e type="operand">50.0</e>
+          <e type="operand">6.20992</e>
+          <e type="operand">332.05</e>
+          <e type="operand">52.0</e>
+          <e type="operand">6.37389</e>
+          <e type="operand">331.78</e>
+          <e type="operand">54.0</e>
+          <e type="operand">6.53562</e>
+          <e type="operand">331.51</e>
+          <e type="operand">56.0</e>
+          <e type="operand">6.69515</e>
+          <e type="operand">331.24</e>
+          <e type="operand">58.0</e>
+          <e type="operand">6.85254</e>
+          <e type="operand">330.97</e>
+          <e type="operand">60.0</e>
+          <e type="operand">7.00782</e>
+          <e type="operand">330.71</e>
+          <e type="operand">31</e>
+          <e type="operand">3</e>
+          <e type="function" args="95">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="378" width="141" height="29" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Atmospheric ambient pressure</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">P.atm</e>
+          <e type="operand">1.01325</e>
+          <e type="operand" style="unit">bar</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="450" width="117" height="29" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Ambient suction temperature (25.0 °C)</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">T.amb</e>
+          <e type="operand">298.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="531" width="150" height="41" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Specific gas constant for dry air</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">R.air</e>
+          <e type="operand">287.058</e>
+          <e type="operand" style="unit">J</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="612" width="118" height="38" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Receiver vessel internal geometric volume</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">V.tank</e>
+          <e type="operand">2.50</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="702" width="108" height="29" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Pump-up test duration (1.00 min)</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">t.test</e>
+          <e type="operand">60.0</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="783" width="208" height="25" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Number of DCS historian samples (N = 31)</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">N_pts</e>
+          <e type="operand">DCS_log</e>
+          <e type="function" args="1">rows</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">31</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="846" width="174" height="29" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Sampling time vector t [s]</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">t.vec</e>
+          <e type="operand">DCS_log</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">col</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="909" width="174" height="29" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Absolute pressure trajectory P [bar abs]</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">P.vec</e>
+          <e type="operand">DCS_log</e>
+          <e type="operand">2</e>
+          <e type="function" args="2">col</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="981" width="174" height="29" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Gas temperature trajectory T [K]</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">T.vec</e>
+          <e type="operand">DCS_log</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">col</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="1098" width="402" height="24" color="#000000" fontSize="10" isBreakable="false">
+      <text lang="eng" fontFamily="DejaVu Sans" fontSize="10">
+        <content>
+          <p style="font-family: DejaVu Sans;">Section 2: Curve-Fitting &amp; Analytical Calculus of DCS Data</p>
+        </content>
+      </text>
+    </region>
+    <region left="18" top="1134" width="94" height="63" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Lower parameter search bounds [c0; c1; c2] for quadratic pressure fit</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">p.LB</e>
+          <e type="operand">10</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">10</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">10</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="function" args="5">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1224" width="81" height="63" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Upper parameter search bounds [c0; c1; c2] for quadratic pressure fit</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">p.UB</e>
+          <e type="operand">10</e>
+          <e type="operand">10</e>
+          <e type="operand">10</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="function" args="5">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1323" width="318" height="42" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>A user defined function form. Continuous quadratic fitted pressure function P_fit(t) [bara]</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">t.sec</e>
+          <e type="operand">P</e>
+          <e type="function" args="2">P.model</e>
+          <e type="operand">P</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">t.sec</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">P</e>
+          <e type="operand">2</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">t.sec</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">P</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1395" width="539" height="72" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Fitted parameters [P1; P2; P3]</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">P.coeff</e>
+          <e type="operand">t.vec</e>
+          <e type="operand">P.vec</e>
+          <e type="operand">P.model</e>
+          <e type="operand">p.LB</e>
+          <e type="operand">p.UB</e>
+          <e type="operand">15</e>
+          <e type="operand">200</e>
+          <e type="function" args="7">swarmfit</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">8.625</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">0.1</e>
+          <e type="operand">1.463</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="function" args="5">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="558" top="1404" width="100" height="29" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">t.0</e>
+          <e type="operand">1</e>
+          <e type="function" args="1">time</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="558" top="1467" width="120" height="29" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Curve fitting time toll</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">1</e>
+          <e type="function" args="1">time</e>
+          <e type="operand">t.0</e>
+          <e type="operator" args="2">-</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1476" width="438" height="114" color="#000000" fontSize="10">
+      <math decimalPlaces="4" matrixOptions="0,0,1,5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Model predicted pressure trajectory P_pred [bara]</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">P_pred</e>
+          <e type="operand">t.vec</e>
+          <e type="operand">P.model</e>
+          <e type="operand">P.coeff</e>
+          <e type="function" args="3">swarmfit_predict</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.4628</e>
+          <e type="operand">1.6617</e>
+          <e type="operand">1.86</e>
+          <e type="operand">2.0575</e>
+          <e type="operand">2.2544</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="function" args="7">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1629" width="310" height="30" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Coefficient of determination R² for quadratic pressure fit</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">P.r2</e>
+          <e type="operand">P.vec</e>
+          <e type="operand">P_pred</e>
+          <e type="function" args="2">swarmfit_r2</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.9945</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="1701" width="483" height="50" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Units added for dimensional consistency P.fit(t) [bara]</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">t.sec</e>
+          <e type="function" args="1">P.fit</e>
+          <e type="operand">P.coeff</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">t.sec</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">bar</e>
+          <e type="operand" style="unit">sec</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">P.coeff</e>
+          <e type="operand">2</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">t.sec</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">bar</e>
+          <e type="operand" style="unit">sec</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">P.coeff</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="unit">bar</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1809" width="673" height="27" color="#000000" fontSize="12">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-weight: bold; font-size: 12px; font-family: DejaVu Sans;">Mass flow estimation assuming isothermal conditions (neglecting dT/dt) </p>
+        </content>
+      </text>
+    </region>
+    <region left="18" top="1854" width="345" height="51" color="#000000" fontSize="10">
+      <math optimize="2" decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Alternative 1</p>
+            <p>Direct Boundary State Delta -&gt; P.fit(60) - P.fit(0)</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">m.cumulative_A_iso</e>
+          <e type="operand">V.tank</e>
+          <e type="operand">R.air</e>
+          <e type="operand">T.amb</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">t.sec</e>
+          <e type="function" args="1">P.fit</e>
+          <e type="operand">0</e>
+          <e type="operand" style="unit">sec</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">60</e>
+          <e type="operand" style="unit">sec</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="3">at</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="450" top="1854" width="296" height="162" color="#000000" fontSize="10">
+      <math optimize="2">
+        <description active="true" position="Top" lang="eng" width="265">
+          <content>
+            <p>Alternative 2</p>
+            <p>Derivation of P'(t) from P(t) and integrating P'(t) over time span</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">m.cumulative_B_iso</e>
+          <e type="operand">a</e>
+          <e type="operand">t.sec</e>
+          <e type="function" args="1">P.fit</e>
+          <e type="operand">t.sec</e>
+          <e type="function" args="2">diff</e>
+          <e type="operator" args="2">:</e>
+          <e type="operand">b</e>
+          <e type="operand">V.tank</e>
+          <e type="operand">R.air</e>
+          <e type="operand">T.amb</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">a</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+          <e type="operand">c</e>
+          <e type="operand">b</e>
+          <e type="operand">t.sec</e>
+          <e type="operand">0</e>
+          <e type="operand" style="unit">sec</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">60</e>
+          <e type="operand" style="unit">sec</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="4">int</e>
+          <e type="operator" args="2">:</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="function" args="5">line</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="1971" width="207" height="29" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">m.cumulative_A_iso</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">16.556</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2043" width="305" height="51" color="#000000" fontSize="10">
+      <math>
+        <description active="true" position="Top" lang="eng" width="15">
+          <content>
+            <p>Average mass flow per second</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">m.average_iso</e>
+          <e type="operand">m.cumulative_A_iso</e>
+          <e type="operand">t.test</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.276</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="450" top="2106" width="207" height="29" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">m.cumulative_B_iso</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">16.556</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2178" width="102" height="63" color="#000000" fontSize="10">
+      <math optimize="2" decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Lower search bounds [a; b; c] for T(t) exp fit (slight hit and trial required)</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">T.LB</e>
+          <e type="operand">100</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">100</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">100</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="function" args="5">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2277" width="89" height="63" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Upper search bounds [a; b; c] for T(t) exp fit</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">T.UB</e>
+          <e type="operand">500</e>
+          <e type="operand">10</e>
+          <e type="operand">10</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="function" args="5">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2385" width="302" height="34" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>A user defineed function form. Continuous exponential fitted temperature function T.fit(t) [K]</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">t.sec</e>
+          <e type="operand">T</e>
+          <e type="function" args="2">T.model</e>
+          <e type="operand">T</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">T</e>
+          <e type="operand">2</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">T</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">t.sec</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="1">exp</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="531" top="2448" width="100" height="29" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">t.0</e>
+          <e type="operand">1</e>
+          <e type="function" args="1">time</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2457" width="508" height="63" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Fitted parameters [T1; T2; T3] via swarmfit</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">T.coeff</e>
+          <e type="operand">t.vec</e>
+          <e type="operand">T.vec</e>
+          <e type="operand">T.model</e>
+          <e type="operand">T.LB</e>
+          <e type="operand">T.UB</e>
+          <e type="operand">50</e>
+          <e type="operand">200</e>
+          <e type="function" args="7">swarmfit</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">334.37</e>
+          <e type="operand">36.2201</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">0.5006</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="function" args="5">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="531" top="2520" width="173" height="29" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Curve fitting time toll</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">1</e>
+          <e type="function" args="1">time</e>
+          <e type="operand">t.0</e>
+          <e type="operator" args="2">-</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">14.686</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2574" width="358" height="30" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Predicted gas temperature trajectory T_pred [K] via native exp model</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">T_pred</e>
+          <e type="operand">t.vec</e>
+          <e type="operand">T.model</e>
+          <e type="operand">T.coeff</e>
+          <e type="function" args="3">swarmfit_predict</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2637" width="310" height="30" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Coefficient of determination R² for exponential temperature fit (R² = 0.927)</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">T.r2</e>
+          <e type="operand">T.vec</e>
+          <e type="operand">T_pred</e>
+          <e type="function" args="2">swarmfit_r2</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.9269</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="2709" width="392" height="54" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Units added for dimensional consistency T.fit(t) [K]</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">t.sec</e>
+          <e type="function" args="1">T.fit</e>
+          <e type="operand">T.coeff</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">T.coeff</e>
+          <e type="operand">2</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">T.coeff</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">t.sec</e>
+          <e type="operand" style="unit">sec</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="1">exp</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="2799" width="726" height="395" color="#000000" fontSize="10" showInputData="false">
+      <xyplot animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="716" height="387" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="0" xmax="60" xtick="10" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="-7.807066" ymax="77.80708" ytick="20" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="true" y2min="0" y2max="10" y2tick="2" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Figure 1: DCS Receiver Telemetry &amp; Curve Fitting Overlay" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Pump-Up Test Time t [s]" ylabel="Temperature [°C]" y2label="Pressure [barg]" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="SouthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="DCS Receiver Pressure P(t) [barg] (Measured)" isy2data="true" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="DodgerBlue" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Box" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="DCS Gas Temperature T(t) [°C] (Measured)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Crimson" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="Circle" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="Fitted Data T" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Dot" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="Fitted Data P" isy2data="true" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Dot" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">t.vec</e>
+          <e type="operand">P.vec</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">t.vec</e>
+          <e type="operand">T.vec</e>
+          <e type="operand">273.15</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">t.sec</e>
+          <e type="function" args="1">T.scalar</e>
+          <e type="operand">T.coeff</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">T.coeff</e>
+          <e type="operand">2</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">T.coeff</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">t.sec</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="1">exp</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operand">273.15</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">:</e>
+          <e type="operand">t.sec</e>
+          <e type="function" args="1">P.scalar</e>
+          <e type="operand">P.coeff</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">t.sec</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">P.coeff</e>
+          <e type="operand">2</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">t.sec</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">P.coeff</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+          <e type="operand">4</e>
+          <e type="operand">1</e>
+          <e type="function" args="6">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="18" top="3240" width="510" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-weight: bold; font-size: 12px; font-family: DejaVu Sans;">Mass flow estimation including temperature dynamics </p>
+        </content>
+      </text>
+    </region>
+    <region left="18" top="3294" width="721" height="152" color="#000000" fontSize="10">
+      <text lang="eng" width="721" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: DejaVu Sans;">Differentiating the ideal gas state equation m(t) = V*P(t)/(R*T(t)) yields the instantaneous mass flow:<br />  mdot(t) = (V / R) * [ (1 / T(t)) * (dP/dt) - (P(t) / T(t)²) * (dT/dt) ]<br /><br />Alternative 1 (Direct State Boundary Delta):<br />  m.cumulative_A = (V / R) * [ P.fit(60 s) / T.fit(60 s) - P.fit(0 s) / T.fit(0 s) ]<br /><br />Alternative 2 (Instantaneous Differentiation &amp; Continuous Definite Integration):<br />  m.cumulative_B = int(mdot(t), t, 0, 60 s)<br />  </p>
+        </content>
+      </text>
+    </region>
+    <region left="18" top="3456" width="541" height="91" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+        <p>Alternative 1: Exact thermodynamic boundary state delta M = (V/R)*(P2/T2 - P1/T1)</p>
+      </content>
+        </description>
+        <input>
+          <e type="operand">m.cumulative_A_real</e>
+          <e type="operand">V.tank</e>
+          <e type="operand">R.air</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">t.sec</e>
+          <e type="function" args="1">P.fit</e>
+          <e type="operand">60</e>
+          <e type="operand" style="unit">sec</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="2">at</e>
+          <e type="operand">t.sec</e>
+          <e type="function" args="1">T.fit</e>
+          <e type="operand">60</e>
+          <e type="operand" style="unit">sec</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="2">at</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">t.sec</e>
+          <e type="function" args="1">P.fit</e>
+          <e type="operand">0</e>
+          <e type="operand" style="unit">sec</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="2">at</e>
+          <e type="operand">t.sec</e>
+          <e type="function" args="1">T.fit</e>
+          <e type="operand">0</e>
+          <e type="operand" style="unit">sec</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="2">at</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">14.3</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3609" width="568" height="219" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Alternative 2: Continuous calculus definite integral</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">m.cumulative_B_real</e>
+          <e type="operand">dP</e>
+          <e type="operand">t.sec</e>
+          <e type="function" args="1">P.fit</e>
+          <e type="operand">t.sec</e>
+          <e type="function" args="2">diff</e>
+          <e type="operator" args="2">:</e>
+          <e type="operand">dT</e>
+          <e type="operand">t.sec</e>
+          <e type="function" args="1">T.fit</e>
+          <e type="operand">t.sec</e>
+          <e type="function" args="2">diff</e>
+          <e type="operator" args="2">:</e>
+          <e type="operand">mdot</e>
+          <e type="operand">V.tank</e>
+          <e type="operand">R.air</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">1</e>
+          <e type="operand">t.sec</e>
+          <e type="function" args="1">T.fit</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">dP</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">t.sec</e>
+          <e type="function" args="1">P.fit</e>
+          <e type="operand">t.sec</e>
+          <e type="function" args="1">T.fit</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">dT</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+          <e type="operand">mdot</e>
+          <e type="operand">t.sec</e>
+          <e type="operand">0</e>
+          <e type="operand" style="unit">sec</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">60</e>
+          <e type="operand" style="unit">sec</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="4">int</e>
+          <e type="operand">4</e>
+          <e type="operand">1</e>
+          <e type="function" args="6">line</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">14.3</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3879" width="326" height="51" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Realistic mean compressor delivery mass flow rate</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">m.average_real</e>
+          <e type="operand">m.cumulative_A_real</e>
+          <e type="operand">t.test</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.2383</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="3987" width="219" height="55" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Inlet ambient air density, use proper  density with humidity consideration </p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">ρ.atm</e>
+          <e type="operand">P.atm</e>
+          <e type="operand">R.air</e>
+          <e type="operand">T.amb</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.1839</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4086" width="254" height="55" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Free Air Delivery (FAD at 25 °C, 1.013 bara)</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">V.FAD</e>
+          <e type="operand">m.average_real</e>
+          <e type="operand">ρ.atm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand" style="unit">hr</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">724.7288</e>
+        </result>
+      </math>
+    </region>
+    <region left="18" top="4194" width="449" height="51" color="#000000" fontSize="10">
+      <math decimalPlaces="4">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Capacity overestimation error from neglecting dT/dt</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">Error.thermal</e>
+          <e type="operand">m.cumulative_A_iso</e>
+          <e type="operand">m.cumulative_A_real</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">m.cumulative_A_real</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">%</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">15.7782</e>
+        </result>
+      </math>
+    </region>
+    <region top="4329" color="#000000">
+      <area collapsed="true">
+        <title lang="eng">
+          <content>
+            <p>Visualisation Construct</p>
+          </content>
+        </title>
+      </area>
+      <region left="9" top="4356" width="598" height="56" color="#000000" fontSize="10">
+        <text lang="eng" fontFamily="Arial" fontSize="10">
+          <content>
+            <p style="font-family: DejaVu Sans;">Evaluates the net accumulated air mass delivered to the receiver as a function of time:<br />  M_real(t) = (V_tank / R_air) * [ P_fit(t)/T_fit(t) - P_fit(0)/T_fit(0) ]  [kg]<br />  M_iso(t)  = (V_tank / (R_air * T_amb)) * [ P_fit(t) - P_fit(0) ]  [kg]</p>
+          </content>
+        </text>
+      </region>
+      <region left="18" top="4446" width="471" height="47" color="#000000" fontSize="10">
+        <math decimalPlaces="4">
+          <description active="true" position="Top" lang="eng">
+            <content>
+        <p>Fitted pressure trajectory [Pa]</p>
+      </content>
+          </description>
+          <input>
+            <e type="operand">t_val</e>
+            <e type="function" args="1">f_P</e>
+            <e type="operand">P.coeff</e>
+            <e type="operand">1</e>
+            <e type="function" args="2">el</e>
+            <e type="operand">t_val</e>
+            <e type="operand">2</e>
+            <e type="operator" args="2">^</e>
+            <e type="operator" args="2">*</e>
+            <e type="operand">P.coeff</e>
+            <e type="operand">2</e>
+            <e type="function" args="2">el</e>
+            <e type="operand">t_val</e>
+            <e type="operator" args="2">*</e>
+            <e type="operator" args="2">+</e>
+            <e type="operand">P.coeff</e>
+            <e type="operand">3</e>
+            <e type="function" args="2">el</e>
+            <e type="operator" args="2">+</e>
+            <e type="operand">100000</e>
+            <e type="operator" args="2">*</e>
+            <e type="operator" args="2">:</e>
+          </input>
+        </math>
+      </region>
+      <region left="18" top="4509" width="385" height="39" color="#000000" fontSize="10">
+        <math decimalPlaces="4">
+          <description active="true" position="Top" lang="eng">
+            <content>
+        <p>Fitted temperature trajectory [K]</p>
+      </content>
+          </description>
+          <input>
+            <e type="operand">t_val</e>
+            <e type="function" args="1">f_T</e>
+            <e type="operand">T.coeff</e>
+            <e type="operand">1</e>
+            <e type="function" args="2">el</e>
+            <e type="operand">T.coeff</e>
+            <e type="operand">2</e>
+            <e type="function" args="2">el</e>
+            <e type="operand">T.coeff</e>
+            <e type="operand">3</e>
+            <e type="function" args="2">el</e>
+            <e type="operand">t_val</e>
+            <e type="operator" args="2">*</e>
+            <e type="function" args="1">exp</e>
+            <e type="operator" args="2">*</e>
+            <e type="operator" args="2">+</e>
+            <e type="operator" args="2">:</e>
+          </input>
+        </math>
+      </region>
+      <region left="18" top="4572" width="439" height="52" color="#000000" fontSize="10">
+        <math decimalPlaces="4">
+          <description active="true" position="Top" lang="eng">
+            <content>
+        <p>Cumulative realistic mass delivered trajectory M_real(t) [kg]</p>
+      </content>
+          </description>
+          <input>
+            <e type="operand">t_val</e>
+            <e type="function" args="1">calc_M_real</e>
+            <e type="operand">V.tank</e>
+            <e type="operand">R.air</e>
+            <e type="operator" args="2">/</e>
+            <e type="operand">t_val</e>
+            <e type="function" args="1">f_P</e>
+            <e type="operand">t_val</e>
+            <e type="function" args="1">f_T</e>
+            <e type="operator" args="2">/</e>
+            <e type="operand">0</e>
+            <e type="function" args="1">f_P</e>
+            <e type="operand">0</e>
+            <e type="function" args="1">f_T</e>
+            <e type="operator" args="2">/</e>
+            <e type="operator" args="2">-</e>
+            <e type="bracket">(</e>
+            <e type="operator" args="2">*</e>
+            <e type="function" args="1">eval</e>
+            <e type="operator" args="2">:</e>
+          </input>
+        </math>
+      </region>
+      <region left="18" top="4644" width="454" height="52" color="#000000" fontSize="10">
+        <math decimalPlaces="4">
+          <description active="true" position="Top" lang="eng">
+            <content>
+        <p>Cumulative isothermal mass delivered trajectory M_iso(t) [kg]</p>
+      </content>
+          </description>
+          <input>
+            <e type="operand">t_val</e>
+            <e type="function" args="1">calc_M_iso</e>
+            <e type="operand">V.tank</e>
+            <e type="operand">R.air</e>
+            <e type="operand">T.amb</e>
+            <e type="operator" args="2">*</e>
+            <e type="operator" args="2">/</e>
+            <e type="operand">t_val</e>
+            <e type="function" args="1">f_P</e>
+            <e type="operand">0</e>
+            <e type="function" args="1">f_P</e>
+            <e type="operator" args="2">-</e>
+            <e type="bracket">(</e>
+            <e type="operator" args="2">*</e>
+            <e type="function" args="1">eval</e>
+            <e type="operator" args="2">:</e>
+          </input>
+        </math>
+      </region>
+      <region left="18" top="4725" width="244" height="36" color="#000000" fontSize="10">
+        <math decimalPlaces="4">
+          <description active="true" position="Top" lang="eng">
+            <content>
+        <p>Realistic cumulative delivered mass trajectory vector M_real(t) [kg]</p>
+      </content>
+          </description>
+          <input>
+            <e type="operand">M_real_vec</e>
+            <e type="operand">t.vec</e>
+            <e type="function" args="1">calc_M_real</e>
+            <e type="function" args="1">vectorize</e>
+            <e type="operator" args="2">:</e>
+          </input>
+        </math>
+      </region>
+      <region left="18" top="4788" width="228" height="36" color="#000000" fontSize="10">
+        <math decimalPlaces="4">
+          <description active="true" position="Top" lang="eng">
+            <content>
+        <p>Simplified isothermal cumulative delivered mass vector M_iso(t) [kg]</p>
+      </content>
+          </description>
+          <input>
+            <e type="operand">M_iso_vec</e>
+            <e type="operand">t.vec</e>
+            <e type="function" args="1">calc_M_iso</e>
+            <e type="function" args="1">vectorize</e>
+            <e type="operator" args="2">:</e>
+          </input>
+        </math>
+      </region>
+      <region left="18" top="4851" width="296" height="30" color="#000000" fontSize="10">
+        <math decimalPlaces="4">
+          <description active="true" position="Top" lang="eng">
+            <content>
+        <p>Realistic cumulative mass curve [s, kg]</p>
+      </content>
+          </description>
+          <input>
+            <e type="operand">xy_M_real</e>
+            <e type="operand">t.vec</e>
+            <e type="operand">M_real_vec</e>
+            <e type="function" args="2">augment</e>
+            <e type="operator" args="2">:</e>
+          </input>
+        </math>
+      </region>
+      <region left="18" top="4914" width="280" height="30" color="#000000" fontSize="10">
+        <math optimize="2" decimalPlaces="4">
+          <description active="true" position="Top" lang="eng">
+            <content>
+        <p>Isothermal cumulative mass curve [s, kg]</p>
+      </content>
+          </description>
+          <input>
+            <e type="operand">xy_M_iso</e>
+            <e type="operand">t.vec</e>
+            <e type="operand">M_iso_vec</e>
+            <e type="function" args="2">augment</e>
+            <e type="operator" args="2">:</e>
+          </input>
+        </math>
+      </region>
+      <region left="18" top="4968" width="397" height="80" color="#000000" fontSize="10">
+        <math optimize="2" decimalPlaces="4">
+          <description active="true" position="Top" lang="eng">
+            <content>
+        <p>Closed polygon band for hatched cumulative delivered mass trajectory</p>
+      </content>
+          </description>
+          <input>
+            <e type="operand">band_M_real</e>
+            <e type="operand">xy_M_real</e>
+            <e type="operand">t.vec</e>
+            <e type="operand">t.vec</e>
+            <e type="function" args="1">rows</e>
+            <e type="function" args="2">el</e>
+            <e type="operand">0</e>
+            <e type="operand">t.vec</e>
+            <e type="operand">1</e>
+            <e type="function" args="2">el</e>
+            <e type="operand">0</e>
+            <e type="operand">2</e>
+            <e type="operand">2</e>
+            <e type="function" args="6">mat</e>
+            <e type="function" args="2">stack</e>
+            <e type="operator" args="2">:</e>
+          </input>
+        </math>
+      </region>
+      <region top="5094" color="#000000">
+        <area terminator="true" />
+      </region>
+    </region>
+    <region left="18" top="5157" width="704" height="396" color="#000000" fontSize="10" showInputData="false">
+      <xyplot animFrameRate="20" animPlaybackMode="RepeatIndefinitely" width="694" height="388" points="100" name="XYPlot" keepAspectRatio="false">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="0" xmax="60" xtick="10" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="0" ymax="20" ytick="5" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="Figure 2: Cumulative Delivered Air Mass Trajectory M(t)" titlefont="DejaVu Sans, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="DejaVu Sans, 10pt" labelfontcolor="Black" tickfont="DejaVu Sans, 8pt" tickfontcolor="Black" xlabel="Pump-Up Test Time t [s]" ylabel="Cumulative Delivered Mass M [kg]" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="200, 255, 255, 255" legendbordercolor="Black" legendfont="DejaVu Sans, 8pt" legendposition="NorthWest" textcolor="Black" />
+        <traces>
+          <trace seriesname="Delivered Air Mass Accumulation M_real(t) [kg] (Hatched Area)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="SeaGreen" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="true" hatched="true" fillcolor="64, 46, 139, 87" hatchstyle="Percent30" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="Realistic Cumulative Mass M_real(t) (Final = 14.3 kg)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="SeaGreen" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="Simplified Isothermal Mass M_iso(t) (Final = 16.6 kg, +15.8% Error)" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Crimson" linethickness="1" linepattern="Solid" fillmode="Auto" filltotrace="-1" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">band_M_real</e>
+          <e type="operand">xy_M_real</e>
+          <e type="operand">xy_M_iso</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="function" args="5">sys</e>
+        </input>
+      </xyplot>
+    </region>
+  </regions>
+  <regions type="header">
+    <region left="0" top="18" width="95" height="21" color="#000000" fontSize="8">
+      <math>
+        <input>
+          <e type="operand">Author</e>
+          <e type="operand">ukhan</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="30" width="140" height="21" color="#000000" fontSize="8">
+      <math>
+        <input>
+          <e type="operand">site</e>
+          <e type="operand" style="string">cv.ukhan.org</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="660" top="30" width="74" height="21" color="#000000" fontSize="8">
+      <math>
+        <input>
+          <e type="operand">\[DATE[YYYY\002D\MM\002D\DD]]\</e>
+        </input>
+      </math>
+    </region>
+  </regions>
+</worksheet>
