@@ -1,0 +1,22 @@
+--- a/mcs/class/System.Windows.Forms/System.Windows.Forms/FileDialog.cs
++++ b/mcs/class/System.Windows.Forms/System.Windows.Forms/FileDialog.cs
+@@ -815,6 +815,19 @@
+ 		readonlyCheckBox.CheckedChanged += OnCheckCheckChanged;
+ 		form.FormClosed += OnFileDialogFormClosed;
+ 		custom_places = new FileDialogCustomPlacesCollection();
++		form.Shown += OnDialogShown;
++	}
++
++	private void OnDialogShown(object sender, EventArgs e)
++	{
++		if (mwfFileView.View != View.Details)
++		{
++			// The toolbar context menu contains the attached view items:
++			// 0=Small Icon, 1=Tiles, 2=Large Icon, 3=List, 4=Details.
++			// Use the attached item so MenuItem.Index is valid for
++			// MWFFileView.UpdateMenuItems().
++			menueToolBarButtonContextMenu.MenuItems[4].PerformClick();
++		}
+ 	}
+ 
+ 	public override void Reset()

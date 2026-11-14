@@ -8,6 +8,7 @@ Development home for fixes that make **SMath Studio Desktop (Mono Edition)** usa
 | [`setup/`](setup/) | The two official **SMath Studio 1.5.0.9678** installers (Windows `.msi`, Mono `.tar.gz`) that everything here was built and tested against — see [`setup/README.md`](setup/README.md) |
 | [`font-pack/`](font-pack/) | Self-contained font pack + config that fixes missing math/chemistry symbols (installer, fontconfig rules, SMath settings, verification script) |
 | [`print-patch/`](print-patch/) | Print fix: CUPS virtual `PDF` printer setup, plus a one-byte `SMath.Document.dll` IL patch that stops blank pages and the Print Preview `InvalidParameter` error |
+| [`winform-patch/`](winform-patch/) | Mono WinForms fix: a patched `System.Windows.Forms.dll` that stops the SMath file dialog crashing when the view is switched List → Details, and opens it in Details view by default — see [`winform-patch/README.md`](winform-patch/README.md) |
 | [`plugin/`](plugin/) | Source trees for six SMath Studio plugins (IF97, PsychroLib, CoolPropWrapper, PhreeqcWrapper, SwarmFit, Optim) — see [`plugin/README.md`](plugin/README.md) |
 | [`smath-cleanup/`](smath-cleanup/) | Post-processing for SMath PDF output: watermark removal (PyMuPDF backend + a cpdf-only fallback) and a long-image → A4 splitter — see [`smath-cleanup/README.md`](smath-cleanup/README.md) |
 | [`calculations/`](calculations/) | Finished engineering calculations, each as three same-named artifacts (`.sm` worksheet, `.md` write-up, `.pdf` render) — see [`calculations/README.md`](calculations/README.md) |

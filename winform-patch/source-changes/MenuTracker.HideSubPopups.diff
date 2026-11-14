@@ -1,0 +1,11 @@
+--- a/mcs/class/System.Windows.Forms/System.Windows.Forms/MenuTracker.cs
++++ b/mcs/class/System.Windows.Forms/System.Windows.Forms/MenuTracker.cs
+@@ -446,7 +446,7 @@
+ 		if (menu.Wnd != null)
+ 		{
+ 			MenuTracker menuTracker = menu.parent_menu?.Tracker;
+-			if (menuTracker.HideSubPopupEvent != null)
++			if (menuTracker != null && menuTracker.HideSubPopupEvent != null)
+ 			{
+ 				menuTracker.HideSubPopupEvent(menu.parent_menu, new SubPopupEventArgs(menu));
+ 			}

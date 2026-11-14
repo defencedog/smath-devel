@@ -1,0 +1,21 @@
+SHA-256 checksums
+=================
+
+Original Mono GAC assembly (System.Windows.Forms, 4.0.0.0, Mono 6.14.1):
+  62439ae638d994b7983d3a033fdd4a4b2d91934528038e3c3d2b51f86bfa8460
+
+Patched assembly (patched/System.Windows.Forms.dll):
+  10bc8f08b661c6574809d8065b1c2c15bf497e14e98d0436a2b7f12816908cf8
+
+The app-local file installed in the tested SMath directory:
+  /home/ukhan/Binaries/SMathStudioDesktop.1_5_0_9678.Mono/System.Windows.Forms.dll
+also has the patched checksum.
+
+Reproduce:
+  cd src
+  ./build.sh
+  cd ..
+  sha256sum patched/System.Windows.Forms.dll
+
+Verify an installation:
+  ./src/verify.sh /home/ukhan/Binaries/SMathStudioDesktop.1_5_0_9678.Mono
