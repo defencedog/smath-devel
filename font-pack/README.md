@@ -64,6 +64,20 @@ cp fonts/* ~/.local/share/fonts/ms-cleartype/
 chmod 644 ~/.local/share/fonts/ms-cleartype/*
 ```
 
+#### Where the bundled fonts came from
+
+All 42 files in `fonts/` are extracted from **official Microsoft redistribution points**, not
+third-party font mirrors. If you need to rebuild the pack from scratch:
+
+| Font family | Extraction source |
+| :--- | :--- |
+| Cambria / Cambria Math, Calibri, Consolas, Candara, Constantia, Corbel, Meiryo | **Microsoft PowerPoint Viewer 2007 Redistributable** — [`PowerPointViewer.exe`](https://web.archive.org/web/20171225132744if_/https://download.microsoft.com/download/E/6/7/E675FFFC-2A6D-4AB0-B3EB-27C9F8C8F696/PowerPointViewer.exe) |
+| Tahoma / Tahoma Bold | **IE International Language Pack** — [`IELPKTH.CAB`](https://downloads.sourceforge.net/corefonts/OldFiles/IELPKTH.CAB) |
+| Segoe UI + Segoe UI Symbol (`seguisym.ttf`, 7,362 symbols) | Segoe UI suite, `segoeui*.ttf` / `segui*.ttf` |
+
+Symbola and DejaVu come from the distribution packages installed in Step 1. On a system install the
+fonts land in `/usr/local/share/fonts/ms-cleartype/` (`root:staff 0644`).
+
 ### Step 3: Configure Fontconfig Aliasing & Fallbacks
 Fontconfig must map requests for `Arial` and other symbol-deficient fonts to `DejaVu Sans` (which has 100% symbol coverage).
 
@@ -146,6 +160,17 @@ The included `verify/verify_fonts.sh` programmatically renders chemical formulas
 $$\text{H}_2(\text{g}) + \text{Cl}_2(\text{g}) \rightarrow 2\,\text{HCl}(\text{g})$$
 $$\text{N}_2(\text{g}) + 3\,\text{H}_2(\text{g}) \rightleftharpoons 2\,\text{NH}_3(\text{g})$$
 $$\text{A} + \text{B} \rightleftarrows \text{C} + \text{D} \quad (\Delta H^\circ \le 0)$$
+
+### Symbol coverage
+
+Measured over 63 common engineering and chemistry symbols:
+
+| Font | Coverage |
+| :--- | :--- |
+| Arial (`msttcorefonts`) | 28 / 63 — **44.4 %** (no equilibrium arrows or subscripts) |
+| Liberation Sans | 45 / 63 — 71.4 % (missing equilibrium arrows) |
+| **DejaVu Sans** | **63 / 63 — 100 %** |
+| **Segoe UI Symbol** | **63 / 63 — 100 %** (7,362 glyphs) |
 
 ### Before vs. After Benchmark
 
